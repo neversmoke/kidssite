@@ -1,0 +1,40 @@
+{ 
+    "name": "neversmoke/kidssite",
+    "type": "library",
+    "description": "admin PHP 5.3",
+    "license": "MIT",
+    "keywords": ["site kids", "site"],
+    "homepage": "https://github.com/neversmoke/kidssite.git",
+    "require": {
+        "php": ">=5.3.0",
+        "symfony/symfony": "2.1.*",
+        "doctrine/orm": ">=2.2.3,<2.4-dev",
+        "doctrine/doctrine-bundle": "1.0.*",
+        "twig/extensions": "1.0.*",
+        "symfony/assetic-bundle": "2.1.*",
+        "symfony/swiftmailer-bundle": "2.1.*",
+        "symfony/monolog-bundle": "2.1.*",
+        "sensio/distribution-bundle": "2.1.*",
+        "sensio/framework-extra-bundle": "2.1.*",
+        "sensio/generator-bundle": "2.1.*",
+        "jms/security-extra-bundle": "1.2.*",
+        "jms/di-extra-bundle": "1.1.*",
+        "gedmo/doctrine-extensions": "*",
+        "friendsofsymfony/user-bundle": "*",
+        "stfalcon/tinymce-bundle": "dev-master",
+        "vich/uploader-bundle": "dev-master",
+        "knplabs/gaufrette" : "dev-master",
+        "knplabs/knp-gaufrette-bundle" : "dev-master",
+        "avalanche123/imagine-bundle" : "dev-master",
+        "knplabs/knp-paginator-bundle": "dev-master",
+        "whiteoctober/breadcrumbs-bundle": "2.1.x-dev",
+        "genemu/form-bundle": "2.1.*",
+        "friendsofsymfony/jsrouting-bundle": "dev-master",
+        "gregwar/captcha-bundle": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Kids\\SiteBundle": ""
+            }
+    }
+}
