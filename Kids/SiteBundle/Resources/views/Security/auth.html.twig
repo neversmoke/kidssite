@@ -1,0 +1,27 @@
+
+{% if error %}
+    <div id="error_logout">{{ error|trans({}, 'FOSUserBundle') }}</div>
+{% endif %}
+
+     
+<div class="account-login-home "> <span class="btn-log">
+Вход 
+</span>       
+        <div id="login-form">
+                  Привет: {{ last_username }}<br />
+                
+                <a class="menu_sys_link" href="{{path('usercabinet')}}">
+                    Личный кабинет
+                </a> 
+                  
+                <br />
+                <br />
+                <br />
+                  
+                  <a class="menu_sys_link" href="/logout?_target_path=/index">
+                    Выход
+                </a> 
+        </div>
+
+</div>
+ 

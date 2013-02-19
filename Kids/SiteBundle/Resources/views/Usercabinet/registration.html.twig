@@ -1,0 +1,133 @@
+{% extends 'LegoSiteBundle::layout.html.twig' %}
+
+
+{% block body %}
+<div class="col-main">
+    <div class="account-create">
+        <div class="page-title">
+            <h1>Регистрация</h1>
+        </div>
+            <form action="{{ path('registrations_create') }}" method="post" {{ form_enctype(form) }}  id="form-validate">
+                <div class="fieldset">
+                    <h2 class="legend">Персональная информация</h2>
+                    <ul class="form-list">
+                        <li class="fields">
+                            <div class="customer-name">
+                                <div class="field name-firstname">
+                                    <label class="required" for="firstname">
+                                    <em>*</em>
+                                        Имя
+                                    </label>
+                                        <div class="input-box">
+                                            {{ form_widget(form['name']) }}
+                                        </div>
+                                </div>
+                                <div class="field name-lastname">
+                                    <label class="required" for="lastname">
+                                        <em>*</em>
+                                        Фамилия
+                                    </label>
+                                    <div class="input-box">
+                                        {{ form_widget(form['surname']) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="fields">
+                            <div class="customer-name">
+                                <div class="field name-firstname">
+                                    <label class="required" for="firstname">
+                                    <em>*</em>
+                                        Отчество
+                                    </label>
+                                        <div class="input-box">
+                                            {{ form_widget(form['patronymic']) }}
+                                        </div>
+                                </div>
+                                <div class="field name-lastname">
+                                    <label class="required" for="lastname">
+                                        <em>*</em>
+                                        Почта
+                                    </label>
+                                    <div class="input-box">
+                                        {{ form_widget(form['email']) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="fields">
+                            <div class="customer-name">
+                                <div class="field name-firstname">
+                                    <label class="required" for="firstname">
+                                    <em>*</em>
+                                        Телефон
+                                    </label>
+                                        <div class="input-box">
+                                            {{ form_widget(form['tel']) }}
+                                        </div>
+                                </div>
+                                <div class="field name-lastname">
+                                    <label class="required" for="lastname">
+                                        <em>*</em>
+                                        Адрес
+                                    </label>
+                                    <div class="input-box">
+                                        {{ form_widget(form['address']) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>    
+    <div class="fieldset">
+        <h2 class="legend">Информация для входа</h2>
+        <ul class="form-list">
+            <li class="fields">
+                <div class="field">
+                    <label class="required" for="password">
+                        <em>*</em>
+                            Логин
+                    </label>
+                <div class="input-box">
+                    {{ form_widget(form['username']) }}
+                </div>
+                </div>
+                <div class="field">
+                </div>
+            </li>
+            <li class="fields">
+                <div class="field">
+                    <label class="required" for="password">
+                        <em>*</em>
+                            Пароль
+                    </label>
+                <div class="input-box">
+                               {{ form_widget(form['password']['first']) }}
+                </div>
+                </div>
+                <div class="field">
+                    <label class="required" for="confirmation">
+                        <em>*</em>
+                            Повторите пароль
+                    </label>
+                    <div class="input-box">
+                        {{ form_widget(form['password']['second']) }}
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+                    {{ form_row(form._token) }} 
+            <div class="buttons-set">
+            <button class="button" title="Submit" type="submit" >
+                    <span>
+                        <span>Регистрация</span>
+                    </span>
+            </button>
+            </div>
+            </form>
+            
+    </div>
+
+</div>
+{% endblock %}

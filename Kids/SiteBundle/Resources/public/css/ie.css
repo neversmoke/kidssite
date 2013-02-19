@@ -1,0 +1,87 @@
+#wrapper{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#c2b5ed',GradientType=0 );	
+}
+#header .side-panel .num{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9074f6', endColorstr='#392872',GradientType=0 );
+}
+*+ html .side-panel .total-wrap .total,
+*+ html .side-panel .total-wrap .name{
+	float:left;
+	margin-top: expression(this.parentNode.offsetHeight > this.offsetHeight ? ((this.parentNode.offsetHeight-this.offsetHeight)/2 + "px") : "0");
+}
+.side-nav > li a.opener{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#eaeaea',GradientType=0 );
+}
+.side-nav > li.active a.opener{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#505050', endColorstr='#595959',GradientType=0 );
+}
+.jspVerticalBar .jspTrack{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dedede', endColorstr='#eeeeee',GradientType=0 );
+}
+.side-nav .submenu{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#f4f4f4',GradientType=0 );
+}
+*+ html .comment-form .holder-form h3,
+*+ html .comment-form,
+*+ html .comment-list li > section .wrap,
+*+ html .comment-list li,
+*+ html .rating-wrap,
+*+ html .tab-wrapper .tab-wrap,
+*+ html .description-wrapper{
+	zoom:1;
+}
+.tab-wrapper .tab-set li a{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5b5d63', endColorstr='#4b4d51',GradientType=0 );
+}
+.tab-wrapper .tab-set li.active a{
+	filter:none;
+}
+.rating-wrap{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#86a8d8', endColorstr='#6f64a8',GradientType=0 );
+}
+.tab-paging a{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f3f3f3',GradientType=0 );
+}
+.paging-wrap .prev.active,
+.paging-wrap .next.active,
+.tab-paging a.active,
+.paging-wrap .prev:hover,
+.paging-wrap .next:hover,
+.tab-paging a:hover{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#85a6d7', endColorstr='#6f63a7',GradientType=0 );
+}
+*+ html .img-ten-columns li{
+	float:left;
+	width:73px;
+}
+.popup-holder .bg{
+	filter: alpha(opacity=50);
+}
+.login-popup .title-holder{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7f94ca', endColorstr='#6e62a6',GradientType=0 );
+}
+.login-popup .btn{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e6e6e6',GradientType=0 );
+}
+.min-basket  header{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#f3f3f3',GradientType=0 );
+}
+.min-basket .btn{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8a88cd', endColorstr='#362769',GradientType=0 );
+}
+.count-rating li .view span{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6e61a6', endColorstr='#6e61a6',GradientType=0 );
+}
+.comment-list li{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ebebeb',GradientType=0 );
+}
+.comment-list li:before{
+	left:-16px;
+}
+.comment-list li .comment-list li:before{
+	right:-14px;
+	left:auto;
+}
+.comment-form .holder-form h3{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#e9e9e9',GradientType=0 );
+}

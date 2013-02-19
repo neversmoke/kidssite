@@ -1,0 +1,37 @@
+
+{% if error %}
+    <div id="error_logout">{{ error|trans({}, 'FOSUserBundle') }}</div>
+{% endif %}
+		<div class="bg">&nbsp;</div>
+		<form action="{{ path("fos_user_security_check") }}" class="login-popup" method="post" id="login-form">
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                            <input type="hidden" name="_route_params" value="{{ path('index') }}" />
+			<fieldset>
+				<div class="ico"><img src="/bundles/kidssite/images/bg-popup.png" width="216" height="303" alt="" /></div>
+				<div class="title-holder">
+					<h3>Bobi store login</h3>
+				</div>
+				<div class="row">
+					<label class="text">
+                                            <input type="text" id="email" name="_username" value="{{ last_username }}"/>
+                                        </label>
+				</div>
+				<div class="row">
+					<label class="text">
+                                           <input type="password" id="pass" name="_password" />
+                                        </label>
+				</div>
+				<div class="help">
+					<a href="#">Forgot your password? Bobi will help.</a>
+				</div>
+				<div class="row">
+					<span class="btn">Login<input type="submit" value="Login" title="Login" /></span>
+					<label><input type="checkbox" class="checkbox" />Remember me</label>
+				</div>
+				<div class="dividing-line">&nbsp;</div>
+				<div class="note">
+					Не зарегестрированы? <a href="{{ path('registration') }}">Регистрация</a>
+				</div>
+			</fieldset>
+		</form>
+	

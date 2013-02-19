@@ -1,0 +1,19 @@
+
+<ul class="side-nav">
+    {% for entity in entities %}
+       {% if entity.parent=='' %}
+       <li>
+                <a class="opener" href="#"><span>{{ entity.title }}</span></a>
+                <ul class="submenu">
+                       {% for midle in entities %}
+                        {% if midle.parent_id==entity.id %}
+                            <li>
+                                    <a href="#"><em>34</em><span>{{ midle.title }}</span></a>
+                            </li>
+                        {% endif %}
+                       {% endfor %}
+                </ul>
+        </li>
+     {% endif %}
+    {% endfor %}
+</ul>

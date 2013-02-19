@@ -1,0 +1,2404 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin,cyrillic);
+@import url(http://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic-ext,latin-ext,cyrillic);
+@font-face {
+    font-family: 'helveticaneuemedium';
+    src: url('/bundles/kidssite/fonts/helveticaneuemedium.eot');
+    src: url('/bundles/kidssite/fonts/helveticaneuemedium.eot?#iefix') format('embedded-opentype'),
+         url('/bundles/kidssite/fonts/helveticaneuemedium.woff') format('woff'),
+         url('/bundles/kidssite/fonts/helveticaneuemedium.ttf') format('truetype'),
+         url('/bundles/kidssite/fonts/helveticaneuemedium.svg#helveticaneuemedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+	font-family: 'MyriadProRegular';
+	src: url('/bundles/kidssite/fonts/myriad_pro-webfont.eot');
+	src: url('/bundles/kidssite/fonts/myriad_pro-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('/bundles/kidssite/fonts/myriad_pro-webfont.woff') format('woff'),
+		 url('/bundles/kidssite/fonts/myriad_pro-webfont.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'MyriadProBold';
+	src: url('/bundles/kidssite/fonts/myriadpro-bold-webfont.eot');
+	src: url('/bundles/kidssite/fonts/myriadpro-bold-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('/bundles/kidssite/fonts/myriadpro-bold-webfont.woff') format('woff'),
+		 url('/bundles/kidssite/fonts/myriadpro-bold-webfont.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+html{height:100%;}
+body {
+	margin:0;
+	background:#7d7d7d;
+	font:12px 'PT Sans', arial, sans-serif;
+	min-width:1000px;
+	height:100%;
+	color:#7d7d7d;
+}
+img {
+	border-style:none;
+}
+a {
+	color:#6636c8;
+	text-decoration:none;
+}
+a:hover {
+	text-decoration:underline;
+}
+input, textarea, select {
+	font:100% 'PT Sans', arial,sans-serif;
+	vertical-align:middle;
+	outline:none;
+}
+header,
+footer,
+article,
+section,
+hgroup,
+nav,
+figure{display: block;}
+*{
+	outline:none;
+}
+form, fieldset {
+	margin:0;
+	padding:0;
+	border-style:none;
+}
+#wrapper{
+	min-height:100%;
+	width:100%;
+	overflow:hidden;
+	position:relative;
+	background: #f7f7f7;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjMmI1ZWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #f7f7f7 0%, #c2b5ed 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f7f7f7), color-stop(100%,#c2b5ed));
+	background: -webkit-linear-gradient(top,  #f7f7f7 0%,#c2b5ed 100%);
+	background: -o-linear-gradient(top,  #f7f7f7 0%,#c2b5ed 100%);
+	background: -ms-linear-gradient(top,  #f7f7f7 0%,#c2b5ed 100%);
+	background: linear-gradient(to bottom,  #f7f7f7 0%,#c2b5ed 100%);
+}
+.side-help{
+	position:fixed;
+	background:url(/bundles/kidssite/images/bg-help.png) no-repeat;
+	text-decoration:none;
+	cursor:pointer;
+	width:147px;
+	height:261px;
+	top:132px;
+	left:0;
+	text-align:center;
+	font-size:15px;
+	line-height:20px;
+	color:#9b9b9b;
+	padding:8px 0 0;
+}
+.side-help:hover{
+	text-decoration:none;
+}
+#header{
+	width:960px;
+	margin:0 auto 10px;
+	min-height:123px;
+	padding:0;
+	position:relative;
+	z-index:50;
+}
+.logo{
+	background:url(/bundles/kidssite/images/logo.gif) no-repeat;
+	width:169px;
+	height:106px;
+	text-indent:-9999px;
+	overflow:hidden;
+	position:absolute;
+	top:10px;
+	left:0;
+}
+#header nav{
+	position:absolute;
+	background:url(/bundles/kidssite/images/bg-nav.png) no-repeat;
+	width:476px;
+	height:51px;
+	top:38px;
+	left:199px;
+}
+#nav{
+	margin:0;
+	padding:2px 2px 0 0;
+	list-style:none;
+	width:474px;
+}
+#nav:after{
+	display:block;
+	clear:both;
+	content:"";
+}
+#nav li{
+	float:left;
+	border-left:1px solid #9ba9d4;
+}
+#nav li a{
+	text-align:center;
+	float:left;
+	text-decoration:none;
+	color:#fff;
+	text-shadow:2px 2px 1px #5367a4;
+	height:23px;
+	font-weight:bold;
+	padding:8px 0 0;
+}
+#nav li.first-child{
+	border-left:0;
+}
+#header .side-panel{
+	float:right;
+	width:188px;
+	padding:0 0 0 72px;
+	background:url(/bundles/kidssite/images/bg-basket.png) no-repeat 2px 0;
+	position:relative;
+	margin:35px 0 10px;
+	min-height:88px;
+}
+#header .side-panel .num{
+	border:4px solid #fff;
+	background: #9074f6;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzkwNzRmNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMzOTI4NzIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #9074f6 0%, #392872 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#9074f6), color-stop(100%,#392872));
+	background: -webkit-linear-gradient(top,  #9074f6 0%,#392872 100%);
+	background: -o-linear-gradient(top,  #9074f6 0%,#392872 100%);
+	background: -ms-linear-gradient(top,  #9074f6 0%,#392872 100%);
+	background: linear-gradient(to bottom,  #9074f6 0%,#392872 100%);
+	-webkit-border-radius:14px;
+	-moz-border-radius:14px;
+	border-radius:14px;
+	position:absolute;
+	right:191px;
+	top:0;
+	min-width:12px;
+	text-align:center;
+	padding:0 3px;
+	color:#fff;
+	font:bold 11px/17px Arial, Helvetica, sans-serif;
+}
+.side-panel .total-wrap{
+	width:188px;
+	height:40px;
+	background:url(/bundles/kidssite/images/bg-header-total-price.png) no-repeat;
+	display:table;
+	line-height:18px;
+	margin:0 0 5px;
+}
+.side-panel .total-wrap .total,
+.side-panel .total-wrap .name{
+	color:#717171;
+	display:table-cell;
+	vertical-align:middle;
+	text-align:right;
+	width:70px;
+	font-size:12px;
+}
+.side-panel .total-wrap .total{
+	color:#7150e6;
+	width:99px;
+	padding:0 14px 0 5px;
+}
+.side-panel .total-wrap .name{
+	font-size:14px;
+}
+.side-panel .menu{
+	margin:0;
+	padding:0;
+	list-style:none;
+	width:100%;
+	font-size:11px;
+	line-height:16px;
+}
+.side-panel .menu li{
+	display:inline-block;
+	vertical-align:top;
+	border-left:1px solid #9d93c1;
+	overflow:hidden;
+	height:1%;
+	vertical-align:baseline;
+	padding:0 0 0 5px;
+	margin:0 3px 0 0;
+}
+.side-panel .menu li:first-child{
+	border:0;
+}
+*+ html .side-panel .menu li{
+	display:inline;
+}
+.side-panel .menu li a{
+	color:#6a6b6b;
+	cursor:pointer;
+}
+.side-panel .menu li img{
+	vertical-align:middle;
+	margin-right:3px;
+}
+.side-panel .register-row{
+	line-height:18px;
+	font-size:11px;
+	display:block;
+	padding:4px 0 0 6px;
+}
+.side-panel .register-row a{
+	text-decoration:none;
+}
+.side-panel .register-row a:hover{
+	text-decoration:underline;
+}
+.account-drop{
+	margin:0;
+	padding:0;
+	list-style:none;
+	position:absolute;
+	top:67px;
+	left:73px;
+	right:0;
+	border:1px solid #d5d5d5;
+	font-size:12px;
+	line-height:16px;
+	background:#f5f5f5;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+	display:none;
+}
+.account-drop li{
+	border-top:1px solid #d5d5d5;
+	width:100%;
+}
+.account-drop li:first-child{
+	border-top:0;
+}
+.account-drop li a{
+	color:#9b9b9b;
+	text-decoration:none;
+	padding:10px 10px 10px 19px;
+	display:block;
+	height:1%;
+	text-shadow:1px 1px 0 #fff;
+}
+.account-drop li a:hover{
+	text-decoration:underline;
+}
+.search-form{
+	background:url(/bundles/kidssite/images/bg-main-search.png) no-repeat;
+	width:472px;
+	height:32px;
+	position:absolute;
+	top:86px;
+	left:203px;
+}
+.search-form .text{
+	width:230px;
+	float:left;
+	height:30px;
+	color:#686868;
+	font-size:11px;
+	line-height:30px;
+	border:0;
+	background:none;
+	padding:0;
+	margin:1px 0 0 202px;
+}
+.search-form .btn{
+	float:right;
+	width:31px;
+	height:31px;
+	cursor:pointer;
+	text-indent:-9999px;
+	overflow:hidden;
+	border:0;
+	padding:0;
+	margin:1px 0 0;
+	background:url(/bundles/kidssite/images/bg-main-search-btn.png) no-repeat;
+}
+.ui-helper-hidden-accessible{
+	position: absolute;
+	left: -9999px;
+}
+.ui-helper-hidden{
+	display: none;
+}
+span.ui-checkbox{
+	margin:0 5px 0 0;
+	float:left;
+	background: url(/bundles/kidssite/images/bg-ch.png) no-repeat;
+	width:15px;
+	height:15px;
+	cursor:pointer;
+}
+.login-popup label.ui-checkbox span.ui-checkbox{
+	background: url(/bundles/kidssite/images/bg-ch.png) no-repeat;
+	width:15px;
+	height:15px;
+	margin:0;
+	position:absolute;
+	top:0;
+	left:0;
+}
+span.ui-checkbox-state-checked,
+span.ui-checkbox-state-checked-hover{
+	background-position:0 -15px;
+}
+.login-popup label.ui-checkbox span.ui-checkbox-state-checked,
+.login-popup label.ui-checkbox span.ui-checkbox-state-checked-hover{
+	background-position:0 -15px;
+}
+label.ui-checkbox{
+	font-size:14px;
+	line-height:15px;
+	position:relative;
+	padding:0;
+	float:left;
+	cursor:pointer;
+	margin:0 5px 0 0;
+}
+.login-popup  label.ui-checkbox{
+	font-size:14px;
+	line-height:15px;
+	margin:0 0 0 11px;
+	padding:0 0 0 20px;
+}
+select{
+	margin:0;
+	padding:0;
+	border:0;
+	width:198px;
+}
+.ui-selectmenu{
+	float:left;
+	margin:0;
+	padding:0;
+	position:relative;
+	text-decoration:none;
+	white-space:nowrap;
+	height:24px;
+	font:11px/24px 'MyriadProRegular', arial, sans-serif;
+	text-decoration:none !important;
+}
+.ui-selectmenu.select-search{
+	position:absolute;
+	left:-6px;
+	top:1px;
+	height:30px;
+	line-height:30px;
+}
+.ui-selectmenu-status{
+	text-decoration:none;
+	display:block;
+	height:24px;
+	padding:0 0 0 10px;
+	overflow:hidden;
+	color:#686868;
+	background:url(/bundles/kidssite/images/bg-select.png) no-repeat;
+}
+.select-search .ui-selectmenu-status{
+	height:30px;
+	background-position:0 -48px;
+}
+.ui-selectmenu-menu {
+	position:absolute;
+	top:0;
+	left:0;
+	visibility:hidden;
+	padding:0;
+	margin:-1px 0 0;
+	z-index:120;
+	overflow:hidden;
+}
+.ui-selectmenu-menu .c{
+	max-height:85px;
+}
+.ui-selectmenu-menu ul{
+	list-style:none outside none;
+	margin:0;
+	padding:0;
+	border:1px solid #ccc;
+	background:#f5f5f5;
+}
+.ui-selectmenu-menu ul li{
+	display:block;
+	border-bottom:1px solid #ccc;
+}
+.ui-selectmenu-menu ul li.ui-corner-bottom{
+	border-bottom:0;
+}
+.ui-selectmenu-menu a{
+	display:block;
+	padding:5px 10px 4px;
+	text-decoration:none;
+	font:11px/18px 'MyriadProRegular', arial, sans-serif;
+	color:#686868;
+}
+.ui-selectmenu-open {
+	visibility:visible;
+}
+.ui-selectmenu-icon{
+	float:right;
+	cursor:pointer;
+	width:24px;
+	background:url(/bundles/kidssite/images/bg-select.png) no-repeat 100% -24px;
+	height:24px;
+}
+.select-search .ui-selectmenu-icon{
+	width:33px;
+	height:30px;
+	background-position:100% -78px;
+}
+.ui-selectmenu-menu ul a:hover,
+.ui-selectmenu-item-selected a{
+	background:#fff;
+}
+.jspContainer{
+	overflow: hidden;
+	position: relative;
+	padding:0;
+}
+.jspPane{
+	position: absolute;
+	outline:none;
+	margin:0;
+	padding:0;
+}
+.jspVerticalBar {
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width:8px;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+	background:#ccc
+}
+.jspVerticalBar .jspCap{
+	display:block;
+	height:1px;
+}
+.jspVerticalBar *,
+.jspHorizontalBar *{
+	margin: 0;
+	padding: 0;
+}
+.jspVerticalBar .jspTrack{
+	position: relative;
+	background: #dedede;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2RlZGVkZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZWVlZWUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #dedede 0%, #eeeeee 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dedede), color-stop(100%,#eeeeee));
+	background: -webkit-linear-gradient(top,  #dedede 0%,#eeeeee 100%);
+	background: -o-linear-gradient(top,  #dedede 0%,#eeeeee 100%);
+	background: -ms-linear-gradient(top,  #dedede 0%,#eeeeee 100%);
+	background: linear-gradient(to bottom,  #dedede 0%,#eeeeee 100%);
+	width:6px;
+	top:0;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+	left:1px;
+}
+.jspVerticalBar .jspDrag{
+	cursor: pointer;
+	left:-1px;
+	right:-1px;
+	width:8px;
+	position: relative;
+	top:0;
+	background:url(/bundles/kidssite/images/bg-scroll.png) repeat-y;
+}
+#main{
+	width:960px;
+	margin:0 auto 45px;
+}
+#main:after{
+	display:block;
+	clear:both;
+	content:"";
+}
+#side-bar{
+	float:left;
+	width:170px;
+}
+#content{
+	float:right;
+	width:730px;
+	padding:27px 30px 16px;
+	background:#f8f8f8;
+	-webkit-box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+	box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+	position:relative;
+	z-index:20;
+}
+.side-nav{
+	margin:0 0 30px;
+	padding:0;
+	list-style:none;
+	-webkit-box-shadow:-1px 1px 3px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow:-1px 1px 3px rgba(0, 0, 0, 0.1);
+	box-shadow:-1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+.side-nav > li{
+	width:100%;
+	margin:0 0 1px;
+	-webkit-box-shadow:0px 0px 1px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow:0px 0px 1px rgba(0, 0, 0, 0.1);
+	box-shadow:0px 0px 1px rgba(0, 0, 0, 0.1);
+}
+.side-nav > li a.opener{
+	display:block;
+	background: #f9f9f9;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlYWVhZWEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #f9f9f9 0%, #eaeaea 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9f9f9), color-stop(100%,#eaeaea));
+	background: -webkit-linear-gradient(top,  #f9f9f9 0%,#eaeaea 100%);
+	background: -o-linear-gradient(top,  #f9f9f9 0%,#eaeaea 100%);
+	background: -ms-linear-gradient(top,  #f9f9f9 0%,#eaeaea 100%);
+	background: linear-gradient(to bottom,  #f9f9f9 0%,#eaeaea 100%);
+	-webkit-border-radius:3px 0 0 3px;
+	-moz-border-radius:3px 0 0 3px;
+	border-radius:3px 0 0 3px;
+	color:#717171;
+	text-decoration:none;
+	font-size:14px;
+	line-height:17px;
+	text-shadow:1px 1px 0 #fff;
+	width:100%;
+}
+.side-nav > li a.opener span{
+	min-height:18px;
+	display:block;
+	background:url(/bundles/kidssite/images/dot01.png) no-repeat 90% 50%;
+	padding:11px 43px 11px 11px;
+}
+.side-nav > li.active a.opener{
+	display:block;
+	background: #505050;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzUwNTA1MCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwJSIgc3RvcC1jb2xvcj0iIzY0NjQ2NCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijk3JSIgc3RvcC1jb2xvcj0iIzVkNWQ1ZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM1OTU5NTkiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #505050 0%, #646464 10%, #5d5d5d 97%, #595959 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#505050), color-stop(10%,#646464), color-stop(97%,#5d5d5d), color-stop(100%,#595959));
+	background: -webkit-linear-gradient(top,  #505050 0%,#646464 10%,#5d5d5d 97%,#595959 100%);
+	background: -o-linear-gradient(top,  #505050 0%,#646464 10%,#5d5d5d 97%,#595959 100%);
+	background: -ms-linear-gradient(top,  #505050 0%,#646464 10%,#5d5d5d 97%,#595959 100%);
+	background: linear-gradient(to bottom,  #505050 0%,#646464 10%,#5d5d5d 97%,#595959 100%);
+	-webkit-box-shadow:inset 0px 0px 4px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow:inset 0px 0px 4px rgba(0, 0, 0, 0.2);
+	box-shadow:inset 0px 0px 4px rgba(0, 0, 0, 0.2);
+	text-shadow:1px 1px 0 #3e3e3e;
+	color:#fff;
+	font-weight:bold;
+}
+.side-nav > li.active a.opener span{
+	background:url(/bundles/kidssite/images/dot02.png) no-repeat 90% 50%;
+}
+.side-nav .submenu{
+	margin:0;
+	padding:9px 0 7px;
+	list-style:none;
+	width:100%;
+	background: #f7f7f7;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmNGY0ZjQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #f7f7f7 0%, #f4f4f4 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f7f7f7), color-stop(100%,#f4f4f4));
+	background: -webkit-linear-gradient(top,  #f7f7f7 0%,#f4f4f4 100%);
+	background: -o-linear-gradient(top,  #f7f7f7 0%,#f4f4f4 100%);
+	background: -ms-linear-gradient(top,  #f7f7f7 0%,#f4f4f4 100%);
+	background: linear-gradient(to bottom,  #f7f7f7 0%,#f4f4f4 100%);
+	-webkit-border-radius:3px 0 0 3px;
+	-moz-border-radius:3px 0 0 3px;
+	border-radius:3px 0 0 3px;
+	display:none;
+}
+.side-nav > li.active .submenu{
+	display:block;
+}
+.side-nav .submenu > li{
+	width:100%;
+}
+.side-nav .submenu > li > a:after{
+	display:block;
+	clear:both;
+	content:"";
+}
+.side-nav .submenu > li > a{
+	display:block;
+	height:1%;
+	text-shadow:1px 1px 0 #fff;
+	text-decoration:none;
+	padding:4px 0 4px 16px;
+	cursor:pointer;
+	font:11px/15px 'helveticaneuemedium', Helvetica, Arial, sans-serif;
+}
+.side-nav .submenu > li > a em{
+	font-style:normal;
+	color:#a3a3a3;
+	float:right;
+	min-width:24px;
+	margin:0 0 0 8px;
+}
+.side-nav .submenu > li > a span{
+	overflow:hidden;
+	height:1%;
+	color:#646464;
+}
+.side-ads{
+	margin:0 0 23px;
+	width:100%;
+	position:relative;
+	-webkit-box-shadow:0px 1px 6px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow:0px 1px 6px rgba(0, 0, 0, 0.2);
+	box-shadow:0px 1px 6px rgba(0, 0, 0, 0.2);
+}
+.side-ads .list{
+	margin:0;
+	padding:0;
+	list-style:none;
+	width:170px;
+	height:124px;
+	line-height:124px;
+	position:relative;
+	background:#fff;
+}
+.side-ads .list li{
+	width:100%;
+	height:100%;
+	position:absolute;
+	left:0;
+	top:0;
+	visibility:hidden;
+	background:#fff;
+	text-align:center;
+}
+.side-ads .list li a{
+	display:block;
+	width:100%;
+	height:100%;
+	text-decoration:none;
+}
+.side-ads .list li.active{
+	visibility:visible;
+	z-index:5;
+}
+.side-ads .list li img{
+	vertical-align:middle;
+}
+.side-ads .switcher{
+	position:absolute;
+	bottom:2px;
+	left:0;
+	z-index:10;
+	text-align:center;
+}
+.switcher{
+	width:100%;
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.switcher li{
+	background:url(/bundles/kidssite/images/bg-switcher.png) no-repeat -16px 0px;
+	display:inline-block;
+	vertical-align:top;
+	width:15px;
+	height:15px;
+}
+*+ html .switcher li{
+	display:inline;
+}
+.switcher li:hover,
+.switcher li.active{
+	background-position:0 0;
+}
+.switcher li a{
+	width:100%;
+	height:100%;
+	display:block;
+	overflow:hidden;
+	text-indent:-9999px;
+	overflow:hidden;
+}
+.side-network{
+	width:170px;
+	overflow:hidden;
+	margin:28px 0;
+}
+.side-network img{
+	vertical-align:top;
+}
+.promo-gallery{
+	width:100%;
+	position:relative;
+	-webkit-box-shadow:0px 1px 6px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow:0px 1px 6px rgba(0, 0, 0, 0.3);
+	box-shadow:0px 1px 6px rgba(0, 0, 0, 0.3);
+	margin:0 0 25px;
+}
+.promo-gallery .prev,
+.promo-gallery .next{
+	background:url(/bundles/kidssite/images/gallery-arrow01.png) no-repeat;
+	width:28px;
+	height:28px;
+	overflow:hidden;
+	text-indent:-9999px;
+	position:absolute;
+	left:-13px;
+	top:85px;
+	z-index:10;
+}
+.promo-gallery .prev:hover{
+	background-position:0 -28px;
+}
+.promo-gallery .next{
+	left:auto;
+	right:-13px;
+	background-position:100% 0;
+}
+.promo-gallery .next:hover{
+	background-position:100% -28px;
+}
+.promo-gallery .list{
+	margin:0;
+	padding:0;
+	list-style:none;
+	width:100%;
+	height:200px;
+	overflow:hidden;
+}
+.promo-gallery .list li{
+	position:absolute;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	visibility:hidden;
+}
+.promo-gallery .list li a{
+	text-decoration:none;
+	display:block;
+}
+.promo-gallery .list li.active{
+	visibility:visible;
+	z-index:5;
+}
+.promo-gallery .list li img{
+	vertical-align:top;
+}
+.promo-gallery .list li .text{
+	position:absolute;
+	left:30px;
+	right:30px;
+	top:30px;
+	font-weight:bold;
+	text-shadow:-1px -1px #515151;
+	color:#fff;
+	font-size:20px;
+	line-height:27px;
+}
+.promo-gallery .list li .text strong{
+	width:100%;
+	overflow:hidden;
+	padding:0 0 1px;
+	display:block;
+}
+.promo-gallery .list li .text span{
+	float:left;
+	background:url(/bundles/kidssite/images/dot03.png);
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+	padding:0 20px 0 5px;
+}
+.promo-gallery .switcher{
+	position:absolute;
+	bottom:12px;
+	left:28px;
+	z-index:10;
+}
+.description-wrapper{
+	padding:0 1px;
+	overflow:hidden;
+	margin:-10px 0 -7px;
+	list-style:none;
+}
+.description-wrapper li{
+	float:left;
+	text-align:center;
+	font-style:italic;
+	color:#303030;
+	font-size:12px;
+	line-height:13px;
+	width:182px;
+}
+.description-wrapper li img{
+	display:block;
+	margin:0 auto 6px;
+}
+.dividing-line{
+	background:#d0d0d0;
+	-webkit-box-shadow:0px 0px 6px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow:0px 0px 6px rgba(0, 0, 0, 0.3);
+	box-shadow:0px 0px 6px rgba(0, 0, 0, 0.3);
+	height:1px;
+	width:100%;
+	margin:25px 0;
+}
+.tab-wrapper{
+	width:100%;
+	margin:0 0 25px;
+}
+.tab-wrapper .tab-set{
+	margin:0;
+	padding:1px 0 0;
+	list-style:none;
+	width:100%;
+	overflow:hidden;
+}
+.tab-wrapper .tab-set li{
+	float:left;
+}
+.tab-wrapper .tab-set li a{
+	width:179px;
+	margin:-1px 4px 3px 0;
+	display:block;
+	height:30px;
+	text-decoration:none;
+	color:#a8a8a8;
+	font-size:12px;
+	font-weight:bold;
+	text-transform:uppercase;
+	text-align:center;
+	background: #5b5d63;
+	text-shadow:1px 1px 0 #3a3c3f;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzViNWQ2MyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0YjRkNTEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #5b5d63 0%, #4b4d51 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5b5d63), color-stop(100%,#4b4d51));
+	background: -webkit-linear-gradient(top,  #5b5d63 0%,#4b4d51 100%);
+	background: -o-linear-gradient(top,  #5b5d63 0%,#4b4d51 100%);
+	background: -ms-linear-gradient(top,  #5b5d63 0%,#4b4d51 100%);
+	background: linear-gradient(to bottom,  #5b5d63 0%,#4b4d51 100%);
+	-webkit-border-radius:8px 8px 0 0;
+	-moz-border-radius:8px 8px 0 0;
+	border-radius:8px 8px 0 0;
+	padding:10px 0 0;
+}
+.tab-wrapper .tab-set li.active a{
+	background:#e5e5e5;
+	color:#636363;
+	text-shadow:1px 1px 0 #fff;
+	margin:0 4px 0 0;
+	height:33px;
+	padding:9px 0 0;
+}
+.tab-wrapper .tab-wrap{
+	padding:25px 27px 11px;
+	background:#e5e5e5;
+	-webkit-border-radius:0 8px 8px 8px;
+	-moz-border-radius:0 8px 8px 8px;
+	border-radius:0 8px 8px 8px;
+}
+.tab-wrapper .tab{
+	width:100%;
+}
+.tab-wrapper .tab:after{
+	display:block;
+	clear:both;
+	content:"";
+}
+.tab-gallery{
+	background:#ffffff;
+	-webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+	position:relative;
+	padding:18px 0 25px;
+	margin:0 0 9px;
+}
+.tab-gallery .next,
+.tab-gallery .prev{
+	background:url(/bundles/kidssite/images/gallery-arrow02.png) no-repeat 0 100%;
+	width:33px;
+	height:33px;
+	position:absolute;
+	right:-11px;
+	top:50%;
+	margin:-5px 0 0;
+	text-indent:-9999px;
+	overflow:hidden;
+	z-index:10;
+}
+.tab-gallery .next:hover{
+	background-position:0 0;
+}
+.tab-gallery .prev{
+	left:-11px;
+	right:auto;
+	background-position:100% 100%;
+}
+.tab-gallery .prev:hover{
+	background-position:100% 0;
+}
+.tab-gallery .tab-gallery-holder{
+	width:636px;
+	margin:0 auto;
+	overflow:hidden;
+	position:relative;
+}
+.tab-gallery ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+	float:left;
+	width:9999px;
+}
+.tab-gallery ul li{
+	float:left;
+	width:172px;
+	margin:0 20px
+}
+.tab-gallery h3{
+	margin:0 0 1px;
+	font:14px/16px 'MyriadProRegular', Helvetica, sans-serif;
+	color:#000;
+}
+.tab-gallery  p{
+	margin:0;
+	color:#808080;
+	font-size:12px;
+	line-height:12px;
+	min-height:36px;
+}
+.tab-gallery .more{
+	text-align:right;
+	margin:0 0 4px;
+}
+.tab-gallery .more a{
+	text-decoration:none;
+	color:#7c61da;
+	font-weight:bold;
+	padding:0 10px 0 0;
+	background:url(/bundles/kidssite/images/arrow01.png) no-repeat 100% 50%;
+}
+.tab-gallery .more a:hover{
+	text-decoration:underline;
+}
+.tab-gallery .visual{
+	position:relative;
+	text-align:center;
+	min-height:124px;
+}
+.tab-gallery .visual img{
+	vertical-align:top;
+}
+.tab-gallery .discount{
+	position:absolute;
+	background:url(/bundles/kidssite/images/bg-discount.png) no-repeat;
+	width:64px;
+	height:51px;
+	color:#fff;
+	font-size:22px;
+	font-weight:bold;
+	text-align:center;
+	text-shadow:1px 1px 0 #cc2a69;
+	left:-20px;
+	top:-7px;
+	padding:13px 0 0;
+}
+.rating-wrap{
+	overflow:hidden;
+	background: #86a8d8;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzg2YThkOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2ZjY0YTgiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #86a8d8 0%, #6f64a8 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#86a8d8), color-stop(100%,#6f64a8));
+	background: -webkit-linear-gradient(top,  #86a8d8 0%,#6f64a8 100%);
+	background: -o-linear-gradient(top,  #86a8d8 0%,#6f64a8 100%);
+	background: -ms-linear-gradient(top,  #86a8d8 0%,#6f64a8 100%);
+	background: linear-gradient(to bottom,  #86a8d8 0%,#6f64a8 100%);
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	padding:6px 5px 6px;
+	margin:0 0 6px;
+	width:162px;
+}
+.rating-star{
+	background:url(/bundles/kidssite/images/bg-star.png) no-repeat;
+	height:17px;
+	display:inline-block;
+	vertical-align:top;
+	width:83px;
+	position:relative;
+	overflow:hidden;
+}
+*+ html .paging-wrap,
+*+ html .rating-star{
+	display:inline;
+}
+.rating-star span{
+	position:absolute;
+	width:100%;
+	left:0;
+	top:0;
+	height:17px;
+	text-indent:-9999px;
+	background:url(/bundles/kidssite/images/bg-star.png) no-repeat 0 -17px;
+}
+.rating-wrap .rating-star{
+	float:left;
+	margin-right:5px;
+}
+.rating-wrap .reviews{
+	float:left;
+	font-size:11px;
+	line-height:18px;
+	color:#fff;
+}
+.tab-gallery .price-holder{
+	width:100%;
+	overflow:hidden;
+	padding:6px 0 0;
+}
+.tab-gallery .gray-btn{
+	float:right;
+	margin:-6px 0 0;
+}
+.tab-gallery .gray-btn span{
+	width:81px;
+	padding:7px 0 0 6px;
+}
+.gray-btn{
+	background:url(/bundles/kidssite/images/bg-gray-btn.png) no-repeat 100% -29px;
+	position:relative;
+	display:inline-block;
+	vertical-align:top;
+	overflow:hidden;
+	height:29px;
+	overflow:hidden;
+	text-decoration:none;
+	cursor:pointer;
+	padding:0 6px 0 0;
+	color:#595959;
+	font-size:11px;
+	font-weight:bold;
+	text-align:center;
+	line-height:14px;
+	text-shadow:1px 1px 0 #fff;
+}
+.gray-btn:hover{
+	text-decoration:none;
+}
+.gray-btn span{
+	float:left;
+	padding:7px 14px 0 20px;
+	height:22px;
+	background:url(/bundles/kidssite/images/bg-gray-btn.png) no-repeat;
+}
+.purple-btn input,
+.login-popup .btn input,
+.subscribe-form .wrap .btn input,
+.gray-btn input{
+	position:absolute;
+	right:0;
+	top:0;
+	width:300px;
+	height:50px;
+	text-indent:-9999px;
+	cursor:pointer;
+	padding:0;
+	border:0;
+	background:none;
+}
+.tab-gallery .price{
+	color:#6c5da2;
+	font-size:16px;
+	font-weight:bold;
+	line-height:18px;
+}
+.tab-paging{
+	text-align:center;
+	width:100%;
+}
+.tab-paging a{
+	float:left;
+	height:25px;
+	width:24px;
+	text-align:center;
+	text-decoration:none;
+	color:#7e7e7e;
+	font:11px/25px 'helveticaneuemedium', Helvetica, sans-serif;
+	background: #ffffff;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmM2YzZjMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #ffffff 0%, #f3f3f3 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f3f3f3));
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#f3f3f3 100%);
+	background: -o-linear-gradient(top,  #ffffff 0%,#f3f3f3 100%);
+	background: -ms-linear-gradient(top,  #ffffff 0%,#f3f3f3 100%);
+	background: linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 100%);
+	border-left:1px solid #e5e5e5;
+}
+.paging-wrap{
+	display:inline-block;
+	vertical-align:top;
+	overflow:hidden;
+	border-bottom:1px solid #bdbdbd;
+	-webkit-border-radius:15px;
+	-moz-border-radius:15px;
+	border-radius:15px;
+}
+.paging-wrap .prev{
+	-webkit-border-radius:15px 0 0 15px;
+	-moz-border-radius:15px 0 0 15px;
+	border-radius:15px 0 0 15px;
+	border:0;
+}
+.paging-wrap .next{
+	-webkit-border-radius:0 15px 15px 0;
+	-moz-border-radius:0 15px 15px 0;
+	border-radius:0 15px 15px 0;
+}
+.paging-wrap .prev.active,
+.paging-wrap .next.active,
+.tab-paging a.active,
+.paging-wrap .prev:hover,
+.paging-wrap .next:hover,
+.tab-paging a:hover{
+	text-shadow:1px 1px 0 #4f4783;
+	color:#fff;
+	background: #85a6d7;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzg1YTZkNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2ZjYzYTciIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #85a6d7 0%, #6f63a7 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#85a6d7), color-stop(100%,#6f63a7));
+	background: -webkit-linear-gradient(top,  #85a6d7 0%,#6f63a7 100%);
+	background: -o-linear-gradient(top,  #85a6d7 0%,#6f63a7 100%);
+	background: -ms-linear-gradient(top,  #85a6d7 0%,#6f63a7 100%);
+	background: linear-gradient(to bottom,  #85a6d7 0%,#6f63a7 100%);
+}
+.img-five-columns{
+	margin:-8px 0;
+	padding:0;
+	list-style:none;
+	width:100%;
+	overflow:hidden;
+}
+.img-five-columns li{
+	float:left;
+	width:146px;
+	text-align:center;
+}
+.img-five-columns li img{
+	vertical-align:top;
+}
+.img-two-columns{
+	margin:0 0 25px;
+	padding:0;
+	list-style:none;
+	width:100%;
+	overflow:hidden;
+}
+.img-two-columns li{
+	margin:0 0 0 20px;
+	width:355px;
+	float:left;
+}
+.img-two-columns li img{
+	vertical-align:top;
+}
+.img-two-columns li:first-child{
+	margin-left:0;
+}
+.img-one-columns{
+	padding:0;
+	list-style:none;
+	width:100%;
+	overflow:hidden;
+	margin:0 0 25px;
+}
+.img-one-columns img{
+	vertical-align:top;
+}
+.img-ten-columns{
+	margin:-7px 0;
+	padding:0;
+	list-style:none;
+	width:100%;
+	overflow:hidden;
+	display:table;
+}
+.img-ten-columns li{
+	display:table-cell;
+	vertical-align:middle;
+	text-align:center;
+}
+.main-network-wrap{
+	width:100%;
+	overflow:hidden;
+	text-align:center;
+	margin:-7px 0;
+}
+.main-network-wrap .wrap{
+	display:inline-block;
+	vertical-align:middle;
+	margin:0 15px;
+}
+*+ html .bottom-nav > li,
+*+ html .subscribe-form .wrap,
+*+ html .main-network-wrap .wrap{
+	display:inline;
+}
+.subscribe-form{
+	width:100%;
+	text-align:center;
+	color:#575757;
+	font-size:14px;
+	line-height:18px;
+	padding:3px 0 0;
+}
+.subscribe-form .wrap{
+	background:#e5e5e5;
+	-webkit-box-shadow:inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow:inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+	box-shadow:inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+	-webkit-border-radius:18px;
+	-moz-border-radius:18px;
+	border-radius:18px;
+	width:274px;
+	height:37px;
+	display:inline-block;
+	vertical-align:top;
+	display:inline-block;
+	vertical-align:top;
+	position:relative;
+	margin:-8px 0 -4px 25px;
+}
+.subscribe-form .wrap .text{
+	color:#8b8b8b;
+	height:20px;
+	line-height:20px;
+	float:left;
+	width:140px;
+	border:0;
+	background:none;
+	padding:0;
+	font-size:11px;
+	margin:9px 0 0 18px;
+}
+.subscribe-form .wrap .btn{
+	position:absolute;
+	right:2px;
+	top:4px;
+	cursor:pointer;
+	width:105px;
+	height:27px;
+	text-align:center;
+	color:#fff;
+	font-weight:bold;
+	font-size:11px;
+	line-height:18px;
+	overflow:hidden;
+	padding:5px 0 0;
+	background:url(/bundles/kidssite/images/subscribe-btn.png) no-repeat;
+}
+.bottom-nav{
+	margin:0 0 25px;
+	padding:0;
+	list-style:none;
+	text-align:center;
+	width:100%;
+	overflow:hidden;
+}
+.bottom-nav > li{
+	display:inline-block;
+	vertical-align:top;
+	border-left:1px solid #d0d0d0;
+	text-align:left;
+	padding:0 27px 9999px 30px;
+	margin:0 0 -9999px;
+}
+.bottom-nav > li:first-child{
+	border:0;
+}
+.bottom-nav h4{
+	color:#7061a6;
+	font-size:12px;
+	margin:0;
+	font-weight:bold;
+}
+.bottom-nav a{
+	color:#303030;
+	text-decoration:none;
+	font-size:12px;
+	line-height:18px;
+}
+.bottom-nav a:hover{
+	text-decoration:underline;
+}
+.bottom-nav ul{
+	width:100%;
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.copyright{
+	text-align:center;
+	font:12px/14px 'MyriadProRegular', arial, sans-serif;
+	color:#303030;
+	margin:-10px 0 0;
+}
+.popup-holder{
+	width:100%;
+	height:100%;
+	position:absolute;
+	left:0;
+	z-index:100;
+	top:0;
+	display:none;
+}
+.popup-holder .bg{
+	background:#000;
+	height:100%;
+	left:0;
+	-moz-opacity: 0.5;
+	opacity: 0.5;
+	position:absolute;
+	top:0;
+	width:100%;
+	z-index:4;
+}
+.login-popup{
+	position:absolute;
+	top:155px;
+	left:50%;
+	margin:0 0 0 -200px;
+	width:260px;
+	padding:0 70px 26px;
+	color:#000;
+	z-index:50;
+	-webkit-border-radius:8px;
+	-moz-border-radius:8px;
+	border-radius:8px;
+	background:#fff;
+	font-size:14px;
+	line-height:18px;
+}
+.login-popup .ico{
+	top:41px;
+	left:344px;
+	position:absolute;
+}
+.login-popup .title-holder{
+	background: #7f94ca;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIxJSIgc3RvcC1jb2xvcj0iIzdmOTRjYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2ZTYyYTYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #7f94ca 1%, #6e62a6 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#7f94ca), color-stop(100%,#6e62a6));
+	background: -webkit-linear-gradient(top,  #7f94ca 1%,#6e62a6 100%);
+	background: -o-linear-gradient(top,  #7f94ca 1%,#6e62a6 100%);
+	background: -ms-linear-gradient(top,  #7f94ca 1%,#6e62a6 100%);
+	background: linear-gradient(to bottom,  #7f94ca 1%,#6e62a6 100%);
+	-webkit-border-radius:8px 8px 0 0;
+	-moz-border-radius:8px 8px 0 0;
+	border-radius:8px 8px 0 0;
+	width:380px;
+	margin:-3px -70px 11px;
+	padding:9px 10px;
+}
+.login-popup .title-holder h3{
+	color:#fff;
+	text-shadow:1px 1px 0 #5f5b92;
+	text-align:center;
+	margin:0;
+	font-size:18px;
+	line-height:22px;
+}
+.login-popup .row{
+	width:100%;
+	padding:14px 0 0;
+}
+.login-popup .row:after{
+	display:block;
+	clear:both;
+	content:"";
+}
+.login-popup label.text{
+	border:1px solid #b8b8b8;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+	height:18px;
+	padding:3px 10px;
+	display:block;
+	overflow:hidden;
+	position:relative;
+	background:#fff;
+	-webkit-box-shadow:inset 1px 1px 3px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow:inset 1px 1px 3px rgba(0, 0, 0, 0.2);
+	box-shadow:inset 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+.login-popup label.text .input-placeholder-text{
+	left:10px;
+	top:3px;
+	height:18px;
+	line-height:18px;
+	font-size:14px;
+}
+.login-popup label.text input{
+	color:#888888;
+	font-size:14px;
+	line-height:18px;
+	height:18px;
+	border:0;
+	float:left;
+	width:100%;
+	padding:0;
+	background:none;
+}
+.login-popup .help{
+	font-style:italic;
+	padding:5px 0 4px 11px;
+}
+.login-popup .help a{
+	color:#999;
+	text-decoration:none;
+}
+.login-popup .help a:hover{
+	text-decoration:underline;
+}
+.login-popup .btn{
+	position:relative;
+	overflow:hidden;
+	cursor:pointer;
+	font-size:17px;
+	line-height:35px;
+	border:1px solid #b8b8b8;
+	background: #ffffff;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIxJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlNmU2ZTYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #ffffff 1%, #e6e6e6 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#ffffff), color-stop(100%,#e6e6e6));
+	background: -webkit-linear-gradient(top,  #ffffff 1%,#e6e6e6 100%);
+	background: -o-linear-gradient(top,  #ffffff 1%,#e6e6e6 100%);
+	background: -ms-linear-gradient(top,  #ffffff 1%,#e6e6e6 100%);
+	background: linear-gradient(to bottom,  #ffffff 1%,#e6e6e6 100%);
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+	text-align:center;
+	height:35px;
+	width:105px;
+	float:right;
+	margin:-11px 0 0;
+}
+.login-popup .dividing-line{
+	margin:13px 0 11px;
+}
+.login-popup .note{
+	padding:0 0 0 10px;
+}
+.login-popup .note a{
+	color:#3a27aa;
+}
+.min-basket{
+	border:1px solid #e3e3e3;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+	position:absolute;
+	top:0;
+	left:0;
+	width:228px;
+	padding:0 15px;
+	background:#fff;
+	display:none;
+	z-index:90;
+}
+.min-basket header{
+	border-bottom:1px solid #efefef;
+	background: #f9f9f9;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIxJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmM2YzZjMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #f9f9f9 1%, #f3f3f3 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#f9f9f9), color-stop(100%,#f3f3f3));
+	background: -webkit-linear-gradient(top,  #f9f9f9 1%,#f3f3f3 100%);
+	background: -o-linear-gradient(top,  #f9f9f9 1%,#f3f3f3 100%);
+	background: -ms-linear-gradient(top,  #f9f9f9 1%,#f3f3f3 100%);
+	background: linear-gradient(to bottom,  #f9f9f9 1%,#f3f3f3 100%);
+	width:228px;
+	padding:11px 15px 8px;
+	margin:0 -15px;
+	font:13px/18px 'MyriadProBold', arial, sans-serif;
+	color:#555;
+	text-shadow:1px 1px 0 #fff;
+}
+.min-basket header span{
+	display:block;
+	padding:0;
+	background:url(/bundles/kidssite/images/ico03.png) no-repeat 100% 50%;
+}
+.min-basket footer{
+	width:100%;
+	overflow:hidden;
+	padding:19px 0 22px;
+}
+.min-basket .btn{
+	border:1px solid #5f51a3;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+	background: #8a88cd;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIxJSIgc3RvcC1jb2xvcj0iIzhhODhjZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMzNjI3NjkiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #8a88cd 1%, #362769 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#8a88cd), color-stop(100%,#362769));
+	background: -webkit-linear-gradient(top,  #8a88cd 1%,#362769 100%);
+	background: -o-linear-gradient(top,  #8a88cd 1%,#362769 100%);
+	background: -ms-linear-gradient(top,  #8a88cd 1%,#362769 100%);
+	background: linear-gradient(to bottom,  #8a88cd 1%,#362769 100%);
+	padding:0 10px;
+	margin:-2px 0 -3px;
+	text-decoration:none;
+	color:#fff;
+	text-shadow:1px 1px 0 #262045;
+	height:20px;
+	float:left;
+	font:12px/20px 'MyriadProBold', arial, sans-serif;
+}
+.min-basket .total{
+	float:right;
+	color:#303030;
+	font-weight:bold;
+}
+.min-basket .total span{
+	color:#6636c8;
+	display:inline-block;
+	vertical-align:top;
+	min-width:66px;
+	text-align:right;
+}
+.min-basket table{
+	border-collapse:collapse;
+	width:258px;
+	margin:0 -15px;
+	font-size:12px;
+	line-height:14px;
+}
+.min-basket table td{
+	padding:11px 0 11px 10px;
+	border-bottom:1px solid #e7e6e7;
+}
+.min-basket .visual{
+	border:1px solid #e7e6e7;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+	margin:0 0 0 5px;
+}
+.min-basket .visual img{
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+}
+.min-basket .del{
+	background:url(/bundles/kidssite/images/ico08.png) no-repeat;
+	display:block;
+	margin:0 auto;
+	width:14px;
+	height:14px;
+	text-indent:-9999px;
+	overflow:hidden;
+}
+.min-basket .price{
+	text-align:right;
+	padding:0 15px 0 0;
+}
+.min-basket .name{
+	color:#555;
+}
+.product-wrapper{
+	width:100%;
+	padding:13px 0 38px;
+}
+.product-info{
+	float:right;
+	width:320px;
+}
+.product-info footer .wrap:after,
+.product-info footer .row:after,
+.product-wrapper:after,
+.product-info header:after{
+	display:block;
+	clear:both;
+	content:"";
+}
+.product-info header{
+	width:100%;
+	padding:0 0 17px;
+}
+.product-info header h2{
+	color:#000;
+	font:15px/18px 'MyriadProRegular', arial, sans-serif;
+	margin:0;
+	padding:8px 0 0;
+}
+.product-info header .rating-wrap{
+	float:right;
+	width:auto;
+	margin:0 0 0 5px;
+}
+.product-info p{
+	margin:0;
+	line-height:14px;
+}
+.product-info section{
+	width:100%;
+	min-height:220px;
+	padding:0 0 12px;
+}
+.product-info footer{
+	width:100%;
+}
+.product-info footer .row{
+	width:100%;
+	padding:0 0 9px;
+}
+.product-info footer .gray-btn{
+	float:right;
+	margin:0 0 0 14px;
+}
+.gray-btn.add-bag img{
+	position:absolute;
+	right:7px;
+	top:6px;
+}
+.gray-btn.add-bag span{
+	padding-right:24px;
+	padding-left:10px;
+}
+.product-info footer .add{
+	background:url(/bundles/kidssite/images/bg-add.png) no-repeat 100% 0;
+	padding:0 28px 2px 0;
+	text-decoration:none;
+	color:#808080;
+	font-size:12px;
+	float:left;
+	margin:6px 0 0;
+}
+.product-info footer .price{
+	overflow:hidden;
+	height:1%;
+	text-align:right;
+	color:#6c5da2;
+	font-weight:bold;
+	font-size:16px;
+	line-height:18px;
+	padding:6px 0 0;
+}
+.product-info footer .wrap{
+	width:100%;
+	border-top:1px solid #d6d6d6;
+	padding:7px 0 0;
+}
+.product-info footer .holder{
+	float:right;
+	padding:2px 0 0;
+}
+.product-info footer .print,
+.product-info footer .mail{
+	float:left;
+	background:url(/bundles/kidssite/images/ico09.png) no-repeat 100% 50%;
+	padding:0 26px 0 0;
+	color:#737373;
+	font-size:10px;
+	line-height:22px;
+	text-decoration:none;
+}
+.product-info footer .print{
+	margin:0 0 0 20px;
+	padding:0 23px 0 0;
+	background:url(/bundles/kidssite/images/ico10.png) no-repeat 100% 50%;
+}
+.product-info footer .network{
+	margin:0;
+	padding:0;
+	list-style:none;
+	overflow:hidden;
+	height:1%;
+}
+.product-info footer .network li{
+	display:inline-block;
+	vertical-align:middle;
+	margin:0 0 5px 17px;
+}
+.product-info footer .network li:first-child{
+	margin-left:0;
+}
+*+ html .product-info footer .network li{
+	display:inline;
+}
+.product-wrapper .visual-col{
+	float:left;
+	width:370px;
+}
+.product-wrapper .visual-col .visual{
+	width:370px;
+	background:#fff;
+	text-align:center;
+	-webkit-box-shadow:1px 1px 3px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+	position:relative;
+	margin:0 0 10px;
+}
+.product-wrapper .visual-col .discount{
+	background:url(/bundles/kidssite/images/bg-discount.png) no-repeat;
+	position:absolute;
+	right:-22px;
+	top:-21px;
+	width:64px;
+	height:51px;
+	color:#fff;
+	font-size:22px;
+	font-weight:bold;
+	text-align:center;
+	text-shadow:1px 1px 0 #cc2a69;
+	padding:13px 0 0;
+}
+.product-wrapper .visual-col .min-gallery{
+	width:370px;
+}
+.min-gallery{
+	width:100%;
+	position:relative;
+}
+.min-gallery .num{
+	color:#7d7d7d;
+	font-size:12px;
+	line-height:14px;
+	text-align:center;
+	padding:5px 0 0;
+}
+.min-gallery .num .total,
+.min-gallery .num .active{
+	width:100px;
+	display:inline-block;
+	vertical-align:top;
+	text-align:left;
+}
+.min-gallery .num .active{
+	text-align:right;
+}
+.min-gallery .next,
+.min-gallery .prev{
+	background:url(/bundles/kidssite/images/gallery-arrow03.png) no-repeat;
+	width:21px;
+	height:21px;
+	position:absolute;
+	left:-10px;
+	top:21px;
+	text-indent:-9999px;
+	overflow:hidden;
+	z-index:10;
+}
+.min-gallery .prev:hover{
+	background-position:0 100%;
+}
+.min-gallery .next{
+	background-position:100% 0;
+	left:auto;
+	right:-10px;
+}
+.min-gallery .next:hover{
+	background-position:100% 100%;
+}
+.min-gallery .gallery-wrap{
+	width:100%;
+	margin:0 -2px 0 -1px;
+	padding:0 2px 2px 1px;
+	overflow:hidden;
+	position:relative;
+}
+.min-gallery ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+	width:9999px;
+	float:left;
+}
+.min-gallery ul li{
+	float:left;
+	width:88px;
+	margin:0 6px 0 0;
+	background:#fff;
+	-webkit-box-shadow:1px 1px 2px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	height:64px;
+}
+.min-gallery ul li img{
+	width:88px;
+	height:64px;
+}
+.tab-content{
+	background:#ffffff;
+	-webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+	position:relative;
+	padding:23px 30px 30px;
+	margin:0 0 9px;
+	width:616px;
+}
+.comment-item{
+	width:100%;
+}
+.comment-item > header{
+	width:100%;
+	border-bottom:1px solid #d8d8d8;
+	padding:0 0 33px;
+	margin:0 0 31px;
+}
+.comment-item > header .row:after{
+	display:block;
+	clear:both;
+	content:"";
+}
+.tab-content h3,
+.comment-item > header h3{
+	color:#000;
+	width:100%;
+	font-size:18px;
+	margin:0 0 16px;
+	line-height:22px;
+	clear:both;
+}
+.comment-item > header .row{
+	width:100%;
+}
+.comment-item > header .visual{
+	float:left;
+	-webkit-box-shadow:1px 1px 3px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+	background:#fff;
+	width:164px;
+	height:120px;
+	margin:0 37px 0 0;
+}
+.comment-item > header .center-col{
+	float:left;
+	width:180px;
+	font-size:11px;
+	line-height:14px;
+}
+.comment-item > header .center-col .title{
+	color:#262626;
+	margin:0 0 8px;
+}
+.comment-item > header .center-col .btn-title{
+	margin:0 0 4px;
+}
+.comment-item > header .center-col .rating-wrap{
+	width:auto;
+	margin:0;
+	display:inline-block;
+	vertical-align:top;
+	margin:0 0 17px;
+}
+.gray-btn.add-comment img{
+	position:absolute;
+	right:7px;
+	top:6px;
+}
+.gray-btn.add-comment span{
+	padding-right:24px;
+	padding-left:10px;
+}
+.comment-item > header .count-rating{
+	float:right;
+}
+.count-rating{
+	margin:0 -21px 0 0;
+	padding:0;
+	list-style:none;
+	float:right;
+	width:223px;
+	font-size:12px;
+	line-height:14px;
+}
+.count-rating li{
+	width:100%;
+	padding:0 0 2px;
+}
+.count-rating li:after{
+	display:block;
+	clear:both;
+	content:"";
+}
+.count-rating li .num{
+	float:left;
+	width:40px;
+	color:#404040;
+	width:42px;
+	margin:3px 0 0;
+}
+.count-rating li .view{
+	background:url(/bundles/kidssite/images/bg-rating.png) no-repeat;
+	width:122px;
+	float:left;
+	height:21px;
+	overflow:hidden;
+	position:relative;
+}
+.count-rating li .view span{
+	position:absolute;
+	width:122px;
+	left:0;
+	top:1px;
+	height:19px;
+	text-indent:-9999px;
+	background: #6e61a6;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzZlNjFhNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ3JSIgc3RvcC1jb2xvcj0iIzg2YThkOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2ZTYxYTYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #6e61a6 0%, #86a8d8 47%, #6e61a6 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6e61a6), color-stop(47%,#86a8d8), color-stop(100%,#6e61a6));
+	background: -webkit-linear-gradient(top,  #6e61a6 0%,#86a8d8 47%,#6e61a6 100%);
+	background: -o-linear-gradient(top,  #6e61a6 0%,#86a8d8 47%,#6e61a6 100%);
+	background: -ms-linear-gradient(top,  #6e61a6 0%,#86a8d8 47%,#6e61a6 100%);
+	background: linear-gradient(to bottom,  #6e61a6 0%,#86a8d8 47%,#6e61a6 100%);
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+}
+.count-rating li.num1 .view span{
+	-moz-opacity: 0.6;
+	opacity: 0.6;
+}
+.count-rating li.num2 .view span{
+	-moz-opacity: 0.7;
+	opacity: 0.7;
+}
+.count-rating li.num3 .view span{
+	-moz-opacity: 0.8;
+	opacity: 0.8;
+}
+.count-rating li.num4 .view span{
+	-moz-opacity: 0.9;
+	opacity: 0.9;
+}
+.count-rating li.num5 .view span{
+	-moz-opacity: 1;
+	opacity: 1;
+}
+.count-rating li .count{
+	float:left;
+	color:#8c8c8c;
+	width:50px;
+	font-size:11px;
+	line-height:14px;
+	padding:3px 0 0 9px;
+}
+.comment-item .comment-list{
+	margin:0 25px 30px;
+}
+.comment-item .comment-list .comment-list{
+	margin:0;
+	padding:20px 0 0;
+	display:none;
+}
+.comment-item .comment-list .active .comment-list{
+	display:block;
+}
+.comment-item .hidden{
+	display:none;
+}
+.comment-item .active .hidden{
+	display:inline;
+}
+.comment-item .active .opener-more{
+	display:none;
+}
+.comment-list{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.comment-list li{
+	border:1px solid #c3c3c3;
+	background: #ffffff;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlYmViZWIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #ffffff 0%, #ebebeb 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#ebebeb));
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#ebebeb 100%);
+	background: -o-linear-gradient(top,  #ffffff 0%,#ebebeb 100%);
+	background: -ms-linear-gradient(top,  #ffffff 0%,#ebebeb 100%);
+	background: linear-gradient(to bottom,  #ffffff 0%,#ebebeb 100%);
+	-webkit-box-shadow:0px 0px 5px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+	padding:14px 23px 20px;
+	position:relative;
+	margin:18px 0 0;
+}
+.comment-list li:first-child{
+	margin-top:0;
+}
+.comment-list li:before{
+	position:absolute;
+	left:-15px;
+	top:19px;
+	background:url(/bundles/kidssite/images/comment-arrow.png) no-repeat;
+	width:15px;
+	height:17px;
+	content:"";
+}
+.comment-list li .comment-list li:before{
+	background:url(/bundles/kidssite/images/comment-arrow02.png) no-repeat;
+	width:13px;
+	height:13px;
+	left:auto;
+	right:-13px;
+}
+.comment-list li header{
+	width:100%;
+	font-size:11px;
+	line-height:18px;
+	border-bottom:1px solid #e2e2e2;
+	padding:0 0 4px;
+	margin:0 0 5px;
+	position:relative;
+}
+.comment-list li .comment-list header{
+	width:310px;
+}
+.comment-list li header:after{
+	display:block;
+	clear:both;
+	content:"";
+}
+.comment-list li header .date{
+	float:right;
+	font-style:italic;
+	color:#bbbbbb;
+	width:80px;
+	text-align:right;
+}
+.comment-list li .comment-list header .date{
+	position:absolute;
+	right:-73px;
+	bottom:-8px;
+}
+.comment-list li header .title{
+	float:left;
+	font-size:12px;
+	color:#464646;
+	width:206px;
+	font-style:italic;
+}
+.comment-list li header .name{
+	float:left;
+	min-width:118px;
+	max-width:175px;
+	padding:0 5px 0 0;
+	color:#6233c2;
+}
+.comment-list li header .holder{
+	overflow:hidden;
+	height:1%;
+}
+.comment-list li header .down,
+.comment-list li header .up{
+	background:url(/bundles/kidssite/images/bg-rating-up.png) no-repeat 0 2px;
+	padding:0 3px 0 20px;
+	color:#404040;
+	float:left;
+	min-width:27px;
+}
+.comment-list li header .down{
+	background:url(/bundles/kidssite/images/bg-rating-down.png) no-repeat 0 5px;
+}
+.comment-list li header .num-comment{
+	float:left;
+	color:#808080;
+	padding:0 20px 0 0;
+	background:url(/bundles/kidssite/images/bg-comment-ico.png) no-repeat 100% 4px;
+}
+.comment-list li section{
+	width:100%;
+}
+.comment-form .holder-form .row:after,
+.comment-form:after,
+.comment-list li section:after{
+	display:block;
+	clear:both;
+	content:"";
+}
+.comment-list li section .visual{
+	float:left;
+	width:75px;
+	height:75px;
+	margin:2px 14px 0 0;
+}
+.comment-form .img.shadow,
+.comment-list li section .visual.shadow{
+	-webkit-box-shadow:2px 2px 3px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+}
+.comment-form .img img,
+.comment-list li section .visual img{
+	width:75px;
+	height:75px;
+	vertical-align:top;
+}
+.comment-list li .comment-list .visual{
+	float:right;
+	margin:-19px 0 0 14px;
+}
+.comment-list li section .wrap{
+	overflow:hidden;
+	font-size:11px;
+	line-height:18px;
+}
+.comment-list li .name{
+	color:#6233c2;
+}
+.comment-list p{
+	margin:0;
+}
+.comment-list li .hidden-wrap{
+	width:100%;
+	margin:0 -5px;
+	padding:0 5px;
+}
+.comment-form{
+	border-top:1px solid #D8D8D8;
+	padding:27px 25px 0;
+}
+.comment-list .comment-form{
+	padding:18px 0 0;
+	display:none;
+	border:0;
+}
+.comment-list .active-form .comment-form{
+	display:block;
+}
+.purple-btn{
+	background:url(/bundles/kidssite/images/purple-btn.png) no-repeat 100% -23px;
+	padding:0 5px 0 0;
+	display:inline-block;
+	vertical-align:top;
+	height:23px;
+	cursor:pointer;
+	text-decoration:none !important;
+	color:#fff;
+	font-size:12px;
+	line-height:22px;
+	font-weight:bold;
+	text-align:center;
+	cursor:pointer;
+	position:relative;
+	overflow:hidden;
+}
+.purple-btn span{
+	float:left;
+	padding:0 5px 0 10px;
+	background:url(/bundles/kidssite/images/purple-btn.png) no-repeat;
+	height:23px;
+}
+.comment-form .col{
+	float:left;
+	width:94px;
+	margin:0 17px 0 5px;
+}
+.comment-list .comment-form .col{
+	float:right;
+	margin:2px -14px 0 11px;
+}
+.comment-form .purple-btn{
+	width:89px;
+	display:block;
+	margin-top:35px;
+}
+.comment-form .purple-btn span{
+	padding:0 0 0 5px;
+	width:84px;
+}
+.comment-form .img{
+	width:75px;
+	height:75px;
+	margin:0 0 10px 4px;
+}
+.comment-form .name-wrap{
+	border-bottom:1px solid #e2e2e2;
+	width:75px;
+	text-align:center;
+	font-size:12px;
+	line-height:16px;
+	margin:0 0 6px 4px;
+	padding:0 0 8px;
+}
+.comment-form .name-wrap a{
+	color:#6a6b6b;
+	display:inline-block;
+	vertical-align:top;
+}
+.comment-form .name-wrap img{
+	vertical-align:top;
+	margin-right:3px;
+}
+.comment-form .register-wrap{
+	font-style:italic;
+	color:#6a6b6b;
+	font-size:11px;
+	line-height:16px;
+	margin:0 0 0 4px;
+}
+.comment-form .holder-form{
+	overflow:hidden;
+	height:1%;
+	border:1px solid #d9d9d9;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+	background:#f5f5f5;
+	padding:0 19px 5px;
+}
+.comment-form .holder-form h3{
+	margin:0 -19px 16px;
+	padding:4px 19px;
+	-webkit-border-radius:3px 3px 0 0;
+	-moz-border-radius:3px 3px 0 0;
+	border-radius:3px 3px 0 0;
+	border-bottom:1px solid #d9d9d9;
+	text-align:center;
+	color:#717171;
+	font-size:14px;
+	line-height:20px;
+	font-weight:bold;
+	text-shadow:1px 1px 0 #fff;
+	background: #fafafa;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZhZmFmYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlOWU5ZTkiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #fafafa 0%, #e9e9e9 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fafafa), color-stop(100%,#e9e9e9));
+	background: -webkit-linear-gradient(top,  #fafafa 0%,#e9e9e9 100%);
+	background: -o-linear-gradient(top,  #fafafa 0%,#e9e9e9 100%);
+	background: -ms-linear-gradient(top,  #fafafa 0%,#e9e9e9 100%);
+	background: linear-gradient(to bottom,  #fafafa 0%,#e9e9e9 100%);
+}
+.comment-form .holder-form .row{
+	width:378px;
+	padding:0 0 16px;
+}
+.comment-form .holder-form .row > label{
+	float:left;
+	width:73px;
+	color:#717171;
+	font-size:12px;
+	line-height:16px;
+	margin:4px 0 0;
+}
+.comment-form .holder-form .row .holder{
+	overflow:hidden;
+	height:1%;
+}
+.input-wrap{
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #dcdcdc;
+	background:#fff;
+	display:block;
+	height:18px;
+	padding:2px 5px;
+}
+.input-wrap input{
+	float:left;
+	width:100%;
+	height:18px;
+	font-size:12px;
+	line-height:18px;
+	padding:0;
+	border:0;
+	background:none;
+}
+.comment-form .input-wrap{
+	width:183px;
+}
+.textarea-wrap{
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #dcdcdc;
+	background:#fff;
+	display:block;
+	padding:3px 5px;
+	overflow:hidden;
+}
+.textarea-wrap textarea{
+	float:left;
+	width:100%;
+	overflow:auto;
+	padding:0;
+	border:0;
+	margin:0;
+	background:none;
+	height:77px;
+	resize:none;
+	font-size:12px;
+	line-height:15px;
+}
+.comment-form .f-log img,
+.comment-form .v-log img{
+	vertical-align:top;
+}
+.comment-form .v-log{
+	float:right;
+}
+.comment-form .f-log{
+	float:left;
+}
+.item-description{
+	width:100%;
+}
+.item-description:after{
+	display:block;
+	clear:both;
+	content:"";
+}
+.item-description .col{
+	float:left;
+	width:295px;
+	margin:0 0 0 26px;
+	font-size:12px;
+	line-height:14px;
+}
+.item-description .col:first-child{
+	margin-left:0;
+}
+.item-description p{
+	margin:0;
+}
+.item-description ul{
+	margin:0 0 14px;
+	padding:0;
+	list-style:none;
+}
+.tab-content h4{
+	margin:0 0 14px;
+	color:#333;
+	font-size:12px;
+	line-height:16px;
+	font-weight:normal;
+}
+.item-description h4{
+	margin:0;
+	color:#7D7D7D;
+}
+.tab-content .dividing-line{
+	margin:30px 0;
+	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	box-shadow:none;
+	
+}

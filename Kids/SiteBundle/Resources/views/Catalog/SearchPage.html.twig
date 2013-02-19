@@ -1,0 +1,53 @@
+{% extends 'LegoSiteBundle::layout.html.twig' %} 
+{% block title %}
+    <title>Поиск товара</title>
+{% endblock %}
+{% block body %}
+<div class="col-main">
+<div class="page-title category-title">
+        <h1>Поиск</h1>
+</div>
+        
+   <div class="toolbar">
+
+    </div>        
+        
+        <ol id="products-list" class="products-list">
+            {% for product in entities %}
+            <li class="item odd">
+                <div class="list-inner">
+                    <a class="product-image" title="" href="">
+                    <img class="pr-img" width="170" height="170" alt="Alex Art Box - Wooden Art Center with Assorted Media" src="{{ vich_uploader_asset(product, 'iconImage') }}" />
+                    </a>
+                </div>
+                    
+                    
+           <div class="product-shop">
+            <div class="f-fix">
+             <h2 class="product-name"><a href="{{ path('product', { 'translit': product.translit }) }}">
+                     {{ product.title }}
+                 </a></h2>
+              <div class="desc std">
+                {{ product.description|raw() }}
+              </div>
+              <div class="wrapper">   
+                    <div class="price-box">
+                        <span id="product-price-14" class="regular-price">
+                              <span class="price">{{ product.price }} грн.</span>
+                        </span>
+                    </div>
+              </div>
+               <div class="row-list">
+                   <p class="list-btn">
+                     <a href="{{path('main_site_cart_add', {'id':product.id, 'amount': 1})}}">
+                      <button class="button btn-cart" title="Add to Cart" type="button"><span><span>В корзину</span></span></button>
+                     </a>
+                    </p>
+                </div>
+              </div>
+        </div>
+            </li>
+            {% endfor %}
+        </ol>
+</div>
+{% endblock %}

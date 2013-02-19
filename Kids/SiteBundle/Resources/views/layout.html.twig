@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    {% block title %}
+    <title>
+       {% if entity.getMetatitle is defined %}
+       {% if entity.getMetatitle is not empty %}
+            {{ entity.getMetatitle }}
+        {% else %}
+           Магазин игрушек
+        {% endif %}  
+       {% endif %}    
+    </title>
+    {% endblock %}
+        {% block css %}
+            <link rel="stylesheet" href="{{ asset ( 'bundles/kidssite/css/all.css' ) }}" type="text/css" />
+        {% endblock %}
+        {% block javascript %}
+            <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/autoscaling-menu.js' ) }}"></script>
+            <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/clear-form-fields.js' ) }}"></script>
+            <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/jquery-1.9.1.min.js' ) }}"></script>
+            <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/jquery-ui-1.9.2.custom.min.js' ) }}"></script>
+            <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/jquery.jscrollpane.min.js' ) }}"></script>
+            <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/jquery.mousewheel.js' ) }}"></script>
+            <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/ui.js' ) }}"></script>
+            <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/ui.checkbox-radio.js' ) }}"></script>
+            <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/jquery.main.js' ) }}"></script>
+	{% endblock %}
+</head>
+<body>
+	<div id="wrapper">
+		<a class="side-help" href="#"><strong>Need help?</strong><br />Just ask bobi :)</a>
+		<header id="header">
+			<a class="logo" href="{{ path('index') }}">Bobi Store</a>
+			{% block menu %}
+                            {% set routing = "index" %}
+                            {% render "MainSiteBundle:Default:menu" with {"routing" : routing, "req" : app.request}  %}
+                        {% endblock %}  
+                        {% render "KidsSiteBundle:Catalog:SmallCart" %}
+			{% include 'KidsSiteBundle:Catalog:SearchBlock.html.twig' %}
+		</header>
+		<section id="main">
+			<section id="content">
+				{% block body %}
+                                {% endblock %}
+                                <ul class="img-ten-columns">
+					<li><a href="#"><img src="/bundles/kidssite/images/pay01.png" width="62" height="42" alt="" /></a></li>
+					<li><a href="#"><img src="/bundles/kidssite/images/pay02.png" width="61" height="42" alt="" /></a></li>
+					<li><a href="#"><img src="/bundles/kidssite/images/pay03.png" width="60" height="42" alt="" /></a></li>
+					<li><a href="#"><img src="/bundles/kidssite/images/pay04.png" width="39" height="42" alt="" /></a></li>
+					<li><a href="#"><img src="/bundles/kidssite/images/pay05.png" width="43" height="45" alt="" /></a></li>
+					<li><a href="#"><img src="/bundles/kidssite/images/pay06.png" width="39" height="42" alt="" /></a></li>
+					<li><a href="#"><img src="/bundles/kidssite/images/pay07.png" width="78" height="41" alt="" /></a></li>
+					<li><a href="#"><img src="/bundles/kidssite/images/pay08.png" width="62" height="42" alt="" /></a></li>
+					<li><a href="#"><img src="/bundles/kidssite/images/pay09.png" width="72" height="47" alt="" /></a></li>
+					<li><a href="#"><img src="/bundles/kidssite/images/pay10.png" width="63" height="49" alt="" /></a></li>
+				</ul>
+				{% block footer %}
+                                    {% include 'KidsSiteBundle:Default:footer.html.twig' %}
+                                {% endblock %}
+			</section>
+			<aside id="side-bar">
+                                    {% render 'MainSiteBundle:Catalog:CategoriesBlock' %}
+				{#<div class="side-ads">
+					<ul class="list">
+						<li class="active"><a href="#"><img src="/bundles/kidssite/images/img01.jpg" width="169" height="124" alt="" /></a></li>
+						<li><a href="#"><img src="/bundles/kidssite/images/img01-w.jpg" width="170" height="124" alt="" /></a></li>
+						<li><a href="#"><img src="/bundles/kidssite/images/img01.jpg" width="170" height="124" alt="" /></a></li>
+						<li><a href="#"><img src="/bundles/kidssite/images/img01-w.jpg" width="170" height="124" alt="" /></a></li>
+						<li><a href="#"><img src="/bundles/kidssite/images/img01.jpg" width="170" height="124" alt="" /></a></li>
+					</ul>
+					<ul class="switcher">
+						<li class="active"><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+					</ul>
+				</div>
+				<div class="side-ads">
+					<ul class="list">
+						<li class="active"><a href="#"><img src="/bundles/kidssite/images/img01.jpg" width="169" height="124" alt="" /></a></li>
+						<li><a href="#"><img src="/bundles/kidssite/images/img01-w.jpg" width="170" height="124" alt="" /></a></li>
+						<li><a href="#"><img src="/bundles/kidssite/images/img01.jpg" width="170" height="124" alt="" /></a></li>
+						<li><a href="#"><img src="/bundles/kidssite/images/img01-w.jpg" width="170" height="124" alt="" /></a></li>
+						<li><a href="#"><img src="/bundles/kidssite/images/img01.jpg" width="170" height="124" alt="" /></a></li>
+					</ul>
+					<ul class="switcher">
+						<li class="active"><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+					</ul>
+				</div>
+				<div class="side-ads">
+					<ul class="list">
+						<li class="active"><a href="#"><img src="/bundles/kidssite/images/img01.jpg" width="169" height="124" alt="" /></a></li>
+						<li><a href="#"><img src="/bundles/kidssite/images/img01-w.jpg" width="170" height="124" alt="" /></a></li>
+						<li><a href="#"><img src="/bundles/kidssite/images/img01.jpg" width="170" height="124" alt="" /></a></li>
+						<li><a href="#"><img src="/bundles/kidssite/images/img01-w.jpg" width="170" height="124" alt="" /></a></li>
+						<li><a href="#"><img src="/bundles/kidssite/images/img01.jpg" width="170" height="124" alt="" /></a></li>
+					</ul>
+					<ul class="switcher">
+						<li class="active"><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+					</ul>
+				</div>#}
+				<div class="side-network">
+					<img src="/bundles/kidssite/images/bg-network01.jpg" width="170" height="290" alt="" />
+				</div>
+				<div class="side-network">
+					<img src="/bundles/kidssite/images/bg-network02.jpg" width="170" height="290" alt="" />
+				</div>
+			</aside>
+		</section>
+	</div>
+        
+
+<div id="enter-login" class="popup-holder">
+    {% render "KidsSiteBundle:Security:login" %}
+</div>
+
+</body>
+</html>

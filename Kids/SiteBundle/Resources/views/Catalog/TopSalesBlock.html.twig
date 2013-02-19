@@ -1,0 +1,38 @@
+ 
+
+<div class="tab active">
+        <div class="tab-gallery">
+                <a class="prev" href="#">prev</a>
+                <a class="next" href="#">next</a>
+                <div class="tab-gallery-holder">
+                        <ul style="margin-left: 0px;">
+                            {% for entity in entities %}
+                                <li>
+                                        <h3>{{ entity.title }}</h3>
+                                        <p> {{ entity.description }}</p>
+                                        <div  class="more"><a href="{{ path('products', { 'translit': entity.translit }) }}">далее</a></div>
+                                        <div class="visual">
+                                            {% if entity.ratio!='' %}
+                                                <span class="discount">{{ entity.ratio }}%</span>
+                                            {% endif %}
+                                            {% if entity.iconImage is not null %}
+                                                <img src = '{{ vich_uploader_asset(entity, 'iconImage') }}' alt="{{ entity.title }}" width="169" height="124"/>
+                                            {% else %}
+                                                <img src = '{{ entity.smallIcon }}' alt="{{ entity.title }}"  width="169" height="124"/>
+                                            {% endif %}
+                                        </div>
+                                        {#<div class="rating-wrap">
+                                                <div class="rating-star"><span style="width:70%;">70%</span></div>
+                                                <span class="reviews">Reviews: 175</span>
+                                        </div>#}
+                                        <div class="price-holder">
+                                                <a class="gray-btn" href="{{path('main_site_cart_add', {'id':entity.id, 'amount': 1})}}"><span>В корзину</span></a>
+                                                <span class="price">{{ entity.price }} P</span>
+                                        </div>
+                                </li>
+                                
+                        {% endfor %}
+                        </ul>
+                </div>
+        </div>
+</div>

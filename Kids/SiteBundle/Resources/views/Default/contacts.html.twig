@@ -1,0 +1,41 @@
+{% extends 'MainSiteBundle::layout.html.twig' %}
+{% block body %}
+<div class="primary_content_wrap">
+    <div class="container_12 clearfix">
+        <div class="grid_12">
+            <div class="indent">
+            <div id="post-13" class="post-13 page type-page status-publish hentry page">
+                <div class="wrapper indent-bottom">
+                    <div class="one_third ">
+                        <h2>Contact form</h2>
+                        <a href="#webform" class="fancybox">Заказать звонок</a>
+                        <div class="wpcf7">
+                            <form class="wpcf7-form" action = "/{{ locale }}/{{ entity.translit }}/sendMail" method="post">
+                               <p><span > {{ form_widget(form.fio ,{ 'attr' : { 'size' : '40' , 'onclick' : 'InputReset($(this))'} }) }}</span></p>
+                               <p><span > {{ form_widget(form.email,{ 'attr' : { 'size' : '40', 'onclick' : 'InputReset($(this))' } })  }}</span></p>
+                               <p><span > {{ form_widget(form.telefon,{ 'attr' : { 'size' : '40' , 'onclick' : 'InputReset($(this))'} })  }}</span></p>
+                               <p><span > {{ form_widget(form.body,{ 'attr' : { 'cols' : '40', 'rows' : '10' } })  }}</span></p>
+                               {#<p><span class="captcha"> {{ form_widget(form.captcha,{ 'attr' : { 'maxlength' : '5' } })  }}</span></p>#}
+                               {{ form_rest( form ) }}
+                                <p><input type="submit" class="wpcf7-submit" value="Submit"></p>
+                            </form>
+                        </div> 
+                    </div>
+                        <div class="two_third last">
+                        {{ entity.content | raw() }}
+                        </div>
+                </div>
+                    
+                        <div style="display:none">
+                            <div id="webform" style="width:500px; height: 600px;">
+                                <div class="one_third " style=" width:300px;">
+                                {% render  'MainSiteBundle:Default:callback' %}
+                                </div>
+                            </div>    
+                        </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}      

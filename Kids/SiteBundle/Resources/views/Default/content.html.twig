@@ -1,0 +1,13 @@
+{% extends 'LegoSiteBundle::layout.html.twig' %}
+{% block body %}
+<div class="col-main">
+    <div class="std">
+        <div class="page-title">
+            <h1>{{ entity.title }}</h1>
+        </div>
+        <div class="about-col-7">
+            {{ entity.content|raw() }}
+        </div>
+    </div>
+</div>
+{% endblock %}

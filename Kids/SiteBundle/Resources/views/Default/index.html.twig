@@ -1,1 +1,60 @@
-Hello {{ name }}!
+{% extends 'KidsSiteBundle::layout.html.twig' %} 
+{% block body %}
+                            {% if images|length > 0%}
+                                    <div class="promo-gallery">
+					<a class="prev" href="#">prev</a>
+					<a class="next" href="#">next</a>
+					<ul class="list">
+						{% for image in images %}
+                                                <li>
+							<a href="#">
+								<img src="{{ vich_uploader_asset(image, 'image' ) }}" width="730" height="200" alt="" />
+								<span class="text">
+									{{ image.title }}
+								</span>
+							</a>
+						</li>
+                                                {% endfor %}
+					</ul>
+					<ul class="switcher">
+						{% for image in images %}<li><a href="#">1</a></li>{% endfor %}
+					</ul>
+                                    </div>
+                             {% endif %}
+				<div class="dividing-line">&nbsp;</div>
+				<ul class="description-wrapper">
+					<li>
+						<img src="/bundles/kidssite/images/ico06.png" width="68" height="81" alt="" />
+						Bobi store guarantees <br />complete customer satisfaction
+					</li>
+					<li>
+						<img src="/bundles/kidssite/images/ico07.png" width="67" height="81" alt="" />
+						Competitive prices you <br />won’t find anywhere else
+					</li>
+					<li>
+						<img src="/bundles/kidssite/images/ico04.png" width="110" height="81" alt="" />
+						We even provide express <br />same day delivery
+					</li>
+					<li>
+						<img src="/bundles/kidssite/images/ico05.png" width="121" height="81" alt="" />
+						Wherever you are,<br />we delivery
+					</li>
+				</ul>
+				<div class="dividing-line">&nbsp;</div>
+				<div class="tab-wrapper">
+					<ul class="tab-set">
+						<li class="active"><a href="#">Хиты</a></li>
+						<li><a href="#">Скидки</a></li>
+					</ul>
+					<div class="tab-wrap">
+						{% render 'MainSiteBundle:Catalog:TopSalesBlock' %}
+						{% render 'MainSiteBundle:Catalog:RatioBlock' %}
+					</div>
+				</div>
+				<div class="dividing-line">&nbsp;</div>
+                                {% render 'MainSiteBundle:Brand:Brand' %}
+				
+				<div class="dividing-line">&nbsp;</div>
+				{{ entity.content|raw() }}
+				
+{% endblock %}

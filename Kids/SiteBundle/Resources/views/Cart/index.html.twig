@@ -1,0 +1,171 @@
+{% extends 'LegoSiteBundle::layout.html.twig' %}
+{% block title %}
+    <title>Корзина</title>
+{% endblock %}
+{% block body %}
+<div class="col-main">
+    <div class="cart">
+        <div class="page-title title-buttons">
+             <h1>Корзина</h1>
+        </div>
+            {% if cart!='' %}
+            <form method="post" action="">
+                <fieldset>
+                    <div class="radius-cart">
+                        <table id="shopping-cart-table" class="data-table cart-table">
+                            <colgroup>
+                                <col width="1">
+                                <col>
+                                <col width="1">
+                                <col width="1">
+                                <col width="1">
+                                <col width="1">
+                                <col width="1">
+                            </colgroup>
+                            <thead>
+                            <tr class="first last">
+                                <th rowspan="1"> </th>
+                                <th rowspan="1 ">
+                                    <span class="nobr">Название</span>
+                                </th>
+                                <th rowspan="1"></th>
+                                <th class="a-center" colspan="1">
+                                    <span class="nobr">Цена</span>
+                                </th>
+                                <th class="a-center" rowspan="1">Количество</th>
+                                <th class="a-center" colspan="1">Итого</th>
+                                <th class="a-center" rowspan="1"> </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {% for product in products %}
+                                <tr class="first odd">
+                                    <td class="prod-cart">
+                                    <a class="product-image fancybox" title="{{ product.title }}" href="{{ vich_uploader_asset(product, 'iconImage') }}">
+                                        <img width="84" height="84" alt="{{ product.title }}" src="{{ vich_uploader_asset(product, 'iconImage') }}">
+                                    </a>
+                                    </td>
+                                    <td>
+                                        <h2 class="product-name">
+                                            <a href="{{ path('product', {'translit':product.translit}) }}">
+                                                {{ product.title }}
+                                            </a>
+                                        </h2>
+                                    </td>
+                                    <td class="a-center edit">
+                                        <a title="Edit item parameters" id="product_cart_{{ product.id }}"  href="{{ path('main_site_cart_add', {'id':product.id, 'amount': 3}) }}">
+                                            Edit
+                                        </a>
+                                    </td>
+                                    <td class="a-right">
+                                        <span class="cart-price">
+                                            <span class="price">{{ cart[product.id].price }} грн.</span>
+                                        </span>
+                                    </td>
+                                    <td class="a-center">
+                                        <input class="input-text" rel="{{ product.id }}" onkeyup ="Amount($(this))" maxlength="12" title="Qty" size="4" value="{{ cart[product.id].amount }}" name="cart_{{ product.id }}">
+                                    </td>
+                                    <td class="a-right">
+                                        <span class="cart-price">
+                                            <span class="price">{{ cart[product.id].price*cart[product.id].amount|number_format(2, '.', ',') }} грн.</span>
+                                        </span>
+                                    </td>
+                                    <td class="a-center last">
+                                        <a class="btn-remove btn-remove2" title="Remove item" href="{{ path('main_site_cart_remove', {'id':product.id}) }}">
+                                            Удалить
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                            <tfoot>
+                            <tr class="first last">
+                            <td class="a-right last" colspan="50">
+                                <a href="{{path('main_site_cart_clear')}}">
+                                <button id="empty_cart_button" class="button btn-empty" title="Очистить корзину" value="empty_cart" name="update_cart_action" type="button">
+                                    <span>
+                                        <span>
+                                        Очистить корзину
+                                        </span>
+                                    </span>
+                                </button>
+                                </a>
+                            </td>
+                            </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </fieldset>
+            </form>
+            <div class="cart-collaterals">
+                <div class="totals">
+                    <table id="shopping-cart-totals-table">
+                    <colgroup>
+                        <col>
+                        <col width="1">
+                    </colgroup>
+                    <tfoot>
+                        <tr>
+                        <td class="a-right" colspan="1" style="">
+                             <strong>Общая</strong>
+                        </td>
+                        <td class="a-right" style="">
+                            <strong>
+                                <span class="price">{{ total_price|number_format(2, '.', ',') }} грн.</span>
+                            </strong>
+                        </td>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                    <tr>
+                    <td class="a-right" colspan="1" style=""> Итого </td>
+                    <td class="a-right" style="">
+                        <span class="price">{{ total_price|number_format(2, '.', ',') }} грн.</span>
+                    </td>
+                    </tr>
+                    </tbody>
+                    </table>
+             
+            {% if auth==1 %}
+                    <ul class="checkout-types">
+                        <li>
+                            <a href="{{ path('main_site_cart_accept') }}">
+                            <button class="button btn-proceed-checkout btn-checkout" 
+                                    title="Продолжить заказ" type="button">
+                                <span>
+                                    <span>Подтвердить заказ</span>
+                                </span>
+                            </button>
+                            </a>
+                        </li>
+                    <li>
+                    <a title="Продолжить заказ" href="{{ path('main_site_cart_accept') }}">
+                        Подтвердить заказ
+                    </a>
+                    </li>
+                    </ul>
+                  {% else %}
+                      <ul class="checkout-types">
+                        <li>
+                            <a href="{{ path('registration') }}">
+                            <button class="button btn-proceed-checkout btn-checkout" 
+                                    title="Продолжить заказ" type="button">
+                                <span>
+                                    <span>Зарегестрируйтесь</span>
+                                </span>
+                            </button>
+                            </a>
+                        </li>
+                      </ul>
+                       
+            {% endif %}
+                </div>
+            </div>
+            {% else %}
+                <div class="box-collateral box-up-sell ">
+                    <h2>Ваша корзина пуста!</h2>
+                </div> 
+            {% endif %}
+    </div>
+    </div>
+{% endblock %}

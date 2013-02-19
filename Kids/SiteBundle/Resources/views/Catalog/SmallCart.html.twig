@@ -1,0 +1,85 @@
+
+
+
+<div class="side-panel">
+        <span class="num">{{ col }}</span>
+        <div class="total-wrap">
+                <strong class="name">Корзина</strong>
+                <span class="total">Всего: {{ sum }}</span>
+        </div>
+        <ul class="menu">
+                <li>
+                    {% if user!='' %}
+                        <a class="opener-account" href="#">
+                            <img width="14" height="15" alt="" src="/bundles/kidssite/images/ico01.png">
+                            аккаунт
+                        </a>
+                    {% else %}
+                    <a class="opener-login" href="#"><img src="/bundles/kidssite/images/ico01.png" width="14" height="15" alt="" />Вход</a>
+                    {% endif %}
+                </li>
+                <li><a href="{{ path('cart') }}"><img src="/bundles/kidssite/images/ico02.png" width="17" height="13" alt="" />Корзина</a></li>
+                <li><a class="opener-view" href="#"><img src="/bundles/kidssite/images/ico03.png" width="12" height="14" alt="" />view</a></li>
+        </ul>
+                    {% if user!='' %}
+                        <em class="register-row">
+                            Привет:
+                            <a href="{{ path('usercabinet') }}">{{ user.fio }}</a>
+                        </em>
+                    {% else %}
+                     <em class="register-row">Новый пользователь? <a class="opener-register" href="{{ path('registration') }}">Регистрация.</a></em>
+                    {% endif %}
+        <ul class="account-drop">
+                <li><a href="{{ path('cart') }}">Bobi корзина</a></li>
+                <li><a href="{{ path('usercabinet') }}">Личный кабинет</a></li>
+                <li><a href="#">Wishlist</a></li>
+                <li><a href="#">Orders</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="/logout?_target_path=/index">Выход</a></li>
+        </ul>
+</div>
+  
+<div class="min-basket">
+        <header><span>Bobi bag...</span></header>
+        <table>
+                <tr>
+                        <td><div class="visual"><img src="/bundles/kidssite/images/img03.png" width="46" height="46" alt="image description" /></div></td>
+                        <td>
+                                <div class="name">Apple iPad</div>
+                                <div>32 GB with WiFi</div>
+                                <div>2 x P 199.00</div>
+                        </td>
+                        <td><a class="del" href="#">del</a></td>
+                        <td>
+                                <div class="price">P 5999.00</div>
+                        </td>
+                </tr>
+                <tr>
+                        <td><div class="visual"><img src="/bundles/kidssite/images/img03.png" width="46" height="46" alt="image description" /></div></td>
+                        <td>
+                                <div class="name">Apple iMac 27”</div>
+                                <div>2 x P 1989.00</div>
+                        </td>
+                        <td><a class="del" href="#">del</a></td>
+                        <td>
+                                <div class="price">P 599.00</div>
+                        </td>
+                </tr>
+                <tr>
+                        <td><div class="visual"><img src="/bundles/kidssite/images/img03.png" width="46" height="46" alt="image description" /></div></td>
+                        <td>
+                                <div class="name">iPhone 4 Black</div>
+                                <div>32 GB WiFi</div>
+                                <div>2 x P 199.00</div>
+                        </td>
+                        <td><a class="del" href="#">del</a></td>
+                        <td>
+                                <div class="price">P 199.00</div>
+                        </td>
+                </tr>
+        </table>
+        <footer>
+                <span class="total">Total : <span>P 2,797.00</span></span>
+                <a class="btn" href="#">Checkout</a>
+        </footer>
+</div>

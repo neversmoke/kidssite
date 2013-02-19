@@ -1,0 +1,7 @@
+{% if entities|length > 0%}
+<ul class="img-five-columns">
+    {% for entity in entities %}
+        <li><a href="#"><img src="{{ vich_uploader_asset(entity, 'iconImage') }}" width="111" height="60" alt="" /></a></li>
+    {% endfor %}
+</ul>
+{% endif %}

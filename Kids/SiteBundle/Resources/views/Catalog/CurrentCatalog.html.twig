@@ -1,0 +1,117 @@
+{% extends 'LegoSiteBundle::layout.html.twig' %} 
+{% block body %}
+<div class="col-main">
+<div class="page-title category-title">
+        <h1>{{ entity.title }}</h1>
+</div>
+        
+   <div class="toolbar">
+  
+        <div class="sorter">
+          <div class="limiter jqtransformdone" style="float:left">
+            <label style="cursor: pointer;">Показать:</label>
+           <div style="z-index: 10; width: 40px;" class="jqTransformSelectWrapper filter_limit">
+               <div>
+                   <span style="width: 6px;">
+                    10                
+                   </span>
+                       <strong class="jqTransformSelectOpen filter_limit_open"></strong>
+               </div>
+                   <ul style="width: 38px; display: none; visibility: visible;">
+                       <li>
+                           <a href="{{ path('catalog', { 'translit': entity.translit,'sort': sort, 'coulonpage':'5' }) }}" index="0">
+                             5                
+                           </a>
+                       </li>
+                       <li>
+                           <a class="selected" href="{{ path('catalog', { 'translit': entity.translit,'sort': sort, 'coulonpage':'10' }) }}" index="1">
+                             10                
+                           </a>
+                       </li>
+                       <li>
+                           <a href="{{ path('catalog', { 'translit': entity.translit,'sort': sort, 'coulonpage':'15' }) }}" index="2">
+                             15       
+                           </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('catalog', { 'translit': entity.translit,'sort': sort, 'coulonpage':'20' }) }}" index="3">
+                                20        
+                            </a>
+                         </li>
+                      </ul>
+            </div> 
+       </div>    
+        <div class="sort-by jqtransformdone">
+            <label style="cursor: pointer;">Сортировать по</label>
+            <div style="z-index: 10; width: 100px;" class="jqTransformSelectWrapper filter_sort">
+                    <div>
+                        <span style="width: 6px;">
+                            Позиции                
+                        </span>
+                        <strong class="jqTransformSelectOpen filter_sort_open"></strong>
+                    </div>
+                    <ul style="width: 98px; display: none; visibility: visible;">
+                        <li>
+                            <a class="selected" href="{{ path('catalog', { 'translit': entity.translit, 'sort':'kod' }) }}" index="0">
+                                Позиции               
+                            </a>
+                         </li>
+                         <li>
+                             <a href="{{ path('catalog', { 'translit': entity.translit, 'sort':'title' }) }}" index="1">
+                                 Имени        
+                             </a>
+                         </li>
+                         <li>
+                             <a href="{{ path('catalog', { 'translit': entity.translit, 'sort':'price' }) }}" index="2">
+                                 Цене    
+                             </a>
+                        </li>
+                    </ul>
+                    
+                </div>
+                     </div>
+    </div>
+    </div>        
+        
+        <ol id="products-list" class="products-list">
+            {% for product in entities %}
+            <li class="item odd">
+                <div class="list-inner">
+                    <a class="product-image" title="" href="{{ path('product', { 'translit': product.translit }) }}">
+                    <img class="pr-img" width="170" height="170" alt="Alex Art Box - Wooden Art Center with Assorted Media" src="{{ vich_uploader_asset(product, 'iconImage') }}" />
+                    </a>
+                </div>
+                    
+                    
+           <div class="product-shop">
+            <div class="f-fix">
+             <h2 class="product-name"><a href="{{ path('product', { 'translit': product.translit }) }}">
+                     {{ product.title }}
+                 </a></h2>
+              <div class="desc std">
+                {{ product.description|raw() }}
+              </div>
+              <div class="wrapper">   
+                    <div class="price-box">
+                        <span id="product-price-14" class="regular-price">
+                              <span class="price">{{ product.price }} грн.</span>
+                        </span>
+                    </div>
+              </div>
+               <div class="row-list">
+                   <p class="list-btn">
+                     <a href="{{path('main_site_cart_add', {'id':product.id, 'amount': 1})}}">
+                      <button class="button btn-cart" title="Add to Cart" type="button"><span><span>В корзину</span></span></button>
+                     </a>
+                    </p>
+                </div>
+              </div>
+        </div>
+            </li>
+            {% endfor %}
+        </ol>
+        <div class="navigation" class = 'float_left'>
+            {{ knp_pagination_render(entities) | raw }}
+        </div>
+</div>
+{% endblock %}

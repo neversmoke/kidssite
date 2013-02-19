@@ -1,0 +1,6 @@
+<select class="select-search">
+    <option title="title"></option>
+    {% for entity in entities %}
+                <option value="{{ entity.id }}">{{ entity.title }}</option>
+    {% endfor %}
+</select>
