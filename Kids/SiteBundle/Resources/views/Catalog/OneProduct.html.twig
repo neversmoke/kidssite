@@ -6,8 +6,9 @@
                                                 {% if entity.ratio!='' %}
                                                     <span class="discount">{{ entity.ratio }}%</span>
                                                 {% endif %}
+                                                    {% if entity.icon is not empty %}
                                                     <img src="{{ vich_uploader_asset(entity, 'iconImage') }}" width="370" height="270" alt="" /></div>
-						
+                                                    {% endif %}
                                              {% if images|length > 0 %}
                                                 <div class="min-gallery">
 							<a class="prev" href="#">prev</a>

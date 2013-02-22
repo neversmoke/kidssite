@@ -1,0 +1,129 @@
+{% extends 'KidsSiteBundle::layout.html.twig' %}
+{% block title %}
+    <title>Предпросмотр</title>
+{% endblock %}
+{% block body %}
+<ul class="inner-nav">
+        <li><a href="#">Bobi Bag</a></li>
+        <li><a class="account" href="#">Account</a></li>
+        <li><a href="#">Wishlist</a></li>
+        <li><a href="#">Orders</a></li>
+        <li><a href="#">Reviews</a></li>
+        <li><a href="#">Settings</a></li>
+</ul>
+
+<div class="dividing-line">&nbsp;</div>
+<div class="progress-wrapper">
+    <form action="{{ path('user_add_session') }}" method="post" class="order-form valera">
+        <input type="hidden" id="session_arr" name="session_arr"/>
+        <input type="hidden" id="send" name="send" value='payment_method'/>
+    </form> 
+        <h1>Заказ</h1>
+        <ul class="progress step4">
+                <li class="col1">1. Куда доставить?</li>
+                <li class="col2">2. Метод доставки</li>
+                <li class="col3">3. Метод оплаты</li>
+                <li class="col4">4. Просмотр заказа</li>
+        </ul>
+</div>
+<div class="one-box">
+                <h3 class="title-box">Предпросмотр заказа</h3>
+                <form action="#" class="review-wrap">
+                        <div class="table-wrap">
+                                <table class="table">
+                                        <tr>
+                                                <th class="col1">No.</th>
+                                                <th>Название</th>
+                                                <th class="col2 center">Количество</th>
+                                                <th class="col3">Цена</th>
+                                        </tr>
+                                       {% for item in cart %}
+                                        {% set class %}
+                                            {% if loop.index % 2 == 1 %}
+                                                   even
+                                                   {% else %}
+                                            {% endif %}
+                                        {% endset %}
+                                        <tr class="{{ class }}">
+                                                <td>{{ loop.index }}</td>
+                                                <td>{{ item.title }}</td>
+                                                <td class="center">{{ item.amount }}</td>
+                                                <td>{{ item.price }} P</td>
+                                        </tr>
+                                       {% endfor %}
+                                </table>
+                        </div>
+                        <div class="bottom-row">
+                                <div class="total-col">
+                                        <table>
+                                                <tr>
+                                                        <td>Итого:</td>
+                                                        <td>P {{ total_price|number_format(2, '.', ',') }}</td>
+                                                </tr>
+                                                <tr>
+                                                        <td>Доставка</td>
+                                                        <td>+ P {{ ship_meth.price|number_format(2, '.', ',') }}</td>
+                                                </tr>
+                                                <tr>
+                                                        <td>Всего</td>
+                                                        <td>P {{ (total_price+ship_meth.price)|number_format(2, '.', ',') }}</td>
+                                                </tr>
+                                        </table>
+                                        <a href="{{ path('checkout_method') }}" >
+                                            <span class="big-purple-btn">
+                                                <span>Заказать</span>
+                                            </span>
+                                        </a>
+                                </div>
+                                <div class="address-wrap">
+                                        <div class="holder">
+                                                <div class="col">
+                                                        <header>Фактический адресс</header>
+                                                        <ul class="list">
+                                                                <li>{{ bill.fio }}</li>
+                                                                <li>{{ bill.street }}, 
+                                                                    {% if bill.h_num is defined %}
+                                                                        {{ bill.h_num }}
+                                                                        {% else %}
+                                                                        {{ bill.hnum }}
+                                                                    {% endif %}
+                                                                </li>
+                                                                <li>{{ bill.city }}</li>
+                                                                <li>{{ bill.postcode }}</li>
+                                                                <li>{{ bill.state }}</li>
+                                                        </ul>
+                                                </div>
+                                                <div class="col">
+                                                        <header>Адресс доставки</header>
+                                                        <ul class="list">
+                                                                <li>{{ ship.fio }}</li>
+                                                                <li>{{ ship.street }},
+                                                                    {% if ship.h_num is defined %}
+                                                                        {{ ship.h_num }}
+                                                                        {% else %}
+                                                                        {{ ship.hnum }}
+                                                                    {% endif %}
+                                                                </li>
+                                                                <li>{{ ship.city }}</li>
+                                                                <li>{{ ship.postcode }}</li>
+                                                                <li>{{ ship.state }}</li>
+                                                        </ul>
+                                                </div>
+                                        </div>
+                                        <div class="payment-method">
+                                                <header>Метод оплаты</header>
+                                                <div class="row">
+                                                        <label>
+                                                            <input type="radio" name="group-03" class="radio" checked="checked" />
+                                                            {% if pay.icon is not empty %}
+                                                                <img style="margin:6px 0 0 7px;" src="{{ vich_uploader_asset(pay, 'iconImage') }}" width="27" height="20" alt="" />
+                                                            {% endif %}
+                                                            <strong>{{ pay.company }}</strong>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </form>
+        </div>
+{% endblock %}

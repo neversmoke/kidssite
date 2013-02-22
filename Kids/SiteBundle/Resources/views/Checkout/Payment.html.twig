@@ -1,0 +1,149 @@
+{% extends 'KidsSiteBundle::layout.html.twig' %}
+{% block title %}
+    <title>Платеж</title>
+{% endblock %}
+{% block body %}
+<ul class="inner-nav">
+        <li><a href="#">Bobi Bag</a></li>
+        <li><a class="account" href="#">Account</a></li>
+        <li><a href="#">Wishlist</a></li>
+        <li><a href="#">Orders</a></li>
+        <li><a href="#">Reviews</a></li>
+        <li><a href="#">Settings</a></li>
+</ul>
+       <script>
+           function setSession(){
+               var array =  {};
+               array['payment_meth']={};
+                   array['payment_meth']['id_meth']=$('.ui-radio-checked input').val();
+                var json = JSON.stringify(array);
+              $('#session_arr').val(json); 
+              $('.valera').submit();
+            }
+    </script>
+<div class="dividing-line">&nbsp;</div>
+<div class="progress-wrapper">
+    <form action="{{ path('user_add_session') }}" method="post" class="order-form valera">
+        <input type="hidden" id="session_arr" name="session_arr"/>
+        <input type="hidden" id="send" name="send" value='review'/>
+    </form> 
+                    <a class="big-purple-btn" href="#" onclick='setSession()'>
+                        <span>Продолжить...</span>
+                    </a>
+        <h1>Заказ</h1>
+        <ul class="progress step3">
+                <li class="col1">1. Куда доставить?</li>
+                <li class="col2">2. Метод доставки</li>
+                <li class="col3">3. Метод оплаты</li>
+                <li class="col4">4. Просмотр заказа</li>
+        </ul>
+</div>
+				<div class="two-box">
+					<div class="col">
+						<h3 class="title-box">Метод оплаты</h3>
+						<h4>Выберите метод оплаты:</h4>
+						<form action="#" class="pay-list">
+							<fieldset>
+                                                            {% for entity in entities %}
+								<div class="wrap">
+									<label>
+                                                                            <input type="radio" value="{{ entity.id }}" name="group-02" class="radio" checked="checked" />
+                                                                             {% if entity.icon is not empty %}
+                                                                                <img style="margin:6px 0 0 7px;" src="{{ vich_uploader_asset(entity, 'iconImage') }}" width="27" height="20" alt="" />
+                                                                            {% endif %}
+                                                                            <strong>{{ entity.company }}</strong>
+                                                                        </label>
+								</div>
+                                                            {% endfor %}
+							</fieldset>
+						</form>
+					</div>
+					<div class="col">
+						<div class="disabled-wrap">&nbsp;</div>
+						<h3 class="title-box">Информация о оплате</h3>
+						<h4>Краткая информация: </h4>
+						<form action="#" class="order-form top-indent">
+							<fieldset>
+                                                            Some info
+								{#<div class="select-row">
+									<select>
+										<option title="title">address</option>
+										<option value="1">Ladislava Bohacova, Byt 3A, Na Vytoni 8/2035</option>
+										<option value="2">Ladislava Bohacova2, Byt 3A, Na Vytoni 8/2035</option>
+										<option value="3">Ladislava Bohacova3, Byt 3A, Na Vytoni 8/2035</option>
+										<option value="4">Ladislava Bohacova4, Byt 3A, Na Vytoni 8/2035</option>
+									</select>
+								</div>
+								<div class="details-wrap">
+									<div class="row">
+										<label>Card Type</label>
+										<div class="holder">
+											<select class="type-card">
+												<option title="title">&nbsp;</option>
+												<option value="1">type01</option>
+												<option value="2">type02</option>
+												<option value="3">type03</option>
+												<option value="4">type04</option>
+											</select>
+										</div>
+									</div>
+									<div class="row">
+										<label>Card Number</label>
+										<div class="holder">
+											<label class="input-wrap"><input type="text" /></label>
+										</div>
+									</div>
+									<div class="row">
+										<label>Name on Card</label>
+										<div class="holder">
+											<label class="input-wrap"><input type="text" /></label>
+										</div>
+									</div>
+									<div class="row">
+										<label>Expiry Date</label>
+										<div class="holder">
+											<select class="date">
+												<option title="title">&nbsp;</option>
+												<option value="1">01</option>
+												<option value="2">02</option>
+												<option value="3">03</option>
+												<option value="4">04</option>
+												<option value="5">05</option>
+												<option value="6">06</option>
+												<option value="7">07</option>
+												<option value="8">08</option>
+											</select>
+											<select class="date">
+												<option title="title">&nbsp;</option>
+												<option value="1">01</option>
+												<option value="2">02</option>
+												<option value="3">03</option>
+												<option value="4">04</option>
+												<option value="5">05</option>
+												<option value="6">06</option>
+												<option value="7">07</option>
+												<option value="8">08</option>
+											</select>
+										</div>
+									</div>
+									<div class="row">
+										<label>Security Code</label>
+										<div class="holder">
+											<div class="code-wrap">
+												<label class="input-wrap"><input type="text" /></label>
+												<a class="card-help" href="#"><em>where can I find this?</em></a>
+											</div>
+											<span class="card-img"><img src="images/ico16.gif" width="55" height="43" alt="image description" /></span>
+										</div>
+									</div>
+								</div>
+								<label class="ch"><input type="checkbox" class="checkbox" checked="checked" />Check this box if you would like to save your address details so you don’t need to type them again next time.</label>
+								<div class="btn-row">
+									<span class="blue-btn"><span>Save Details</span><input type="submit" value="Save Details" title="Save Details" /></span>
+								</div>#}
+							</fieldset>
+						</form>
+					</div>
+				</div>
+
+{% endblock %}

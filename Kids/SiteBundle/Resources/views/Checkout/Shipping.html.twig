@@ -1,0 +1,79 @@
+{% extends 'KidsSiteBundle::layout.html.twig' %}
+{% block title %}
+    <title>Доставка</title>
+{% endblock %}
+{% block body %}
+<ul class="inner-nav">
+        <li><a href="#">Bobi Bag</a></li>
+        <li><a class="account" href="#">Account</a></li>
+        <li><a href="#">Wishlist</a></li>
+        <li><a href="#">Orders</a></li>
+        <li><a href="#">Reviews</a></li>
+        <li><a href="#">Settings</a></li>
+</ul>
+       <script>
+           function setSession(){
+               var array =  {};
+               array['shipp_meth']={};
+                   array['shipp_meth']['id_meth']=$('.ui-radio-checked input').val();
+                   
+                   array['shipp_meth']['inform']=$('#textfield').val();
+                var json = JSON.stringify(array);
+              $('#session_arr').val(json); 
+              $('.valera').submit();
+            }
+    </script>
+<div class="dividing-line">&nbsp;</div>
+<div class="progress-wrapper">
+    <form action="{{ path('user_add_session') }}" method="post" class="order-form valera">
+        <input type="hidden" id="session_arr" name="session_arr"/>
+        <input type="hidden" id="send" name="send" value='payment_method'/>
+    </form> 
+                    <a class="big-purple-btn" href="#" onclick='setSession()'>
+                        <span>Продолжить...</span>
+                    </a>
+        <h1>Заказ</h1>
+        <ul class="progress step2">
+                <li class="col1">1. Куда доставить?</li>
+                <li class="col2">2. Метод доставки</li>
+                <li class="col3">3. Метод оплаты</li>
+                <li class="col4">4. Просмотр заказа</li>
+        </ul>
+</div>
+<div class="one-box">
+        <h3 class="title-box">Метод доставки</h3>
+        <form action="#" class="delivery-form">
+                <fieldset>
+                        <div class="col">
+                                <h4>Выберите метод доставки:</h4>
+                                <ul class="delivery-list">
+                                    {% for entity in entities %}
+                                        <li>
+                                                <label>
+                                                        <span class="wrap">
+                                                            
+                                                                <input type="radio" value="{{ entity.id }}" class="radio ui-helper-hidden-accessible"  name="group-01"/>
+                                                                <strong>{{ entity.price }}</strong>
+                                                                
+                                                        </span>
+                                                        <span class="ico">
+                                                            {% if entity.icon is not empty %}
+                                                                 <img style="margin:6px 0 0 7px;" src="{{ vich_uploader_asset(entity, 'iconImage') }}" width="27" height="20" alt="" />
+                                                            {% endif %}
+                                                        </span>
+                                                        <span class="text">
+                                                                <strong>{{ entity.title }}</strong><br />{{ entity.content }}
+                                                        </span>
+                                                </label>
+                                        </li>
+                                     {% endfor %}
+                                </ul>
+                        </div>
+                        <div class="col">
+                                <h4>Special Instructions:</h4>
+                                <label class="textarea-wrap"><textarea cols="30" rows="5" id="textfield"></textarea></label>
+                        </div>
+                </fieldset>
+        </form>
+</div>
+{% endblock %}

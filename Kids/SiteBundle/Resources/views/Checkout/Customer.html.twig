@@ -1,0 +1,189 @@
+{% extends 'KidsSiteBundle::layout.html.twig' %}
+{% block title %}
+    <title>Информация о доставке</title>
+{% endblock %}
+{% block body %}
+<ul class="inner-nav">
+        <li><a href="#">Bobi Bag</a></li>
+        <li><a class="account" href="#">Account</a></li>
+        <li><a href="#">Wishlist</a></li>
+        <li><a href="#">Orders</a></li>
+        <li><a href="#">Reviews</a></li>
+        <li><a href="#">Settings</a></li>
+</ul>
+<div class="dividing-line">&nbsp;</div>
+<div class="progress-wrapper">
+       <script>
+           function setSession(){
+               array={}
+               array['bill']={};
+               array['ship']={};
+               var bill = $('#bill_addr .ui-selectmenu-status').html()
+               var ship = $('#ship_addr .ui-selectmenu-status').html()
+               if(bill!='Адресса'){
+                   $('#bill_addr select option').each(function(){
+                       if(bill==$(this).html())
+                           array['bill']['id']=$(this).val();
+                    })
+               }
+               else{
+                $("#bill_addr input[type='text'], #bill_addr input[type='number'] ").each(function(){
+                   array['bill'][$(this).attr('id')]=$(this).val();
+                });
+                }
+                 if(ship!='Адресса'){
+                   $('#ship_addr  select option').each(function(){
+                       if(ship==$(this).html())
+                           array['ship']['id']=$(this).val();
+                    })
+               }
+               else{
+                $("#ship_addr  input[type='text'], #ship_addr input[type='number']").each(function(index){
+                    array['ship'][$(this).attr('id')]=$(this).val();
+                });
+                }
+                var json = JSON.stringify(array);
+                
+                
+              $('#session_arr').val(json);  
+              $('.valera').submit();
+            }
+    </script>
+    <form action="{{ path('user_add_session') }}" method="post" class="order-form valera">
+        <input type="hidden" id="session_arr" name="session_arr"/>
+        <input type="hidden" id="send" name="send" value='shipp_method'/>
+    </form>  
+                       
+                    <a class="big-purple-btn" href="#" onclick='setSession()'>
+                        <span>Продолжить...</span>
+                    </a>
+        <h1>Заказ</h1>
+        <ul class="progress step1">
+                <li class="col1">1. Куда доставить?</li>
+                <li class="col2">2. Метод доставки</li>
+                <li class="col3">3. Метод оплаты</li>
+                <li class="col4">4. Просмотр заказа</li>
+        </ul>
+</div>
+<div class="two-box">
+        <div class="col">
+                <h3 class="title-box">Адресс регистрации</h3>
+                <form action="{{ path('user_addr_create_site') }}" method="post" id="bill_addr"  {{ form_enctype(form) }}  class="order-form bill_addr">
+                    <input type="hidden" name="types" value="reg"/>
+                        <fieldset>
+                               <h4>Книга адрессов: </h4>
+                                <div class="select-row">
+                                        <select>
+                                                <option title="title">Адресса</option>
+                                                {% for value in address %}
+                                                    <option value="{{ value.id }}">{{ value.city  }} {{ value.street  }} {{ value.hnum }}</option>
+                                                {% endfor %}
+                                        </select>
+                                </div>
+                                <div class="row">
+                                        <label>Полное имя</label>
+                                        <div class="holder">
+                                                <label class="input-wrap">{{ form_widget(form.fio) }}</label>
+                                        </div>
+                                </div>
+                                <div class="row">
+                                        <label>Дом номер</label>
+                                        <div class="holder">
+                                                <label class="input-wrap">{{ form_widget(form.h_num) }}</label>
+                                        </div>
+                                </div>
+                                <div class="row">
+                                        <label>Улица</label>
+                                        <div class="holder">
+                                                <label class="input-wrap">{{ form_widget(form.street) }}</label>
+                                        </div>
+                                </div>
+                                <div class="wrap-row">
+                                        <div class="row">
+                                                <label>Город</label>
+                                                <div class="holder">
+                                                        <label class="input-wrap">{{ form_widget(form.city) }}</label>
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                                <label>Почтовый индекс</label>
+                                                <div class="holder">
+                                                        <label class="input-wrap">{{ form_widget(form.postcode) }}</label>
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                                <label>Регион</label>
+                                                <div class="holder">
+                                                        <label class="input-wrap">{{ form_widget(form.state) }}</label>
+                                                </div>
+                                        </div>
+                                </div>
+                                {{ form_widget(form._token) }}
+                                 <div class="btn-row">
+                                        <span class="blue-btn"><span>Сохранить</span><input type="submit" value="Save Address" title="Save Address" /></span>
+                                </div>
+                        </fieldset>
+                </form>
+        </div>
+        <div class="col">
+                <h3 class="title-box">Адресс доставки</h3>
+                 <form action="{{ path('user_addr_create_site') }}" method="post" id="ship_addr"  {{ form_enctype(form1) }}  class="order-form ship_addr">
+                     <input type="hidden" name="types" value="ship"/>
+                        <fieldset>
+                                <h4>Книга адрессов: </h4>
+                                <div class="select-row">
+                                        <select>
+                                                <option title="title">Адресса</option>
+                                                {% for value in address %}
+                                                    <option value="{{ value.id }}">{{ value.city  }} {{ value.street  }} {{ value.hnum }}</option>
+                                                {% endfor %}
+                                        </select>
+                                </div>
+                                <div class="row">
+                                        <label>Полное имя</label>
+                                        <div class="holder">
+                                                <label class="input-wrap">{{ form_widget(form1.fio) }}</label>
+                                        </div>
+                                </div>
+                                <div class="row">
+                                        <label>Дом номер</label>
+                                        <div class="holder">
+                                                <label class="input-wrap">{{ form_widget(form1.h_num) }}</label>
+                                        </div>
+                                </div>
+                                <div class="row">
+                                        <label>Улица</label>
+                                        <div class="holder">
+                                                <label class="input-wrap">{{ form_widget(form1.street) }}</label>
+                                        </div>
+                                </div>
+                                <div class="wrap-row">
+                                        <div class="row">
+                                                <label>Город</label>
+                                                <div class="holder">
+                                                        <label class="input-wrap">{{ form_widget(form1.city) }}</label>
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                                <label>Почтовый индекс</label>
+                                                <div class="holder">
+                                                        <label class="input-wrap">{{ form_widget(form1.postcode) }}</label>
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                                <label>Регион</label>
+                                                <div class="holder">
+                                                        <label class="input-wrap">{{ form_widget(form1.state) }}</label>
+                                                </div>
+                                        </div>
+                                        
+                                {{ form_widget(form1._token) }}
+                                </div>
+                                 <div class="btn-row">
+                                        <span class="blue-btn"><span>Сохранить</span><input type="submit" value="Save Address" title="Save Address" /></span>
+                                </div>
+                        </fieldset>
+                </form>
+        </div>
+</div>
+{% endblock %}
