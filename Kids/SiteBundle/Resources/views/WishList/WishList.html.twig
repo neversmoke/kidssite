@@ -1,0 +1,75 @@
+{% extends 'KidsSiteBundle::layout.html.twig' %}
+{% block title %}
+    <title>Корзина</title>
+{% endblock %}
+{% block body %}
+<ul class="inner-nav">
+        <li><a href="{{ path('cart') }}">Корзина</a></li>
+        <li><a class="account" href="{{ path('usercabinet') }}">Аккаунт</a></li>
+        <li class="active"><a href="{{ path('wish_list') }}">Желания</a></li>
+        <li><a href="#">Заказы</a></li>
+        <li><a href="#">Просмотр</a></li>
+        <li><a href="#">Настройки</a></li>
+</ul>
+<div class="dividing-line">&nbsp;</div>
+<div class="heading-wrapper">
+        <h1>Мои желания</h1>
+        {#<a class="big-purple-btn" href="{{ path('customer') }}"><span>Заказать</span></a>#}
+</div>
+<form action="{{ path('update_wish_mass') }}" class="review-wrap basket-review" method="post">
+        <div class="table-wrap">
+                <table class="table">
+                        <tr>
+                                <th class="center" colspan="3">Название</th>
+                                <th class="col2 center"> </th>
+                                <th class="col3">Цена</th>
+                        </tr>
+                        {% for product in entities %}
+                                        {% set class %}
+                                            {% if loop.index % 2 == 1 %}
+                                                   even
+                                                   {% else %}
+                                            {% endif %}
+                                        {% endset %}
+                        <tr class="{{ class }}">
+                                <td>
+                                        <div class="item-wrap">
+                                                <div class="visual">
+                                                    {% if product.icon is not empty %}
+                                                        <img src="{{ vich_uploader_asset(product, 'iconImage') }}" width="46" height="46" alt="" />
+                                                    {% endif %}
+                                                </div>
+                                                <div class="text">
+                                                        <strong>{{ product.title }}</strong>
+                                                </div>
+                                        </div>
+                                </td>
+                                <td><a class="add-bag" href="{{path('main_site_cart_add', {'id':product.id, 'amount': 1})}}">В корзину</a></td>
+                                <td><a class="del" href="{{ path('wish_remove_one', {'id': product.id}) }}">Удалить</a></td>
+                                <td>
+                                        {#<div class="up-down">
+                                                <input type="text" name="{{ product.id }}" value="1" />
+                                                <a class="up" href="#">up</a>
+                                                <a class="down" href="#">down</a>
+                                        </div>#}
+                                </td>
+                                <td><strong>P {{ product.price }}</strong></td>
+                        </tr>
+                        {% endfor %}
+                        <tr class="total-row">
+                                <td>
+                                   {#<a class="update-table" href="#" onclick="$('.basket-review').submit()">Обновить список</a>#}
+                                </td>
+                                <td><a class="add-bag" href="{{ path('all_in_bag') }}">Всё в корзину</a></td>
+                                <td><a class="del" href="{{ path('wish_list_clear') }}">Очистить</a></td>
+                                <td class="center">
+                                        <span class="size14">Итого:</span>
+                                </td>
+                                <td><strong class="size14">{{ total_price|number_format(2, ',', '.') }}</strong></td>
+                        </tr>
+                </table>
+        </div>
+
+</form>
+<div class="dividing-line">&nbsp;</div>
+{% endblock %}

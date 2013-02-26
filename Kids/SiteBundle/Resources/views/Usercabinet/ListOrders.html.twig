@@ -1,0 +1,156 @@
+{% extends 'KidsSiteBundle::layout.html.twig' %}
+
+{% block title %}
+<title>Заказы</title>
+{% endblock %}
+
+{% block body %}
+<ul class="inner-nav">
+        <li><a href="{{ path('cart') }}">Корзина</a></li>
+        <li><a class="account" href="{{ path('usercabinet') }}">Аккаунт</a></li>
+        <li><a href="{{ path('wish_list') }}">Желания</a></li>
+        <li class="active"><a href="{{ path('user_orders') }}">Заказы</a></li>
+        <li><a href="#">Просмотр</a></li>
+        <li><a href="#">Настройки</a></li>
+</ul>
+<div class="dividing-line"></div>
+
+<div class="heading-wrapper">
+        <a class="big-purple-btn" href="{{ path('usercabinet') }}"><span>В личный кабинет</span></a>
+        <h1>Книга адресов</h1>
+        <div class="dividing-line"></div>
+</div>
+<div class="one-box">
+        <h3 class="title-box">Последние заказы</h3>
+        <div class="table-wrap">
+                <table class="table">
+                        <tr>
+                                <th class="center">Заказ No.</th>
+                                <th class="center">Дата</th>
+                                <th class="center">Информация</th>
+                                <th class="center">Сумма</th>
+                                <th class="center">Статус</th>
+                                <th class="center">Действие</th>
+                        </tr>
+                        {% for pd in pdorders %}
+                                    {% set class %}
+                                            {% if loop.index % 2 == 1 %}
+                                                   even
+                                                   {% else %}
+                                            {% endif %}
+                                        {% endset %}
+                        <tr class="{{ class }}">
+                                <td>{{ pd.id }}</td>
+                                <td>{{ pd.date|date("m.d.Y") }}</td>
+                                <td>{{ user.fio }}</td>
+                                <td class="center">{{ pd.summa1|number_format('2',',','.') }} P</td>
+                                <td><em>
+                                         {% if pd.status==1 %}
+                                            обработка
+                                         {% elseif pd.status==2 %}
+                                            отправлен
+                                         {% endif %}
+                                    </em>
+                                </td>
+                                <td>
+                                        <div class="set-wrap">
+                                                <a href="{{ path('user_orders', {'id':pd.id}) }}">Посмотреть</a>
+                                        </div>
+                                </td>
+                        </tr>
+                        {% endfor %}
+                </table>
+        </div>
+
+           <div class="table-page"><div class="page"> {{ knp_pagination_render(pdorders) | raw }}</div></div>
+</div>
+
+<div class="dividing-line">&nbsp;</div>
+{% if order is not empty %}
+<div class="one-box one-box-transparent">
+        <div class="num-order">
+                <h2><i>Номер: {{ order.id }}</i></h2>
+                <div class="col"><strong>Дата:</strong> {{ order.id|date("m.d.Y") }}</div>
+                <div class="col"><strong>Статус:</strong> 
+                                    <em>{% if order.status==1 %}
+                                            обработка
+                                         {% elseif order.status==2 %}
+                                            отправлен
+                                         {% endif %}
+                                    </em>
+                </div>
+                <div class="col-set"></div>
+        </div>
+        <form action="#" class="review-wrap">
+                <div class="table-wrap">
+                        <table class="table">
+                                <tr>
+                                        <th class="col1">Номер.</th>
+                                        <th>Название</th>
+                                        <th class="col2 center">Количество</th>
+                                        <th class="col3">Цена</th>
+                                </tr>
+                                {% for pdl in lines %}
+                                        {% set class %}
+                                            {% if loop.index % 2 == 1 %}
+                                                   even
+                                                   {% else %}
+                                            {% endif %}
+                                        {% endset %}
+                                <tr class="{{ class }}">
+                                        <td>{{ pdl.id }}</td>
+                                        <td>{{ product[pdl.id].title }}</td>
+                                        <td class="center">{{ pdl.summa2 }}</td>
+                                        <td>{{ pdl.summa1|number_format('2',',','.') }} P</td>
+                                </tr>
+                                {% endfor %}
+                        </table>
+                </div>
+                <div class="bottom-row">
+                        <div class="total-col">
+                                <table>
+                                        <tr>
+                                                <td>Итого</td>
+                                                <td>P {{ total_price|number_format('2',',','.') }}</td>
+                                        </tr>
+                                        {#<tr>
+                                                <td>Tax <br />(VAT 15%)</td>
+                                                <td>+ P 899.00</td>
+                                        </tr>
+                                        <tr>
+                                                <td>Discount <br />(10% off)</td>
+                                                <td>- P 899.00</td>
+                                        </tr>
+                                        <tr>
+                                                <td>Shipping</td>
+                                                <td>+ P 899.00</td>
+                                        </tr>
+                                        <tr>
+                                                <td>TOTAL</td>
+                                                <td>P 2,797.00</td>
+                                        </tr>#}
+                                </table>
+                        </div>
+                        <div class="address-wrap">
+                                <div class="holder">
+                                        <div class="col">
+                                                <header>Billing Address</header>
+                                                <ul class="list">
+                                                        {{ order.txt1|raw() }}
+                                                </ul>
+                                        </div>
+                                        <div class="col">
+                                                <header>Shipping Address</header>
+                                                <ul class="list">
+                                                        {{ order.txt2|raw() }}
+                                                </ul>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </form>
+</div>
+
+<div class="dividing-line">&nbsp;</div>
+{% endif %}
+{% endblock %}

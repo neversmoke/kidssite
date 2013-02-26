@@ -1,0 +1,34 @@
+{% extends 'KidsSiteBundle::layout.html.twig' %}
+{% block title %}
+    <title>Доставка</title>
+{% endblock %}
+{% block body %}
+<ul class="inner-nav">
+        <li><a href="{{ path('cart') }}">Корзина</a></li>
+        <li><a class="account" href="{{ path('usercabinet') }}">Аккаунт</a></li>
+        <li><a href="{{ path('wish_list') }}">Желания</a></li>
+        <li><a href="#">Заказы</a></li>
+        <li><a href="#">Просмотр</a></li>
+        <li><a href="#">Настройки</a></li>
+</ul>
+
+<div class="dividing-line">&nbsp;</div>
+				<div class="my-ticket">
+					<div class="ticket-wrap">
+						<h2>Успех!</h2>
+						<div class="num-holder">
+							Номер заказа: <strong>{{ id }}</strong><br />
+							{#Tracking Number: <strong>RUS456789</strong>#}
+						</div>
+						<div class="description">
+							<p>На ваш почтовый адрес был выслано письмо с заказом</p>
+							<p><br /></p>
+							<p>Проверяйте статус заказа<br /><a href="#"><strong>в личном кабинете</strong></a>. </p>
+						</div>
+						<div class="note">
+							<p><em>Спасибо что вы сделали выбор в нашем магазине.<br />Мы делаем всё для вас<br />Будем рады видеть вас снова!  : )</em></p>
+						</div>
+					</div>
+				</div>
+
+{% endblock %}

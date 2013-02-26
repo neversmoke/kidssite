@@ -1,0 +1,100 @@
+{% extends 'KidsSiteBundle::layout.html.twig' %}
+
+{% block right %}  
+{% endblock %}
+
+{% block body %}
+    <div class="account-create">
+        <div class="page-title">
+            <h1>Личный кабинет</h1>
+        </div>
+             {% if user!=""%}
+              
+            <form action="{{ path('update_usercab', {'id':user.id}) }}" method="post" {{ form_enctype(form) }}  id="form-validate">
+                <div class="fieldset">
+                    <h2 class="legend">Персональная информация</h2>
+                    <ul class="form-list">
+                        <li class="fields">
+                            <div class="customer-name">
+                                <div class="field name-firstname">
+                                    <label class="required" for="firstname">
+                                    <em>*</em>
+                                        Имя
+                                    </label>
+                                        <div class="input-box">
+                                            {{ form_widget(form['name']) }}
+                                        </div>
+                                </div>
+                                <div class="field name-lastname">
+                                    <label class="required" for="lastname">
+                                        <em>*</em>
+                                        Фамилия
+                                    </label>
+                                    <div class="input-box">
+                                        {{ form_widget(form['surname']) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="fields">
+                            <div class="customer-name">
+                                <div class="field name-firstname">
+                                    <label class="required" for="firstname">
+                                    <em>*</em>
+                                        Отчество
+                                    </label>
+                                        <div class="input-box">
+                                            {{ form_widget(form['patronymic']) }}
+                                        </div>
+                                </div>
+                                <div class="field name-lastname">
+                                    <label class="required" for="lastname">
+                                        <em>*</em>
+                                        Почта
+                                    </label>
+                                    <div class="input-box">
+                                        {{ form_widget(form['email']) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="fields">
+                            <div class="customer-name">
+                                <div class="field name-firstname">
+                                    <label class="required" for="firstname">
+                                    <em>*</em>
+                                        Телефон
+                                    </label>
+                                        <div class="input-box">
+                                            {{ form_widget(form['tel']) }}
+                                        </div>
+                                </div>
+                                <div class="field name-lastname">
+                                    <label class="required" for="lastname">
+                                        <em>*</em>
+                                        Адрес
+                                    </label>
+                                    <div class="input-box">
+                                        {{ form_widget(form['address']) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>    
+
+                    {{ form_row(form._token) }} 
+            </form>
+            
+            <div class="buttons-set">
+            <button class="button" title="Submit" type="submit" onclick="$('#form-validate').submit()">
+                    <span>
+                        <span>Обновить</span>
+                    </span>
+            </button>
+            </div>
+            {% endif %}
+    </div>
+
+
+{% endblock %}

@@ -32,54 +32,39 @@
         <ul class="account-drop">
                 <li><a href="{{ path('cart') }}">Bobi корзина</a></li>
                 <li><a href="{{ path('usercabinet') }}">Личный кабинет</a></li>
-                <li><a href="#">Wishlist</a></li>
-                <li><a href="#">Orders</a></li>
+                <li><a href="{{ path('wish_list') }}">Желания</a></li>
+                <li><a href="#">Заказы</a></li>
                 <li><a href="#">Reviews</a></li>
                 <li><a href="/logout?_target_path=/index">Выход</a></li>
         </ul>
 </div>
   
 <div class="min-basket">
-        <header><span>Bobi bag...</span></header>
+        <header><span>Корзина...</span></header>
         <table>
+            {% for product in products %}
                 <tr>
-                        <td><div class="visual"><img src="/bundles/kidssite/images/img03.png" width="46" height="46" alt="image description" /></div></td>
                         <td>
-                                <div class="name">Apple iPad</div>
-                                <div>32 GB with WiFi</div>
-                                <div>2 x P 199.00</div>
+                            <div class="visual">
+                                {% if product.icon is not empty %}
+                                    <img src="{{ vich_uploader_asset(product, 'iconImage') }}" width="46" height="46" alt="" />
+                                {% endif %}
+                            </div>
                         </td>
-                        <td><a class="del" href="#">del</a></td>
                         <td>
-                                <div class="price">P 5999.00</div>
+                                <div class="name">{{ product.title }}</div>
+                                <div></div>
+                                <div>{{ cart[product.id].amount }} x P {{ product.price }}</div>
+                        </td>
+                        <td><a class="del" href="{{ path('main_site_cart_remove', {'id': product.id}) }}">Удалить</a></td>
+                        <td>
+                                <div class="price">P {{ (product.price*cart[product.id].amount)|number_format(2, ',', '.') }}</div>
                         </td>
                 </tr>
-                <tr>
-                        <td><div class="visual"><img src="/bundles/kidssite/images/img03.png" width="46" height="46" alt="image description" /></div></td>
-                        <td>
-                                <div class="name">Apple iMac 27”</div>
-                                <div>2 x P 1989.00</div>
-                        </td>
-                        <td><a class="del" href="#">del</a></td>
-                        <td>
-                                <div class="price">P 599.00</div>
-                        </td>
-                </tr>
-                <tr>
-                        <td><div class="visual"><img src="/bundles/kidssite/images/img03.png" width="46" height="46" alt="image description" /></div></td>
-                        <td>
-                                <div class="name">iPhone 4 Black</div>
-                                <div>32 GB WiFi</div>
-                                <div>2 x P 199.00</div>
-                        </td>
-                        <td><a class="del" href="#">del</a></td>
-                        <td>
-                                <div class="price">P 199.00</div>
-                        </td>
-                </tr>
+            {% endfor %}
         </table>
         <footer>
-                <span class="total">Total : <span>P 2,797.00</span></span>
-                <a class="btn" href="#">Checkout</a>
+                <span class="total">Итого : <span>P {{ sum|number_format(2, ',', '.') }}</span></span>
+                <a class="btn" href="{{ path('customer') }}">Заказать</a>
         </footer>
 </div>

@@ -4,12 +4,12 @@
 {% endblock %}
 {% block body %}
 <ul class="inner-nav">
-        <li><a href="#">Bobi Bag</a></li>
-        <li><a class="account" href="#">Account</a></li>
-        <li><a href="#">Wishlist</a></li>
-        <li><a href="#">Orders</a></li>
-        <li><a href="#">Reviews</a></li>
-        <li><a href="#">Settings</a></li>
+        <li><a href="{{ path('cart') }}">Корзина</a></li>
+        <li><a class="account" href="{{ path('usercabinet') }}">Аккаунт</a></li>
+        <li><a href="{{ path('wish_list') }}">Желания</a></li>
+        <li><a href="#">Заказы</a></li>
+        <li><a href="#">Просмотр</a></li>
+        <li><a href="#">Настройки</a></li>
 </ul>
        <script>
            function setSession(){

@@ -1,0 +1,75 @@
+{% extends 'KidsSiteBundle::layout.html.twig' %}
+
+{% block title %}
+<title>Личные адреса</title>
+{% endblock %}
+
+{% block body %}
+<ul class="inner-nav">
+        <li><a href="{{ path('cart') }}">Корзина</a></li>
+        <li class="active"><a class="account" href="{{ path('usercabinet') }}">Аккаунт</a></li>
+        <li><a href="{{ path('wish_list') }}">Желания</a></li>
+        <li><a href="#">Заказы</a></li>
+        <li><a href="#">Просмотр</a></li>
+        <li><a href="#">Настройки</a></li>
+</ul>
+<div class="dividing-line"></div>
+
+<div class="heading-wrapper">
+        <a class="big-purple-btn" href="{{ path('usercabinet') }}"><span>В личный кабинет</span></a>
+        <h1>Книга адресов</h1>
+        <div class="dividing-line"></div>
+</div>
+<div class="two-box">
+<div class="col">
+        <h3 class="title-box">Адрес</h3>
+        <form action="{{ path('site_user_addr_create') }}" class="order-form">
+                <fieldset>
+                       <div class="row">
+                                        <label>Полное имя</label>
+                                        <div class="holder">
+                                                <label class="input-wrap">{{ form_widget(form.fio) }}</label>
+                                        </div>
+                                </div>
+                                <div class="row">
+                                        <label>Дом номер</label>
+                                        <div class="holder">
+                                                <label class="input-wrap">{{ form_widget(form.h_num) }}</label>
+                                        </div>
+                                </div>
+                                <div class="row">
+                                        <label>Улица</label>
+                                        <div class="holder">
+                                                <label class="input-wrap">{{ form_widget(form.street) }}</label>
+                                        </div>
+                                </div>
+                                <div class="wrap-row">
+                                        <div class="row">
+                                                <label>Город</label>
+                                                <div class="holder">
+                                                        <label class="input-wrap">{{ form_widget(form.city) }}</label>
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                                <label>Почтовый индекс</label>
+                                                <div class="holder">
+                                                        <label class="input-wrap">{{ form_widget(form.postcode) }}</label>
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                                <label>Регион</label>
+                                                <div class="holder">
+                                                        <label class="input-wrap">{{ form_widget(form.state) }}</label>
+                                                </div>
+                                        </div>
+                                </div>
+                                {{ form_widget(form._token) }}
+                                 <div class="btn-row">
+                                        <span class="blue-btn"><span>Сохранить</span><input type="submit" value="Save Address" title="Save Address" /></span>
+                                </div>
+                </fieldset>
+        </form>
+</div>
+</div>
+<div class="dividing-line">&nbsp;</div>
+{% endblock %}

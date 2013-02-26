@@ -4,12 +4,12 @@
 {% endblock %}
 {% block body %}
 <ul class="inner-nav">
-        <li><a href="#">Bobi Bag</a></li>
-        <li><a class="account" href="#">Account</a></li>
-        <li><a href="#">Wishlist</a></li>
-        <li><a href="#">Orders</a></li>
-        <li><a href="#">Reviews</a></li>
-        <li><a href="#">Settings</a></li>
+        <li><a href="{{ path('cart') }}">Корзина</a></li>
+        <li><a class="account" href="{{ path('usercabinet') }}">Аккаунт</a></li>
+        <li><a href="{{ path('wish_list') }}">Желания</a></li>
+        <li><a href="#">Заказы</a></li>
+        <li><a href="#">Просмотр</a></li>
+        <li><a href="#">Настройки</a></li>
 </ul>
 <div class="dividing-line">&nbsp;</div>
 <div class="progress-wrapper">
@@ -20,7 +20,7 @@
                array['ship']={};
                var bill = $('#bill_addr .ui-selectmenu-status').html()
                var ship = $('#ship_addr .ui-selectmenu-status').html()
-               if(bill!='Адресса'){
+               if(bill!='Адреса'){
                    $('#bill_addr select option').each(function(){
                        if(bill==$(this).html())
                            array['bill']['id']=$(this).val();
@@ -31,7 +31,7 @@
                    array['bill'][$(this).attr('id')]=$(this).val();
                 });
                 }
-                 if(ship!='Адресса'){
+                 if(ship!='Адреса'){
                    $('#ship_addr  select option').each(function(){
                        if(ship==$(this).html())
                            array['ship']['id']=$(this).val();
@@ -67,14 +67,14 @@
 </div>
 <div class="two-box">
         <div class="col">
-                <h3 class="title-box">Адресс регистрации</h3>
+                <h3 class="title-box">Адрес регистрации</h3>
                 <form action="{{ path('user_addr_create_site') }}" method="post" id="bill_addr"  {{ form_enctype(form) }}  class="order-form bill_addr">
                     <input type="hidden" name="types" value="reg"/>
                         <fieldset>
                                <h4>Книга адрессов: </h4>
                                 <div class="select-row">
                                         <select>
-                                                <option title="title">Адресса</option>
+                                                <option title="title">Адреса</option>
                                                 {% for value in address %}
                                                     <option value="{{ value.id }}">{{ value.city  }} {{ value.street  }} {{ value.hnum }}</option>
                                                 {% endfor %}
@@ -126,14 +126,14 @@
                 </form>
         </div>
         <div class="col">
-                <h3 class="title-box">Адресс доставки</h3>
+                <h3 class="title-box">Адрес доставки</h3>
                  <form action="{{ path('user_addr_create_site') }}" method="post" id="ship_addr"  {{ form_enctype(form1) }}  class="order-form ship_addr">
                      <input type="hidden" name="types" value="ship"/>
                         <fieldset>
-                                <h4>Книга адрессов: </h4>
+                                <h4>Книга адресов: </h4>
                                 <div class="select-row">
                                         <select>
-                                                <option title="title">Адресса</option>
+                                                <option title="title">Адреса</option>
                                                 {% for value in address %}
                                                     <option value="{{ value.id }}">{{ value.city  }} {{ value.street  }} {{ value.hnum }}</option>
                                                 {% endfor %}

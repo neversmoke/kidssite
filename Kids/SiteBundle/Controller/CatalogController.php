@@ -285,19 +285,26 @@ class CatalogController extends ControllerHelper //Controller
    public function SmallCartAction(){
        $col=0;
        $sum=0;
-       $cart="";
+       $cart=$ids=$products="";
        $user=  $this->CurrentUser();
        if($this->getCartSession()!=''){
         $cart=$this->getCartSession();
        foreach($this->getCartSession() as $product){
+           $ids[]=$product['id'];
            $col=$col+1;
-           $sum=$sum+$product['price'];
+           $sum=$sum+$product['price']*$product['amount'];
        }}
+       if($ids!=''){
+            $em = $this->getDoctrine()->getManager();
+            $products = $em->getRepository('ItcAdminBundle:Product\Product')->findBy(
+                array('id' => $ids));
+        }
         return array( 
-            'cart'  => $cart, 
-            'sum'   => $sum, 
-            'col'   => $col,
-            'user'  => $user);
+            'cart'          => $cart,
+            'products'      => $products,
+            'sum'           => $sum, 
+            'col'           => $col,
+            'user'          => $user);
     }
    private function getCartSession(){
 

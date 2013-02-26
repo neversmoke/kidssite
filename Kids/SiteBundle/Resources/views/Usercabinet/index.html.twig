@@ -1,100 +1,137 @@
-{% extends 'LegoSiteBundle::layout.html.twig' %}
+{% extends 'KidsSiteBundle::layout.html.twig' %}
 
-{% block right %}  
+{% block title %}
+<title>Личный кабинет</title>
 {% endblock %}
 
 {% block body %}
-    <div class="account-create">
-        <div class="page-title">
-            <h1>Личный кабинет</h1>
+<ul class="inner-nav">
+        <li><a href="{{ path('cart') }}">Корзина</a></li>
+        <li class="active"><a class="account" href="{{ path('usercabinet') }}">Аккаунт</a></li>
+        <li><a href="{{ path('wish_list') }}">Желания</a></li>
+        <li><a href="#">Заказы</a></li>
+        <li><a href="#">Просмотр</a></li>
+        <li><a href="#">Настройки</a></li>
+</ul>
+<div class="dividing-line"></div>
+<form action="#" class="account-description">
+        <fieldset>
+                <h1><i>Личный кабинет</i></h1>
+                <h4>Привет, {{ user.fio }}!</h4>
+                 {#<div class="visual-wrap">
+                        <div class="visual"><img src="images/img08.jpg" width="75" height="75" alt="" /></div>
+                        <div class="text"><span class="file-wrap"><span>edit</span><input type="file" /></span> profile picture</div>
+                </div>#}
+        </fieldset>
+</form>
+<div class="one-box">
+        <h3 class="title-box">Последние заказы</h3>
+        <div class="table-wrap">
+                <table class="table">
+                        <tr>
+                                <th class="center">Заказ No.</th>
+                                <th class="center">Дата</th>
+                                <th class="center">Информация</th>
+                                <th class="center">Сумма</th>
+                                <th class="center">Статус</th>
+                                <th class="center">Действие</th>
+                        </tr>
+                        {% for pd in pds %}
+                                    {% set class %}
+                                            {% if loop.index % 2 == 1 %}
+                                                   even
+                                                   {% else %}
+                                            {% endif %}
+                                        {% endset %}
+                        <tr class="{{ class }}">
+                                <td>{{ pd.id }}</td>
+                                <td>{{ pd.date|date("m.d.Y") }}</td>
+                                <td>{{ user.fio }}</td>
+                                <td class="center">{{ pd.summa1 }} P</td>
+                                <td><em>
+                                         {% if pd.status==1 %}
+                                            обработка
+                                         {% elseif pd.status==2 %}
+                                            отправлен
+                                         {% endif %}
+                                    </em>
+                                </td>
+                                <td>
+                                        <div class="set-wrap">
+                                                <a href="#">Посмотреть</a>
+                                        </div>
+                                </td>
+                        </tr>
+                        {% endfor %}
+                </table>
         </div>
-             {% if user!=""%}
-              
-            <form action="{{ path('update_usercab', {'id':user.id}) }}" method="post" {{ form_enctype(form) }}  id="form-validate">
-                <div class="fieldset">
-                    <h2 class="legend">Персональная информация</h2>
-                    <ul class="form-list">
-                        <li class="fields">
-                            <div class="customer-name">
-                                <div class="field name-firstname">
-                                    <label class="required" for="firstname">
-                                    <em>*</em>
-                                        Имя
-                                    </label>
-                                        <div class="input-box">
-                                            {{ form_widget(form['name']) }}
+        <div class="btn-wrap">
+                <a class="big-purple-btn" href="{{ path('user_orders') }}"><span>Посмотреть все ...</span></a>
+        </div>
+</div>
+<div class="one-box">
+        <h3 class="title-box">Информация о адресах</h3>
+        <ul class="address-list">
+                {% for adres in adresses %}
+                <li>
+                        <header></header>
+                        <ul class="list">
+                                <li>{{ adres.fio }}</li>
+                                <li>{{ adres.street }}</li>
+                                <li>{{ adres.hnum }}</li>
+                                <li>{{ adres.postcode }} {{ adres.city }}</li>
+                                <li>{{ adres.state }}</li>
+                        </ul>
+                        <footer>
+                                <a class="view" href="{{ path('user_adresses') }}">Показать все ...</a>
+                                <a href="{{ path('site_user_addr_new') }}">Добавить</a> |
+                                <a href="{{ path('site_user_addr_edit', {'id' : adres.id}) }}">Редактировать</a> 
+                        </footer>
+                </li>
+                {% endfor %}
+                
+               {# <li>
+                        <header>Payment Method</header>
+                        <div class="wrap">
+                                <label><input type="radio" name="group-04" class="radio" checked="checked" /><img src="images/pay13.png" width="45" height="28" alt="" /><strong>PayPal</strong></label>
+                                <div class="note">For existing PayPal users. <br />Or sign-up here. </div>
+                        </div>
+                        <footer>
+                                <a class="view" href="#">View All ...</a>
+                                <a href="#">Add</a> |
+                                <a href="#">Edit</a> |
+                                <a href="#">Delete</a>
+                        </footer>
+                </li>#}
+        </ul>
+</div>
+<div class="one-box">
+        <h3 style="margin-bottom:20px;" class="title-box">Настройки информации</h3>
+        <div class="two-box">
+                <div class="col">
+                        <header><div class="side"><a href="#">Добавить</a> | <a href="#">Редактировать</a> | <a href="#">Удалить</a></div>Контактная информация </header>
+                        <ul class="list">
+                                <li>{{ user.fio }}</li>
+                                <li>{{ user.email }}</li>
+                                <li><a href="#">Поменять пароль</a></li>
+                        </ul>
+                </div>
+               {# <div class="col">
+                        <header><div class="side"><a href="#">Редактировать</a> | <a href="#">Отписаться</a></div>Новости</header>
+                        <form action="#" class="subscribe-form">
+                                <fieldset>
+                                        <div class="title">
+                                                Подпишись на новости:
                                         </div>
-                                </div>
-                                <div class="field name-lastname">
-                                    <label class="required" for="lastname">
-                                        <em>*</em>
-                                        Фамилия
-                                    </label>
-                                    <div class="input-box">
-                                        {{ form_widget(form['surname']) }}
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="fields">
-                            <div class="customer-name">
-                                <div class="field name-firstname">
-                                    <label class="required" for="firstname">
-                                    <em>*</em>
-                                        Отчество
-                                    </label>
-                                        <div class="input-box">
-                                            {{ form_widget(form['patronymic']) }}
+                                        <div class="wrap">
+                                                <input class="text" type="text" value="enter your email address" />
+                                                <span class="btn">Пишите мне<input type="submit" value="" title="Email me" /></span>
                                         </div>
-                                </div>
-                                <div class="field name-lastname">
-                                    <label class="required" for="lastname">
-                                        <em>*</em>
-                                        Почта
-                                    </label>
-                                    <div class="input-box">
-                                        {{ form_widget(form['email']) }}
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="fields">
-                            <div class="customer-name">
-                                <div class="field name-firstname">
-                                    <label class="required" for="firstname">
-                                    <em>*</em>
-                                        Телефон
-                                    </label>
-                                        <div class="input-box">
-                                            {{ form_widget(form['tel']) }}
-                                        </div>
-                                </div>
-                                <div class="field name-lastname">
-                                    <label class="required" for="lastname">
-                                        <em>*</em>
-                                        Адрес
-                                    </label>
-                                    <div class="input-box">
-                                        {{ form_widget(form['address']) }}
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>    
-
-                    {{ form_row(form._token) }} 
-            </form>
-            
-            <div class="buttons-set">
-            <button class="button" title="Submit" type="submit" onclick="$('#form-validate').submit()">
-                    <span>
-                        <span>Обновить</span>
-                    </span>
-            </button>
-            </div>
-            {% endif %}
-    </div>
-
+                                </fieldset>
+                        </form>
+                </div>#}
+        </div>
+</div>
+<div class="dividing-line">&nbsp;</div>
 
 {% endblock %}

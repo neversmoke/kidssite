@@ -21,6 +21,7 @@
 .side-nav .submenu{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#f4f4f4',GradientType=0 );
 }
+*+ html .account-description,
 *+ html .one-box,
 *+ html .title-box,
 *+ html .comment-form .holder-form h3,
@@ -90,4 +91,18 @@
 }
 .disabled-wrap{
 	filter: alpha(opacity=50);
+}
+.contact-message .title{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#86a8d8', endColorstr='#6e62a7',GradientType=0 );
+}
+.account-description .visual-wrap .file-wrap input[type='file']{
+	filter: alpha(opacity=0);
+}
+.code-block .col header,
+.basket-review .table-wrap .table .total-row td,
+.basket-review .table-wrap .table th{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e8e8e8',GradientType=0 );
+}
+.table .update-table{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8689c0', endColorstr='#5a5e93',GradientType=0 );
 }

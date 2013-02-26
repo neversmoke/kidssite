@@ -1,4 +1,12 @@
 $(document).ready(function(){
+	$('.contact-message textarea,.tab textarea').autoResize({onResize:function(){
+		var textarea=$(this);
+		setTimeout(function(){
+				textarea.closest('.scrollable').jScrollPane({
+							verticalDragMinHeight: 39,
+							verticalDragMaxHeight: 39
+						});
+			textarea.closest('.scrollable').data('jsp').scrollToBottom(false);		},100)	}});
 	var main=$('#main');
 	(function initScroll(){		var selectMenu = $('.ui-selectmenu-menu'),
 		i=0;
@@ -7,7 +15,7 @@ $(document).ready(function(){
 			$('.c', selectMenu.eq(i)).bind('jsp-initialised', function(){
 				selectMenu.eq(i).removeClass('ui-selectmenu-open');
 				i++;
-				if (i<selectMenu.size()) {
+				if (i<selectMenu.size()){
 					initSelectScroll();
 				}
 			}).jScrollPane({
@@ -20,6 +28,17 @@ $(document).ready(function(){
 			verticalDragMinHeight: 39,
 			verticalDragMaxHeight: 39
 		});	})();
+	(function quantitySwitch(){
+		var holder=$('.up-down');		holder.find('.up,.down').click(function(e){
+			var input=$(this).parent().find('input'),
+				val=+input.val();
+			if($(this).hasClass('up')){				input.val(++val);			}else{
+				if(val-1<1){					input.val(1);
+					$(this).addClass('disabled');				}else{
+					input.val(--val);
+				}
+			}			e.preventDefault();		});
+		holder.find('input').blur(function(){			$(this).val($(this).val().replace(/[^0-9]+/ig,''));		});	})();
 	if("fancybox" in $.fn){		(function fancybox(){
 			$('.visual-col .visual>li .fancybox').fancybox({
 				helpers:{
@@ -31,9 +50,15 @@ $(document).ready(function(){
 			});
 		})();	}
 	(function colHeight(){
-		var col=$('.two-box').find('.col');
-		var height=col.parent().height();
-		$('.two-box').find('.col').height(height);
+		$('.two-box').each(function(){
+			var height= 0;
+			$(this).find('.col').each(function(){
+				if($(this).outerHeight() > height){
+					height=$(this).outerHeight();
+				}
+			});
+			$(this).find('.col').outerHeight(height);
+		})
 	})();
 	(function disable(){
 		var firstRadio=$('.pay-list input:radio:first').get(0);
@@ -669,3 +694,93 @@ window.clearRequestTimeout = function(handle) {
     window.msCancelRequestAnimationFrame ? msCancelRequestAnimationFrame(handle.value) :
     clearTimeout(handle);
 };
+(function($){
+    
+    $.fn.autoResize = function(options) {
+        
+        // Just some abstracted details,
+        // to make plugin users happy:
+        var settings = $.extend({
+            onResize : function(){},
+            animate : false,
+            animateDuration : 150,
+            animateCallback : function(){},
+            extraSpace : 20,
+            limit: 1000
+        }, options);
+        
+        // Only textarea's auto-resize:
+        this.filter('textarea').each(function(){
+            
+                // Get rid of scrollbars and disable WebKit resizing:
+            var textarea = $(this).css({resize:'none','overflow-y':'hidden'}),
+            
+                // Cache original height, for use later:
+                origHeight = textarea.height(),
+                
+                // Need clone of textarea, hidden off screen:
+                clone = (function(){
+                    
+                    // Properties which may effect space taken up by chracters:
+                    var props = ['height','width','lineHeight','textDecoration','letterSpacing'],
+                        propOb = {};
+                        
+                    // Create object of styles to apply:
+                    $.each(props, function(i, prop){
+                        propOb[prop] = textarea.css(prop);
+                    });
+                    
+                    // Clone the actual textarea removing unique properties
+                    // and insert before original textarea:
+                    return textarea.clone().removeAttr('id').removeAttr('name').css({
+                        position: 'absolute',
+                        top: 0,
+                        left: -9999
+                    }).css(propOb).attr('tabIndex','-1').insertBefore(textarea);
+					
+                })(),
+                lastScrollTop = null,
+                updateSize = function() {
+					
+                    // Prepare the clone:
+                    clone.height(0).val($(this).val()).scrollTop(10000);
+					
+                    // Find the height of text:
+                    var scrollTop = Math.max(clone.scrollTop(), origHeight) + settings.extraSpace,
+                        toChange = $(this).add(clone);
+						
+                    // Don't do anything if scrollTip hasen't changed:
+                    if (lastScrollTop === scrollTop) { return; }
+                    lastScrollTop = scrollTop;
+					
+                    // Check for limit:
+                    if ( scrollTop >= settings.limit ) {
+                        $(this).css('overflow-y','');
+                        return;
+                    }
+                    // Fire off callback:
+                    settings.onResize.call(this);
+					
+                    // Either animate or directly apply height:
+                    settings.animate && textarea.css('display') === 'block' ?
+                        toChange.stop().animate({height:scrollTop}, settings.animateDuration, settings.animateCallback)
+                        : toChange.height(scrollTop);
+                };
+            
+            // Bind namespaced handlers to appropriate events:
+            textarea
+                .unbind('.dynSiz')
+                .bind('keyup.dynSiz', updateSize)
+                .bind('keydown.dynSiz', updateSize)
+                .bind('change.dynSiz', updateSize);
+            
+        });
+        
+        // Chain:
+        return this;
+        
+    };
+    
+    
+    
+})(jQuery);

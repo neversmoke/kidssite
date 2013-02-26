@@ -1,0 +1,46 @@
+{% extends 'KidsSiteBundle::layout.html.twig' %}
+
+{% block title %}
+<title>Личные адреса</title>
+{% endblock %}
+
+{% block body %}
+<ul class="inner-nav">
+        <li><a href="{{ path('cart') }}">Корзина</a></li>
+        <li class="active"><a class="account" href="{{ path('usercabinet') }}">Аккаунт</a></li>
+        <li><a href="{{ path('wish_list') }}">Желания</a></li>
+        <li><a href="{{ path('user_orders') }}">Заказы</a></li>
+        <li><a href="#">Просмотр</a></li>
+        <li><a href="#">Настройки</a></li>
+</ul>
+<div class="dividing-line"></div>
+
+<div class="heading-wrapper">
+        <a class="big-purple-btn" href="{{ path('usercabinet') }}"><span>В личный кабинет</span></a>
+        <h1>Книга адресов</h1>
+        <div class="dividing-line"></div>
+</div>
+<div class="one-box">
+        <h3 class="title-box">Книга адресов</h3>
+        <ul class="address-list">
+            {% for adres in adresses %}
+                <li>
+                        <header></header>
+                        <ul class="list">
+                                <li>{{ adres.fio }}</li>
+                                <li>{{ adres.street }}</li>
+                                <li>{{ adres.hnum }}</li>
+                                <li>{{ adres.postcode }} {{ adres.city }}</li>
+                                <li>{{ adres.state }}</li>
+                        </ul>
+                        <footer>
+                                <a href="{{ path('site_user_addr_new') }}">Добавить</a> |
+                                <a href="{{ path('site_user_addr_edit', {'id' : adres.id}) }}">Редактировать</a> |
+                                <a href="{{ path('address_delete', {'id':adres.id}) }}">Удалить</a>
+                        </footer>
+                </li>
+             {% endfor %}  
+        </ul>
+</div>
+<div class="dividing-line">&nbsp;</div>
+{% endblock %}
