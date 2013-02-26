@@ -53,8 +53,29 @@
 									<a class="print" href="#">print</a>
 								</div>
 								<ul class="network">
-									<li><img src="/bundles/kidssite/images/bg-network05.jpg" width="84" height="26" alt="" /></li>
-									<li><img src="/bundles/kidssite/images/bg-network06.jpg" width="87" height="22" alt="" /></li>
+									<li><!-- Put this script tag to the <head> of your page -->
+                                                                        <script type="text/javascript" src="//vk.com/js/api/openapi.js?79"></script>
+
+                                                                        <script type="text/javascript">
+                                                                          VK.init({apiId: 3456230, onlyWidgets: true});
+                                                                        </script>
+
+                                                                        <!-- Put this div tag to the place, where the Like block will be -->
+                                                                        <div id="vk_like"></div>
+                                                                        <script type="text/javascript">
+                                                                        VK.Widgets.Like("vk_like", {type: "mini"});
+                                                                        </script></li>
+									<li style="float:right; margin-top: -26px; margin-right: 5px;"><div id="fb-root"></div>
+                                                                        <script>(function(d, s, id) {
+                                                                          var js, fjs = d.getElementsByTagName(s)[0];
+                                                                          if (d.getElementById(id)) return;
+                                                                          js = d.createElement(s); js.id = id;
+                                                                          js.src = "//connect.facebook.net/ru_RU/all.js#xfbml=1&appId=300556086705209";
+                                                                          fjs.parentNode.insertBefore(js, fjs);
+                                                                        }(document, 'script', 'facebook-jssdk'));</script>
+                                                                            <div class="fb-like" data-href="http://demo2.qwer.com.ua" data-send="false" data-layout="button_count" data-width="150" data-show-faces="true"></div>
+                                                                        
+                                                                        </li>
 								</ul>
 							</div>
 						</footer>
