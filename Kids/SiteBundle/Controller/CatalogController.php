@@ -12,6 +12,8 @@ use Itc\AdminBundle\Tools\LanguageHelper;
 use Main\SiteBundle\Tools\ControllerHelper;
 use Main\SiteBundle\Controller\CatalogController as Catal;
 use Symfony\Component\Security\Core\SecurityContext;
+use Kids\SiteBundle\Form\ProductCommentsType;
+use Itc\AdminBundle\Entity\Comments\ProductComments;
 /**
  * Catalog controller.
  * Routing registered in routing.yml
@@ -174,6 +176,20 @@ class CatalogController extends ControllerHelper //Controller
         foreach ($attr_val as $attr){
                        $values[$attr->getId()]=$attr->getAttrvalues();
             }  
+        $securityContext = $this->container->get('security.context');
+       if( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') ){
+             $auth= 1;
+       }else{ $auth=0; }
+        $comment = new ProductComments();
+        $form   = $this->createForm(new ProductCommentsType(), $comment);
+        
+        $comments = $em->getRepository('ItcAdminBundle:Comments\ProductComments')->createQueryBuilder('M')
+                ->select('M, U.fio')
+                ->innerJoin('M.autor', 'U')
+                ->where('M.prod_id = :prod_id')
+                ->setParameter('prod_id', $entity->getId())
+                 ->orderBy('M.data', 'DESC')
+                 ->getQuery()->execute();
         return array( 
             'entity'     => $entity,
             'relatives'  => $relatives,
@@ -181,8 +197,45 @@ class CatalogController extends ControllerHelper //Controller
             'locale'     => $locale,
             'keywords'   => $keywords,
             'attributs'  => $attr_val,
-            'attrval'    => $values
+            'attrval'    => $values,
+            'form'       => $form->createView(),
+            'comments'   => $comments,
+            'auth'       => $auth
         );
+    }
+    /**
+     * Creates a new Comments\ProductComments entity.
+     *
+     * @Route("product/create/{id}", name="user_comments_create",
+     * requirements={"id" = "\d+"})
+     * @Template()
+     */
+    public function createAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $entity  = new ProductComments();
+        
+        $locale =  LanguageHelper::getLocale();
+        $entity->setLang($locale);
+        
+        $product= $em->getRepository('ItcAdminBundle:Product\Product')->find($id);
+        $entity->setProduct($product);
+        $entity->setVisible(1);
+        
+        
+        $Autor = $this->get('security.context')->getToken()->getUser();
+        $entity->setAutor($Autor);
+        
+        $form = $this->createForm(new ProductCommentsType(), $entity);
+        $form->bind($request);
+
+        if ($form->isValid()) {
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('products', array('translit' => $product->getTranslit())));
+        }
+
     }
     /**
      *@Route("/producttag/{keyword}",  name="product_tag")
