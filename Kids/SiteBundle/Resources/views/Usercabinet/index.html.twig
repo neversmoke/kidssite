@@ -9,9 +9,9 @@
         <li><a href="{{ path('cart') }}">Корзина</a></li>
         <li class="active"><a class="account" href="{{ path('usercabinet') }}">Аккаунт</a></li>
         <li><a href="{{ path('wish_list') }}">Желания</a></li>
-        <li><a href="#">Заказы</a></li>
-        <li><a href="#">Просмотр</a></li>
-        <li><a href="#">Настройки</a></li>
+        <li><a href="{{ path('user_orders') }}">Заказы</a></li>
+        <li><a href="{{ path('user_orders') }}">Просмотр</a></li>
+        <li><a href="{{ path('usercabinet_info') }}">Настройки</a></li>
 </ul>
 <div class="dividing-line"></div>
 <form action="#" class="account-description">
@@ -58,7 +58,7 @@
                                 </td>
                                 <td>
                                         <div class="set-wrap">
-                                                <a href="#">Посмотреть</a>
+                                                <a href="{{ path('user_orders', {'id':pd.id}) }}">Посмотреть</a>
                                         </div>
                                 </td>
                         </tr>
@@ -109,11 +109,12 @@
         <h3 style="margin-bottom:20px;" class="title-box">Настройки информации</h3>
         <div class="two-box">
                 <div class="col">
-                        <header><div class="side"><a href="#">Добавить</a> | <a href="#">Редактировать</a> | <a href="#">Удалить</a></div>Контактная информация </header>
+                        <header><div class="side"><a href="{{ path('usercabinet_info') }}">Добавить</a> | <a href="{{ path('usercabinet_info') }}">Редактировать</a></div>Контактная информация </header>
                         <ul class="list">
                                 <li>{{ user.fio }}</li>
                                 <li>{{ user.email }}</li>
-                                <li><a href="#">Поменять пароль</a></li>
+                                <li>{{ user.tel }}</li>
+                                <li><a href="{{ path('usercabinet_info') }}">Поменять пароль</a></li>
                         </ul>
                 </div>
                {# <div class="col">

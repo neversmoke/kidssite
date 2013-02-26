@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Itc\AdminBundle\Entity\User;
-use Main\SiteBundle\Form\UserType;
+use Kids\SiteBundle\Form\UserType;
 use Main\SiteBundle\Form\UserSysType;
 use Itc\KidsBundle\Entity\User\Adress;
 use Kids\SiteBundle\Form\AdressType;
@@ -124,28 +124,21 @@ class UsercabinetController extends ControllerHelper //Controller
         $securityContext = $this->container->get('security.context');
          if( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') ){
                     $user= $securityContext->getToken()->getUser();
-                    $editForm = $this->createForm(new UserType(), $user, array("attr" => array("new" => false)));
-                    $passForm = $this->createForm(new UserSysType(), $user, array("attr" => array("new" => false)));
-                    $arr=array("user" => $user, 'entity' =>"", 'form' => $editForm->createView(),
-                               'pass_form'=> $passForm->createView());
+                    $editForm = $this->createForm(new UserType(), $user, array("attr" => array("new" => true)));
+                    $arr=array("user" => $user, 'form' => $editForm->createView());
                     
-                   
                     return $arr;
-                
-                    
                 }
         return array( 
             'user' => "",
             'entity' =>"",
-            'edit_form'   => "",
-            'pass_form'   => ""
+            'edit_form'   => ""
         );
     }
      /**
      * Edits an existing User entity.
      *
-     * @Route("{id}/update", name="update_usercab")
-     * @Method("POST")
+     * @Route("usercabinet/{id}/update", name="update_usercabinet")
      * @Template("")
      */
     public function updateAction(Request $request, $id)
@@ -156,10 +149,13 @@ class UsercabinetController extends ControllerHelper //Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find User entity.');
         }
-        $editForm = $this->createForm(new UserType(), $entity, array("attr" => array("new" => false)));
-        $passForm = $this->createForm(new UserSysType(), $entity, array("attr" => array("new" => false)));
+        $editForm = $this->createForm(new UserType(), $entity, array("attr" => array("new" => true)));
         $editForm->bind($request);
         $data = $editForm->getData();
+        $passwd = $data->getPassword();
+            $encoder = $this->get('security.encoder_factory')->getEncoder($entity);
+            $encodedPass = $encoder->encodePassword($passwd, $entity->getSalt());  
+            $entity->setPassword($encodedPass);
         if ($editForm->isValid()) {
             $em->persist($entity);
             $em->flush();
@@ -168,8 +164,6 @@ class UsercabinetController extends ControllerHelper //Controller
         }
         return array(
             'user'        => $entity,
-            'entity'      => '',
-            'pass_form'   => $passForm->createView(),
             'edit_form'   => $editForm->createView()
         );
     }
