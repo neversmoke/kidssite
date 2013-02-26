@@ -177,13 +177,13 @@ class CheckoutController extends ControllerHelper
         $address_ship=$this->AdressBill('ship');
         
         if(is_object($address_bill)){
-            $txt="<li>{{ adres.fio }}</li>
+            $txt="<li>{$address_bill->getFio()}</li>
                     <li>{$address_bill->getStreet()}</li>
                     <li>{$address_bill->getHNum()}</li>
                     <li>{$address_bill->getPostcode()} {$address_bill->getCity()}</li>
                     <li>{$address_bill->getState()}</li>";
         }else{
-             $txt="<li>{{ adres.fio }}</li>
+             $txt="<li>{$address_bill['fio']}</li>
                     <li>{$address_bill['street']}</li>
                     <li>{$address_bill['h_num']}</li>
                     <li>{$address_bill['postcode']} {$address_bill['city']}</li>
@@ -191,13 +191,13 @@ class CheckoutController extends ControllerHelper
         }
         
         if(is_object($address_ship)){
-           $txt="<li>{{ adres.fio }}</li>
+           $txt1="<li>{$address_ship->getFio()}</li>
                     <li>{$address_ship->getStreet()}</li>
                     <li>{$address_ship->getHNum()}</li>
                     <li>{$address_ship->getPostcode()} {$address_ship->getCity()}</li>
                     <li>{$address_ship->getState()}</li>";
         }else{
-             $txt="<li>{{ adres.fio }}</li>
+             $txt1="<li>{$address_ship['fio']}</li>
                     <li>{$address_ship['street']}</li>
                     <li>{$address_ship['h_num']}</li>
                     <li>{$address_ship['postcode']} {$address_ship['city']}</li>
