@@ -828,6 +828,65 @@ window.clearRequestTimeout = function(handle) {
         
     };
     
-    
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) {
+            return split( term ).pop();
+        }
+        var parameter;
+        $( ".search_with_param" )
+        // don't navigate away from the field on tab when selecting an item
+        .bind( "keydown", function( event ) {
+            selected = $('#undefined-button .ui-selectmenu-status').html();
+            
+            $('.search-form select[class=select-search]  option').each(function(){
+                       if(selected==$(this).html())
+                           parameter=$(this).val();
+                    });
+            search_route = $(this).data("route");
+            search_link = $(this).data("link");
+            search_type_link = $(this).data("type-link");
+            after_search_action = $(this).data("after-search");
+        if ($(this).val().length == 0){
+            if (search_type_link == 'input'){
+                $(search_link).val("");
+                if (after_search_action !== undefined)
+                        $(after_search_action).trigger("click");                           
+            }
+        }
+        if ( event.keyCode === $.ui.keyCode.TAB &&
+        $( this ).data( "autocomplete" ).menu.active ) {
+        event.preventDefault();
+        }
+        })
+        .autocomplete({
+            source: function( request, response ) {
+                $.getJSON( "/app_dev.php/ru/auto/"+search_route+".json", {
+                    term: extractLast( request.term ), 
+                    parameter: parameter
+                }, response );
+            },
+           search: function() {
+                var term = extractLast( this.value );
+                if ( term.length < 1 ) {
+                    return false;
+                }
+            },
+            focus: function() {
+                return false;
+            },
+            select: function( event, ui ) {
+                var terms = split( this.value );
+                terms.pop();
+                terms.push( ui.item.label );
+                this.value = terms;
+                    $(search_link).val(ui.item.value);
+                    $(after_search_action).trigger("click");                    
+                return false;
+            }
+        });
+    });
     
 })(jQuery);

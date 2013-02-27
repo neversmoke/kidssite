@@ -15,10 +15,13 @@
     {% endblock %}
         {% block css %}
             <link rel="stylesheet" href="{{ asset ( 'bundles/kidssite/css/all.css' ) }}" type="text/css" />
+            <link rel="stylesheet" href="{{ asset ( 'bundles/kidssite/css/jquery-ui-1.9.1.custom.css' ) }}"/>
         {% endblock %}
         {% block javascript %}
             <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/autoscaling-menu.js' ) }}"></script>
             <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/clear-form-fields.js' ) }}"></script>
+            <script src="{{ asset ( 'bundles/itcadmin/js/plugins/jquery-ui-1.9.1.custom.js' ) }}" ></script>
+            <script src="{{ asset ( 'bundles/itcadmin/js/plugins/jquery-ui-1.9.1.custom.min.js' ) }}" ></script>
             <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/jquery-1.9.1.min.js' ) }}"></script>
             <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/jquery-ui-1.9.2.custom.min.js' ) }}"></script>
             <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/jquery.jscrollpane.min.js' ) }}"></script>
@@ -26,6 +29,7 @@
             <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/ui.js' ) }}"></script>
             <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/ui.checkbox-radio.js' ) }}"></script>
             <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/jquery.main.js' ) }}"></script>
+            
 	{% endblock %}
 </head>
 <body>

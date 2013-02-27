@@ -364,11 +364,12 @@ class CatalogController extends ControllerHelper //Controller
         return $this->getRequest()->getSession()->get('cart_user');
     }
     /**
-     * @Route("/auto/ajax_search_product.{_format}", name="ajax_search_product",
+     * @Route("/auto/ajax_search_product.{_format}", name="ajax_search_products",
      * defaults={"_format" = "json"})
      */
     public function ajaxProductSearchAction(Request $request)
     {
+        
         $value = $request->get('term');
         $em = $this->getDoctrine()->getEntityManager();
         $qb = $em->getRepository( 'ItcAdminBundle:Product\Product' )
@@ -376,6 +377,9 @@ class CatalogController extends ControllerHelper //Controller
                      ->select( 'M' )
                     ->where( "M.title LIKE :value" )
                     ->setParameter( 'value', "%".$value."%" );
+        if($request->get('parameter')){
+                 $qb->andWhere("M.productGroup = {$request->get('parameter')}");
+        }
 
         $members = $qb->getQuery()->execute();
 

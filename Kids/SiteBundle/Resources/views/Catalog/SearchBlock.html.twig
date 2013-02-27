@@ -1,6 +1,13 @@
 <form action="#" class="search-form">
         <fieldset>
-                <input class="text" type="text" value="search bobi store..." />
+            <input autocomplete="on" id="search" name="q" class="text search_with_param w100per" type="text"  
+                            data-link=".search_product_id"
+                            data-type-link="input"
+                            data-route="ajax_search_product"
+                            data-parameter=""
+                            data-id_prod="1" value="search bobi store..."/>
+                <input type="hidden" name="productid" class="auto_prod_id" value=""/>
+                <div style="display: none;" id="search_autocomplete" class="search-autocomplete"></div>
                 <input class="btn" type="submit" value="" title="search" />
                    {% render "KidsSiteBundle:Catalog:CatforSearch" %}             
                 </select>
