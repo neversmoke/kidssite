@@ -96,7 +96,6 @@ class CheckoutController extends ControllerHelper
         $form = $this->createForm(new AdressType(), $entity);
         $form->bind($request);
         $entity->setUserid($userid);
-        if ($form->isValid()) {
             $em->persist($entity);
             $em->flush();
 
@@ -106,14 +105,7 @@ class CheckoutController extends ControllerHelper
             'form1'  => $form->createView(),
             'address'      => $address
         );
-        }
 
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-            'form1'  => $form->createView(),
-            'address'      => $address
-        );
     }
     public function getTokenUser(){
         $securityContext = $this->container->get('security.context');
