@@ -70,7 +70,7 @@
 <div class="one-box one-box-transparent">
         <div class="num-order">
                 <h2><i>Номер: {{ order.id }}</i></h2>
-                <div class="col"><strong>Дата:</strong> {{ order.id|date("m.d.Y") }}</div>
+                <div class="col"><strong>Дата:</strong> {{ order.data|date("m.d.Y") }}</div>
                 <div class="col"><strong>Статус:</strong> 
                                     <em>{% if order.status==1 %}
                                             обработка
@@ -113,11 +113,15 @@
                                                 <td>Итого</td>
                                                 <td>P {{ total_price|number_format('2',',','.') }}</td>
                                         </tr>
-                                        {#<tr>
-                                                <td>Tax <br />(VAT 15%)</td>
-                                                <td>+ P 899.00</td>
+                                        <tr>
+                                                <td>Доставка</td>
+                                                <td>+ P {{ (order.summa1-total_price)|number_format('2',',','.')  }}</td>
                                         </tr>
                                         <tr>
+                                                <td>Всего</td>
+                                                <td>P {{ order.summa1|number_format('2',',','.')  }}</td>
+                                        </tr>
+                                        {#<tr>
                                                 <td>Discount <br />(10% off)</td>
                                                 <td>- P 899.00</td>
                                         </tr>

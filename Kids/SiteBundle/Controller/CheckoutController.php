@@ -266,8 +266,11 @@ class CheckoutController extends ControllerHelper
 
     
      public function acceptAction(){
-         
+        $order=$this->getCartSession();
         $em = $this->getDoctrine()->getManager();
+        
+        $shipp = $em->getRepository('ItcKidsBundle:Shipping\ShippingMethod')->find($order['shipp_meth']['id_meth']);
+        
         $cart = $this->getCart();
 
         if( ! $cart ) return $this->redirectToCart();
@@ -301,6 +304,7 @@ class CheckoutController extends ControllerHelper
 
             $pdlines->set( $key, $pdline );
         }
+        $summa1=$summa1+$shipp->getPrice();
         $mainproducts.="<tr><td></td><td></td><td>{$summa2}</td><td>Общая сумма: {$summa1}</td></tr></table><br/> Поступил в: ".date( 'Y-m-d H:i:s' );
         $pd->setPdtypeId( self::PDTYPE );
         $pd->setN( 'cart' );
