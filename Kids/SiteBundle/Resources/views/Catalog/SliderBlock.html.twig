@@ -1,0 +1,17 @@
+{% for gal in entities %}
+{% set gal_img=images[gal.id] %}
+{% if images[gal.id]|length > 0 %}
+<div class="side-ads">
+            <ul class="list">
+                {% for img in gal_img %}
+                    <li><a href="#"><img src="{{ vich_uploader_asset(img, 'image') }}" width="169" height="124" alt="" /></a></li>
+                {% endfor %}
+            </ul>
+            <ul class="switcher">
+                {% for img in gal_img %}
+                    <li><a href="#">{{ loop.index }}</a></li>
+                {% endfor %}
+            </ul>
+</div>
+{% endif %}
+{% endfor %}

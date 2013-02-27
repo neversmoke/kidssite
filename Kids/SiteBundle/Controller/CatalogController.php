@@ -49,6 +49,24 @@ class CatalogController extends ControllerHelper //Controller
             'locale'     => $locale,
         );
     }
+    /**
+     * @Template()
+     */
+    public function SliderBlockAction()
+    {
+        $images=array();
+        $em = $this->getDoctrine()->getManager();
+        $entities = $em->getRepository('ItcAdminBundle:Banner\Banner')->findBy(array('is_used'=>TRUE));
+        
+        foreach ($entities as $gal) {
+           $images[$gal->getId()]=$gal->getImg(); 
+        }
+        
+        return array( 
+            'entities'   => $entities,
+            'images'     => $images,
+        );
+    }
      
     /**
      * @Route("catalog/{translit}/{sort}/{coulonpage}/{page}/", name="catalog",
