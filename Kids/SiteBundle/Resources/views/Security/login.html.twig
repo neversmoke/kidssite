@@ -5,7 +5,7 @@
 		<div class="bg">&nbsp;</div>
 		<form action="{{ path("fos_user_security_check") }}" class="login-popup" method="post" id="login-form">
                             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-                            <input type="hidden" name="_route_params" value="{{ path('index') }}" />
+                            <input type="hidden" name="_route_params" value="{{ {{ app.request.uri }} }}" />
 			<fieldset>
 				<div class="ico"><img src="/bundles/kidssite/images/bg-popup.png" width="216" height="303" alt="" /></div>
 				<div class="title-holder">

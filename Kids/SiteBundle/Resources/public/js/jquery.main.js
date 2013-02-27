@@ -863,7 +863,7 @@ window.clearRequestTimeout = function(handle) {
         })
         .autocomplete({
             source: function( request, response ) {
-                $.getJSON( "/app_dev.php/ru/auto/"+search_route+".json", {
+                $.getJSON( "/ru/auto/"+search_route+".json", {
                     term: extractLast( request.term ), 
                     parameter: parameter
                 }, response );
