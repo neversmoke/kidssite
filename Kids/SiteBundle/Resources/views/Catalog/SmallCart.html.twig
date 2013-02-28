@@ -15,11 +15,11 @@
                             аккаунт
                         </a>
                     {% else %}
-                    <a class="opener-login" href="#"><img src="/bundles/kidssite/images/ico01.png" width="14" height="15" alt="" />Вход</a>
+                    <a class="opener-login" href="#"><img src="/bundles/kidssite/images/ico01.png" width="14" height="15" alt="" />Войти</a>
                     {% endif %}
                 </li>
-                <li><a href="{{ path('cart') }}"><img src="/bundles/kidssite/images/ico02.png" width="17" height="13" alt="" />Корзина</a></li>
-                <li><a class="opener-view" href="#"><img src="/bundles/kidssite/images/ico03.png" width="12" height="14" alt="" />view</a></li>
+                <li><a href="{{ path('cart') }}"><img src="/bundles/kidssite/images/ico02.png" width="17" height="13" alt="" />Оплатить</a></li>
+                <li><a class="opener-view" href="#"><img src="/bundles/kidssite/images/ico03.png" width="12" height="14" alt="" />Посмотреть</a></li>
         </ul>
                     {% if user!='' %}
                         <em class="register-row">
@@ -27,7 +27,9 @@
                             <a href="{{ path('usercabinet') }}">{{ user.fio }}</a>
                         </em>
                     {% else %}
-                     <em class="register-row">Новый пользователь? <a class="opener-register" href="{{ path('registration') }}">Регистрация.</a></em>
+                     <em class="register-row">
+                         <a class="opener-register" href="{{ path('registration') }}">Зарегестрироваться</a>
+                     </em>
                     {% endif %}
         <ul class="account-drop">
                 <li><a href="{{ path('cart') }}">Bobi корзина</a></li>
