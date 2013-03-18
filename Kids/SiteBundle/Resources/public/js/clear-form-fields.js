@@ -3,17 +3,20 @@ function initInputs() {
 	// replace options
 	var opt = {
 		clearInputs: true,
+		clearTextareas: true,
 		clearPasswords: true
 	}
 	// collect all items
 	var inputs = [].concat(
-		PlaceholderInput.convertToArray(document.getElementsByTagName('input'))
+		PlaceholderInput.convertToArray(document.getElementsByTagName('input')),
+		PlaceholderInput.convertToArray(document.getElementsByTagName('textarea'))
 	);
 	// apply placeholder class on inputs
 	for(var i = 0; i < inputs.length; i++) {
 		if(inputs[i].className.indexOf('default') < 0) {
 			var inputType = PlaceholderInput.getInputType(inputs[i]);
-			if((opt.clearInputs && inputType === 'text') || 
+			if((opt.clearInputs && inputType === 'text') ||
+				(opt.clearTextareas && inputType === 'textarea') || 
 				(opt.clearPasswords && inputType === 'password')
 			) {
 				new PlaceholderInput({

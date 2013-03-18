@@ -1,30 +1,32 @@
 @import url(http://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic-ext,latin-ext,cyrillic);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin,latin-ext,cyrillic);
 @font-face {
 	font-family: 'MyriadProRegular';
-	src: url('/bundles/kidssite/fonts/myriad_pro-webfont.eot');
-	src: url('/bundles/kidssite/fonts/myriad_pro-webfont.eot?#iefix') format('embedded-opentype'),
-		 url('/bundles/kidssite/fonts/myriad_pro-webfont.woff') format('woff'),
-		 url('/bundles/kidssite/fonts/myriad_pro-webfont.ttf') format('truetype');
+	src: url('../fonts/myriad_pro-webfont.eot');
+	src: url('../fonts/myriad_pro-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/myriad_pro-webfont.woff') format('woff'),
+		 url('../fonts/myriad_pro-webfont.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
 @font-face {
 	font-family: 'MyriadProBold';
-	src: url('/bundles/kidssite/fonts/myriadpro-bold-webfont.eot');
-	src: url('/bundles/kidssite/fonts/myriadpro-bold-webfont.eot?#iefix') format('embedded-opentype'),
-		 url('/bundles/kidssite/fonts/myriadpro-bold-webfont.woff') format('woff'),
-		 url('/bundles/kidssite/fonts/myriadpro-bold-webfont.ttf') format('truetype');
+	src: url('../fonts/myriadpro-bold-webfont.eot');
+	src: url('../fonts/myriadpro-bold-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/myriadpro-bold-webfont.woff') format('woff'),
+		 url('../fonts/myriadpro-bold-webfont.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
 @font-face {
-    font-family: 'helveticaneuemedium';
-	src: url('/bundles/kidssite/fonts/helveticaneuemedium.eot');
-	src: url('/bundles/kidssite/fonts/helveticaneuemedium.eot?#iefix') format('embedded-opentype'),
-         url('/bundles/kidssite/fonts/helveticaneuemedium.woff') format('woff'),
-         url('/bundles/kidssite/fonts/helveticaneuemedium.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'ALSRublRegular';
+	src: url('../fonts/rouble-webfont.eot');
+	src: url('../fonts/rouble-webfont.eot?iefix') format('eot'),
+		url('../fonts/rouble-webfont.woff') format('woff'),
+		url('../fonts/rouble-webfont.ttf') format('truetype'),
+		url('../fonts/rouble-webfont.svg#webfont0gpv2fp2') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 html{height:100%;}
 body {
@@ -110,6 +112,7 @@ h4{
 	margin:0 0 18px;
 	line-height:18px;
 }
+.rouble {font-family: ALSRublRegular, verdana, geneva, sans-serif; font-style:normal; font-weight:normal !important;}
 #wrapper{
 	min-height:100%;
 	width:100%;
@@ -126,7 +129,7 @@ h4{
 }
 .side-help{
 	position:fixed;
-	background:url(/bundles/kidssite/images/bg-help.png) no-repeat;
+	background:url(../images/bg-help.png) no-repeat;
 	text-decoration:none;
 	cursor:pointer;
 	width:147px;
@@ -151,7 +154,7 @@ h4{
 	z-index:50;
 }
 .logo{
-	background:url(/bundles/kidssite/images/logo.gif) no-repeat;
+	background:url(../images/logo.gif) no-repeat;
 	width:169px;
 	height:106px;
 	text-indent:-9999px;
@@ -162,23 +165,17 @@ h4{
 }
 #header nav{
 	position:absolute;
-	background:url(/bundles/kidssite/images/bg-nav.png) no-repeat;
+	background:url(../images/bg-nav.png) no-repeat;
 	width:476px;
 	height:51px;
 	top:38px;
 	left:199px;
 }
 #nav{
-	margin:0;
-	padding:2px 2px 0 0;
-	list-style:none;
+	margin:0;	padding:2px 2px 0 0;	list-style:none;
 	width:474px;
 }
-#nav:after{
-	display:block;
-	clear:both;
-	content:"";
-}
+#nav:after{	display:block;	clear:both;	content:"";}
 #nav li{
 	float:left;
 	border-left:1px solid #9ba9d4;
@@ -200,7 +197,7 @@ h4{
 	float:right;
 	width:188px;
 	padding:0 0 0 72px;
-	background:url(/bundles/kidssite/images/bg-basket.png) no-repeat 2px 0;
+	background:url(../images/bg-basket.png) no-repeat 2px 0;
 	position:relative;
 	margin:35px 0 0;
 	min-height:88px;
@@ -230,7 +227,7 @@ h4{
 .side-panel .total-wrap{
 	width:188px;
 	height:40px;
-	background:url(/bundles/kidssite/images/bg-header-total-price.png) no-repeat;
+	background:url(../images/bg-header-total-price.png) no-repeat;
 	display:table;
 	line-height:18px;
 	margin:0 0 5px;
@@ -253,9 +250,7 @@ h4{
 	font-size:14px;
 }
 .side-panel .menu{
-	margin:0;
-	padding:0;
-	list-style:none;
+	margin:0;	padding:0;	list-style:none;
 	width:100%;
 	font-size:11px;
 	line-height:16px;
@@ -297,9 +292,7 @@ h4{
 	text-decoration:underline;
 }
 .account-drop{
-	margin:0;
-	padding:0;
-	list-style:none;
+	margin:0;	padding:0;	list-style:none;
 	position:absolute;
 	top:67px;
 	left:73px;
@@ -332,7 +325,7 @@ h4{
 	text-decoration:underline;
 }
 .search-form{
-	background:url(/bundles/kidssite/images/bg-main-search.png) no-repeat;
+	background:url(../images/bg-main-search.png) no-repeat;
 	width:472px;
 	height:32px;
 	position:absolute;
@@ -361,7 +354,7 @@ h4{
 	border:0;
 	padding:0;
 	margin:1px 0 0;
-	background:url(/bundles/kidssite/images/bg-main-search-btn.png) no-repeat;
+	background:url(../images/bg-main-search-btn.png) no-repeat;
 }
 .ui-helper-hidden-accessible{
 	position: absolute;
@@ -373,7 +366,7 @@ h4{
 span.ui-checkbox{
 	margin:0 5px 0 0;
 	float:left;
-	background: url(/bundles/kidssite/images/bg-ch02.png) no-repeat;
+	background: url(../images/bg-ch02.png) no-repeat;
 	width:14px;
 	height:14px;
 	cursor:pointer;
@@ -385,7 +378,7 @@ label.ui-checkbox.ch span.ui-checkbox{
 	margin:-7px 0 0;
 }
 .login-popup label.ui-checkbox span.ui-checkbox{
-	background: url(/bundles/kidssite/images/bg-ch.png) no-repeat;
+	background: url(../images/bg-ch.png) no-repeat;
 	width:15px;
 	height:15px;
 	margin:0;
@@ -431,6 +424,9 @@ select.type-card{
 select.date{
 	width:58px;
 }
+select.sex{
+	width:75px;
+}
 .ui-selectmenu.date{
 	margin-right:5px;
 }
@@ -459,7 +455,7 @@ select.date{
 	padding:0 0 0 10px;
 	overflow:hidden;
 	color:#686868;
-	background:url(/bundles/kidssite/images/bg-select.png) no-repeat;
+	background:url(../images/bg-select.png) no-repeat;
 }
 .select-search .ui-selectmenu-status{
 	height:30px;
@@ -507,7 +503,7 @@ select.date{
 	float:right;
 	cursor:pointer;
 	width:24px;
-	background:url(/bundles/kidssite/images/bg-select.png) no-repeat 100% -24px;
+	background:url(../images/bg-select.png) no-repeat 100% -24px;
 	height:24px;
 }
 .select-search .ui-selectmenu-icon{
@@ -574,17 +570,13 @@ select.date{
 	width:8px;
 	position: relative;
 	top:0;
-	background:url(/bundles/kidssite/images/bg-scroll.png) repeat-y;
+	background:url(../images/bg-scroll.png) repeat-y;
 }
 #main{
 	width:960px;
 	margin:0 auto 45px;
 }
-#main:after{
-	display:block;
-	clear:both;
-	content:"";
-}
+#main:after{	display:block;	clear:both;	content:"";}
 #side-bar{
 	float:left;
 	width:170px;
@@ -601,9 +593,7 @@ select.date{
 	z-index:20;
 }
 .side-nav{
-	margin:0 0 30px;
-	padding:0;
-	list-style:none;
+	margin:0 0 30px;	padding:0;	list-style:none;
 	-webkit-box-shadow:-1px 1px 3px rgba(0, 0, 0, 0.1);
 	-moz-box-shadow:-1px 1px 3px rgba(0, 0, 0, 0.1);
 	box-shadow:-1px 1px 3px rgba(0, 0, 0, 0.1);
@@ -638,7 +628,7 @@ select.date{
 .side-nav > li a.opener span{
 	min-height:18px;
 	display:block;
-	background:url(/bundles/kidssite/images/dot01.png) no-repeat 90% 50%;
+	background:url(../images/dot01.png) no-repeat 90% 50%;
 	padding:11px 43px 11px 11px;
 }
 .side-nav > li.active a.opener{
@@ -659,13 +649,11 @@ select.date{
 	font-weight:bold;
 }
 .side-nav > li.active a.opener span{
-	background:url(/bundles/kidssite/images/dot02.png) no-repeat 90% 50%;
+	background:url(../images/dot02.png) no-repeat 90% 50%;
 }
 .side-nav .submenu{
-	margin:0;
-	padding:9px 0 7px;
-	list-style:none;
-	width:100%;
+	margin:0;	padding:9px 0 7px;	list-style:none;
+	height:1%;
 	background: #f7f7f7;
 	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmNGY0ZjQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
 	background: -moz-linear-gradient(top,  #f7f7f7 0%, #f4f4f4 100%);
@@ -679,17 +667,13 @@ select.date{
 	border-radius:3px 0 0 3px;
 	display:none;
 }
-.side-nav > li.active .submenu{
+.side-nav > li.active > .submenu{
 	display:block;
 }
 .side-nav .submenu > li{
 	width:100%;
 }
-.side-nav .submenu > li > a:after{
-	display:block;
-	clear:both;
-	content:"";
-}
+.side-nav .submenu > li > a:after{	display:block;	clear:both;	content:"";}
 .side-nav .submenu > li > a{
 	display:block;
 	height:1%;
@@ -697,7 +681,8 @@ select.date{
 	text-decoration:none;
 	padding:4px 0 4px 16px;
 	cursor:pointer;
-	font:11px/15px 'helveticaneuemedium', Helvetica, Arial, sans-serif;
+	font-size:11px;
+	line-height:15px;
 }
 .side-nav .submenu > li > a em{
 	font-style:normal;
@@ -711,6 +696,15 @@ select.date{
 	height:1%;
 	color:#646464;
 }
+.side-nav .submenu .inner-opener{
+	background:url(../images/plus.png) no-repeat 3px 7px;
+}
+.side-nav .submenu > li.active > .inner-opener{
+	background:url(../images/minus.png) no-repeat 3px 7px;
+}
+.side-nav .submenu .submenu{
+	padding:0 0 0 16px;
+}
 .side-ads{
 	margin:0 0 23px;
 	width:100%;
@@ -720,9 +714,7 @@ select.date{
 	box-shadow:0px 1px 6px rgba(0, 0, 0, 0.2);
 }
 .side-ads .list{
-	margin:0;
-	padding:0;
-	list-style:none;
+	margin:0;	padding:0;	list-style:none;
 	width:170px;
 	height:124px;
 	line-height:124px;
@@ -761,12 +753,10 @@ select.date{
 }
 .switcher{
 	width:100%;
-	margin:0;
-	padding:0;
-	list-style:none;
+	margin:0;	padding:0;	list-style:none;
 }
 .switcher li{
-	background:url(/bundles/kidssite/images/bg-switcher.png) no-repeat -16px 0px;
+	background:url(../images/bg-switcher.png) no-repeat -16px 0px;
 	display:inline-block;
 	vertical-align:top;
 	width:15px;
@@ -805,7 +795,7 @@ select.date{
 }
 .promo-gallery .prev,
 .promo-gallery .next{
-	background:url(/bundles/kidssite/images/gallery-arrow01.png) no-repeat;
+	background:url(../images/gallery-arrow01.png) no-repeat;
 	width:28px;
 	height:28px;
 	overflow:hidden;
@@ -827,9 +817,7 @@ select.date{
 	background-position:100% -28px;
 }
 .promo-gallery .list{
-	margin:0;
-	padding:0;
-	list-style:none;
+	margin:0;	padding:0;	list-style:none;
 	width:100%;
 	height:200px;
 	overflow:hidden;
@@ -872,7 +860,7 @@ select.date{
 }
 .promo-gallery .list li .text span{
 	float:left;
-	background:url(/bundles/kidssite/images/dot03.png);
+	background:url(../images/dot03.png);
 	-webkit-border-radius:3px;
 	-moz-border-radius:3px;
 	border-radius:3px;
@@ -887,8 +875,7 @@ select.date{
 .description-wrapper{
 	padding:0 1px;
 	overflow:hidden;
-	margin:-10px 0 -7px;
-	list-style:none;
+	margin:-10px 0 -7px;	list-style:none;
 }
 .description-wrapper li{
 	float:left;
@@ -917,9 +904,7 @@ select.date{
 	margin:0 0 25px;
 }
 .tab-wrapper .tab-set{
-	margin:0;
-	padding:1px 0 0;
-	list-style:none;
+	margin:0;	padding:1px 0 0;	list-style:none;
 	width:100%;
 	overflow:hidden;
 }
@@ -969,11 +954,7 @@ select.date{
 .tab-wrapper .tab{
 	width:100%;
 }
-.tab-wrapper .tab:after{
-	display:block;
-	clear:both;
-	content:"";
-}
+.tab-wrapper .tab:after{	display:block;	clear:both;	content:"";}
 .tab-gallery{
 	background:#ffffff;
 	-webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
@@ -985,7 +966,7 @@ select.date{
 }
 .tab-gallery .next,
 .tab-gallery .prev{
-	background:url(/bundles/kidssite/images/gallery-arrow02.png) no-repeat 0 100%;
+	background:url(../images/gallery-arrow02.png) no-repeat 0 100%;
 	width:33px;
 	height:33px;
 	position:absolute;
@@ -1014,54 +995,81 @@ select.date{
 	position:relative;
 }
 .tab-gallery ul{
-	margin:0;
-	padding:0;
-	list-style:none;
+	margin:0;	padding:0;	list-style:none;
 	float:left;
 	width:9999px;
+}
+.item-list{
+	margin:0;	padding:0;	list-style:none;
+	width:100%;
+}
+.tab-wrapper .item-list{
+	width:650px;
+	margin-left:7px;
 }
 .tab-gallery ul li{
 	float:left;
 	width:172px;
 	margin:0 20px
 }
+.item-list li{
+	width:172px;
+	margin:0 40px 30px 0;
+	display:inline-block;
+	vertical-align:top;
+}
+* + html .item-list li{
+	display:inline;
+}
+.item-list h3,
 .tab-gallery h3{
 	margin:0 0 1px;
 	font:14px/16px 'MyriadProRegular', Helvetica, sans-serif;
 	color:#000;
 }
+.item-list p,
 .tab-gallery  p{
-	margin:0;
+	margin:0 0 21px;
 	color:#808080;
 	font-size:12px;
 	line-height:12px;
 	min-height:36px;
 }
+.item-list .more,
 .tab-gallery .more{
 	text-align:right;
 	margin:0 0 4px;
 }
+.item-list p + .more,
+.tab-gallery p + .more{
+	margin-top:-21px;
+}
+.item-list .more a,
 .tab-gallery .more a{
 	text-decoration:none;
 	color:#7c61da;
 	font-weight:bold;
 	padding:0 10px 0 0;
-	background:url(/bundles/kidssite/images/arrow01.png) no-repeat 100% 50%;
+	background:url(../images/arrow01.png) no-repeat 100% 50%;
 }
+.item-list .more a:hover,
 .tab-gallery .more a:hover{
 	text-decoration:underline;
 }
+.item-list .visual,
 .tab-gallery .visual{
 	position:relative;
 	text-align:center;
 	min-height:124px;
 }
+.item-list .visual img,
 .tab-gallery .visual img{
 	vertical-align:top;
 }
+.item-list .discount,
 .tab-gallery .discount{
 	position:absolute;
-	background:url(/bundles/kidssite/images/bg-discount.png) no-repeat;
+	background:url(../images/bg-discount.png) no-repeat;
 	width:64px;
 	height:51px;
 	color:#fff;
@@ -1072,6 +1080,11 @@ select.date{
 	left:-20px;
 	top:-7px;
 	padding:13px 0 0;
+}
+.item-list .rating-wrap,
+.tab-gallery .rating-wrap{
+	width:162px;
+	display:block;
 }
 .rating-wrap{
 	overflow:hidden;
@@ -1088,16 +1101,26 @@ select.date{
 	border-radius:5px;
 	padding:6px 5px 6px;
 	margin:0 0 6px;
-	width:162px;
+	display:inline-block;
+	vertical-align:top;
+}
+*+ html .rating-wrap{
+	display:inline;
 }
 .rating-star{
-	background:url(/bundles/kidssite/images/bg-star.png) no-repeat;
+	background:url(../images/bg-star.png) no-repeat;
 	height:17px;
 	display:inline-block;
 	vertical-align:top;
 	width:83px;
 	position:relative;
 	overflow:hidden;
+	margin:0 0 1px;
+}
+.rating-star.min-star{
+	background:url(../images/bg-star02.png) no-repeat;
+	width:69px;
+	height:14px;
 }
 *+ html .paging-wrap,
 *+ html .rating-star{
@@ -1110,35 +1133,44 @@ select.date{
 	top:0;
 	height:17px;
 	text-indent:-9999px;
-	background:url(/bundles/kidssite/images/bg-star.png) no-repeat 0 -17px;
+	background:url(../images/bg-star.png) no-repeat 0 -17px;
+}
+.rating-star.min-star span{
+	background:url(../images/bg-star02.png) no-repeat 0 -14px;
+	height:14px;
 }
 .rating-wrap .rating-star{
 	float:left;
-	margin-right:5px;
 }
 .rating-wrap .reviews{
 	float:left;
 	font-size:11px;
 	line-height:18px;
 	color:#fff;
+	margin-left:5px;
 }
+.item-list .price-holder,
 .tab-gallery .price-holder{
 	width:100%;
 	overflow:hidden;
 	padding:6px 0 0;
 }
+.tab-gallery .green-btn,
+.item-list .green-btn,
+.item-list .gray-btn,
 .tab-gallery .gray-btn{
 	float:right;
 	margin:-6px 0 0;
 }
+.item-list .gray-btn span,
 .tab-gallery .gray-btn span{
-	width:81px;
-	padding:7px 0 0 6px;
+	padding:7px 4px 0 10px;
 }
+.green-btn,
 .pink-btn,
 .blue-btn,
 .gray-btn{
-	background:url(/bundles/kidssite/images/bg-gray-btn.png) no-repeat 100% -29px;
+	background:url(../images/bg-gray-btn.png) no-repeat 100% -29px;
 	position:relative;
 	display:inline-block;
 	vertical-align:top;
@@ -1163,29 +1195,37 @@ select.date{
 	text-shadow:1px 1px 0 #0c26aa;
 	font-size:12px;
 	height:34px;
-	background:url(/bundles/kidssite/images/bg-blue-btn.png) no-repeat 100% -34px;
+	background:url(../images/bg-blue-btn.png) no-repeat 100% -34px;
 }
 .pink-btn{
 	text-shadow:1px 1px 0 #c20026;
-	background:url(/bundles/kidssite/images/pink-btn.png) no-repeat 100% -34px;
+	background:url(../images/pink-btn.png) no-repeat 100% -34px;
 }
+.green-btn{
+	background:url(../images/bg-green-btn.png) no-repeat 100% -29px;
+}
+.green-btn span,
 .pink-btn span,
 .blue-btn span,
 .gray-btn span{
 	float:left;
 	padding:7px 14px 0 20px;
 	height:22px;
-	background:url(/bundles/kidssite/images/bg-gray-btn.png) no-repeat;
+	background:url(../images/bg-gray-btn.png) no-repeat;
 }
 .pink-btn span,
 .blue-btn span{
 	padding:0 11px 0 15px;
 	height:34px;
-	background:url(/bundles/kidssite/images/bg-blue-btn.png) no-repeat;
+	background:url(../images/bg-blue-btn.png) no-repeat;
 }
 .pink-btn span{
-	background:url(/bundles/kidssite/images/pink-btn.png) no-repeat;
+	background:url(../images/pink-btn.png) no-repeat;
 }
+.green-btn span{
+	background:url(../images/bg-green-btn.png) no-repeat;
+}
+.green-btn input,
 .pink-btn input,
 .send input,
 .blue-btn input,
@@ -1205,6 +1245,7 @@ select.date{
 	border:0;
 	background:none;
 }
+.item-list .price,
 .tab-gallery .price{
 	color:#6c5da2;
 	font-size:16px;
@@ -1271,9 +1312,7 @@ select.date{
 	background: linear-gradient(to bottom,  #85a6d7 0%,#6f63a7 100%);
 }
 .img-five-columns{
-	margin:-8px 0;
-	padding:0;
-	list-style:none;
+	margin:-8px 0;	padding:0;	list-style:none;
 	width:100%;
 	overflow:hidden;
 }
@@ -1314,9 +1353,7 @@ select.date{
 	vertical-align:top;
 }
 .img-ten-columns{
-	margin:-7px 0;
-	padding:0;
-	list-style:none;
+	margin:-7px 0;	padding:0;	list-style:none;
 	width:100%;
 	overflow:hidden;
 	display:table;
@@ -1393,12 +1430,10 @@ select.date{
 	line-height:18px;
 	overflow:hidden;
 	padding:5px 0 0;
-	background:url(/bundles/kidssite/images/subscribe-btn.png) no-repeat;
+	background:url(../images/subscribe-btn.png) no-repeat;
 }
 .bottom-nav{
-	margin:0 0 25px;
-	padding:0;
-	list-style:none;
+	margin:0 0 25px;	padding:0;	list-style:none;
 	text-align:center;
 	width:100%;
 	overflow:hidden;
@@ -1431,9 +1466,7 @@ select.date{
 }
 .bottom-nav ul{
 	width:100%;
-	margin:0;
-	padding:0;
-	list-style:none;
+	margin:0;	padding:0;	list-style:none;
 }
 .copyright{
 	text-align:center;
@@ -1510,11 +1543,7 @@ select.date{
 	width:100%;
 	padding:14px 0 0;
 }
-.login-popup .row:after{
-	display:block;
-	clear:both;
-	content:"";
-}
+.login-popup .row:after{	display:block;	clear:both;	content:"";}
 .login-popup label.text{
 	border:1px solid #b8b8b8;
 	-webkit-border-radius:3px;
@@ -1626,7 +1655,7 @@ select.date{
 .min-basket header span{
 	display:block;
 	padding:0;
-	background:url(/bundles/kidssite/images/ico03.png) no-repeat 100% 50%;
+	background:url(../images/ico03.png) no-repeat 100% 50%;
 }
 .min-basket footer{
 	width:100%;
@@ -1691,7 +1720,7 @@ select.date{
 	border-radius:3px;
 }
 .min-basket .del{
-	background:url(/bundles/kidssite/images/ico08.png) no-repeat;
+	background:url(../images/ico08.png) no-repeat;
 	display:block;
 	margin:0 auto;
 	width:14px;
@@ -1710,18 +1739,20 @@ select.date{
 	width:100%;
 	padding:13px 0 38px;
 }
+.product-wrapper.my-review-product{
+	padding-top:0;
+}
 .product-info{
 	float:right;
 	width:320px;
 }
+.product-wrapper.my-review-product .product-info{
+	width:460px;
+}
 .product-info footer .wrap:after,
 .product-info footer .row:after,
 .product-wrapper:after,
-.product-info header:after{
-	display:block;
-	clear:both;
-	content:"";
-}
+.product-info header:after{	display:block;	clear:both;	content:"";}
 .product-info header{
 	width:100%;
 	padding:0 0 17px;
@@ -1732,10 +1763,41 @@ select.date{
 	margin:0;
 	padding:8px 0 0;
 }
+.product-wrapper.my-review-product .product-info header h2{
+	padding-top:0;
+}
+.product-info header .set{
+	float:right;
+	font-size:11px;
+	line-height:18px;
+	margin:0 0 0 10px;
+}
+.product-info header .set a{
+	color:#636363;
+}
 .product-info header .rating-wrap{
 	float:right;
 	width:auto;
 	margin:0 0 0 5px;
+}
+.product-info .rating-row{
+	width:100%;
+	padding:0 0 20px;
+	font:12px/18px Arial, sans-serif;
+}
+.product-info .rating-row:after{	display:block;	clear:both;	content:"";}
+.product-info .my-description h3{
+	font:bold 12px/18px Arial, sans-serif;
+	margin:0 0 10px;
+}
+.product-info .my-description p{
+	margin-bottom:10px;
+}
+.product-info .rating-row .date{
+	float:right;
+}
+.product-info .rating-row .rating-wrap{
+	margin:-6px 0 -6px 8px;
 }
 .product-info p{
 	margin:0;
@@ -1745,6 +1807,9 @@ select.date{
 	width:100%;
 	min-height:220px;
 	padding:0 0 12px;
+}
+.product-wrapper.my-review-product .product-info section{
+	min-height:20px;
 }
 .product-info footer{
 	width:100%;
@@ -1757,17 +1822,8 @@ select.date{
 	float:right;
 	margin:0 0 0 14px;
 }
-.gray-btn.add-bag img{
-	position:absolute;
-	right:7px;
-	top:6px;
-}
-.gray-btn.add-bag span{
-	padding-right:24px;
-	padding-left:10px;
-}
 .product-info footer .add{
-	background:url(/bundles/kidssite/images/bg-add.png) no-repeat 100% 0;
+	background:url(../images/bg-add.png) no-repeat 100% 0;
 	padding:0 28px 2px 0;
 	text-decoration:none;
 	color:#808080;
@@ -1784,6 +1840,7 @@ select.date{
 	font-size:16px;
 	line-height:18px;
 	padding:6px 0 0;
+	display:block;
 }
 .product-info footer .wrap{
 	width:100%;
@@ -1797,7 +1854,7 @@ select.date{
 .product-info footer .print,
 .product-info footer .mail{
 	float:left;
-	background:url(/bundles/kidssite/images/ico09.png) no-repeat 100% 50%;
+	background:url(../images/ico09.png) no-repeat 100% 50%;
 	padding:0 26px 0 0;
 	color:#737373;
 	font-size:10px;
@@ -1807,12 +1864,10 @@ select.date{
 .product-info footer .print{
 	margin:0 0 0 20px;
 	padding:0 23px 0 0;
-	background:url(/bundles/kidssite/images/ico10.png) no-repeat 100% 50%;
+	background:url(../images/ico10.png) no-repeat 100% 50%;
 }
 .product-info footer .network{
-	margin:0;
-	padding:0;
-	list-style:none;
+	margin:0;	padding:0;	list-style:none;
 	overflow:hidden;
 	height:1%;
 }
@@ -1831,6 +1886,18 @@ select.date{
 	float:left;
 	width:370px;
 }
+.product-wrapper.my-review-product .visual-col{
+	width:250px;
+}
+.product-wrapper .visual-col .container{
+	text-align:center;
+}
+.product-wrapper .visual-col .container .title{
+	color:#262626;
+	font-size:11px;
+	text-transform:uppercase;
+	margin:10px 0 8px;
+}
 .product-wrapper .visual-col .visual{
 	width:370px;
 	background:#fff;
@@ -1840,10 +1907,13 @@ select.date{
 	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 	position:relative;
 	margin:0 0 10px;
-	padding:0;
-	list-style:none;
+	padding:0;	list-style:none;
 	height:270px;
 	position:relative;
+}
+.product-wrapper.my-review-product .visual{
+	width:250px;
+	height:184px;
 }
 .product-wrapper .visual-col .visual li{
 	position:absolute;
@@ -1852,11 +1922,15 @@ select.date{
 	width:370px;
 	height:270px;
 }
+.product-wrapper.my-review-product .visual li{
+	width:250px;
+	height:184px;
+}
 .product-wrapper .visual-col .visual li img{
 	vertical-align:top;
 }
 .product-wrapper .visual-col .discount{
-	background:url(/bundles/kidssite/images/bg-discount.png) no-repeat;
+	background:url(../images/bg-discount.png) no-repeat;
 	position:absolute;
 	right:-22px;
 	top:-21px;
@@ -1895,7 +1969,7 @@ select.date{
 }
 .min-gallery .next,
 .min-gallery .prev{
-	background:url(/bundles/kidssite/images/gallery-arrow03.png) no-repeat;
+	background:url(../images/gallery-arrow03.png) no-repeat;
 	width:21px;
 	height:21px;
 	position:absolute;
@@ -1924,9 +1998,7 @@ select.date{
 	position:relative;
 }
 .min-gallery ul{
-	margin:0;
-	padding:0;
-	list-style:none;
+	margin:0;	padding:0;	list-style:none;
 	width:9999px;
 	float:left;
 }
@@ -1963,11 +2035,7 @@ select.date{
 	padding:0 0 33px;
 	margin:0 0 31px;
 }
-.comment-item > header .row:after{
-	display:block;
-	clear:both;
-	content:"";
-}
+.comment-item > header .row:after{	display:block;	clear:both;	content:"";}
 .tab-content h3,
 .comment-item > header h3{
 	color:#000;
@@ -2010,12 +2078,17 @@ select.date{
 	vertical-align:top;
 	margin:0 0 17px;
 }
-.gray-btn.add-comment img{
+.gray-btn.add-comment img,
+.img-btn img,
+.gray-btn.add-bag img{
 	position:absolute;
 	right:7px;
 	top:6px;
 }
-.gray-btn.add-comment span{
+.gray-btn.add-comment span,
+.gray-btn.img-btn span,
+.green-btn.img-btn span,
+.gray-btn.add-bag span{
 	padding-right:24px;
 	padding-left:10px;
 }
@@ -2023,9 +2096,7 @@ select.date{
 	float:right;
 }
 .count-rating{
-	margin:0 -21px 0 0;
-	padding:0;
-	list-style:none;
+	margin:0 -21px 0 0;	padding:0;	list-style:none;
 	float:right;
 	width:223px;
 	font-size:12px;
@@ -2035,11 +2106,7 @@ select.date{
 	width:100%;
 	padding:0 0 2px;
 }
-.count-rating li:after{
-	display:block;
-	clear:both;
-	content:"";
-}
+.count-rating li:after{	display:block;	clear:both;	content:"";}
 .count-rating li .num{
 	float:left;
 	width:40px;
@@ -2048,7 +2115,7 @@ select.date{
 	margin:3px 0 0;
 }
 .count-rating li .view{
-	background:url(/bundles/kidssite/images/bg-rating.png) no-repeat;
+	background:url(../images/bg-rating.png) no-repeat;
 	width:122px;
 	float:left;
 	height:21px;
@@ -2123,9 +2190,7 @@ select.date{
 	display:none;
 }
 .comment-list{
-	margin:0;
-	padding:0;
-	list-style:none;
+	margin:0;	padding:0;	list-style:none;
 }
 .comment-list li{
 	border:1px solid #c3c3c3;
@@ -2147,17 +2212,14 @@ select.date{
 .comment-list li:first-child{
 	margin-top:0;
 }
-.comment-list li:before{
-	position:absolute;
+.comment-list li:before{	position:absolute;
 	left:-15px;
 	top:19px;
-	background:url(/bundles/kidssite/images/comment-arrow.png) no-repeat;
+	background:url(../images/comment-arrow.png) no-repeat;
 	width:15px;
-	height:17px;
-	content:"";
-}
+	height:17px;	content:"";}
 .comment-list li .comment-list li:before{
-	background:url(/bundles/kidssite/images/comment-arrow02.png) no-repeat;
+	background:url(../images/comment-arrow02.png) no-repeat;
 	width:13px;
 	height:13px;
 	left:auto;
@@ -2175,11 +2237,7 @@ select.date{
 .comment-list li .comment-list header{
 	width:310px;
 }
-.comment-list li header:after{
-	display:block;
-	clear:both;
-	content:"";
-}
+.comment-list li header:after{	display:block;	clear:both;	content:"";}
 .comment-list li header .date{
 	float:right;
 	font-style:italic;
@@ -2212,31 +2270,27 @@ select.date{
 }
 .comment-list li header .down,
 .comment-list li header .up{
-	background:url(/bundles/kidssite/images/bg-rating-up.png) no-repeat 0 2px;
+	background:url(../images/bg-rating-up.png) no-repeat 0 2px;
 	padding:0 3px 0 20px;
 	color:#404040;
 	float:left;
 	min-width:27px;
 }
 .comment-list li header .down{
-	background:url(/bundles/kidssite/images/bg-rating-down.png) no-repeat 0 5px;
+	background:url(../images/bg-rating-down.png) no-repeat 0 5px;
 }
 .comment-list li header .num-comment{
 	float:left;
 	color:#808080;
 	padding:0 20px 0 0;
-	background:url(/bundles/kidssite/images/bg-comment-ico.png) no-repeat 100% 4px;
+	background:url(../images/bg-comment-ico.png) no-repeat 100% 4px;
 }
 .comment-list li section{
 	width:100%;
 }
 .comment-form .holder-form .row:after,
 .comment-form:after,
-.comment-list li section:after{
-	display:block;
-	clear:both;
-	content:"";
-}
+.comment-list li section:after{	display:block;	clear:both;	content:"";}
 .comment-list li section .visual{
 	float:left;
 	width:75px;
@@ -2279,6 +2333,10 @@ select.date{
 	border-top:1px solid #D8D8D8;
 	padding:27px 25px 0;
 }
+.comment-form.feedback-comment{
+	border-top:0;
+	padding-top:0;
+}
 .comment-list .comment-form{
 	padding:18px 0 0;
 	display:none;
@@ -2290,7 +2348,7 @@ select.date{
 }
 .big-purple-btn,
 .purple-btn{
-	background:url(/bundles/kidssite/images/purple-btn.png) no-repeat 100% -23px;
+	background:url(../images/purple-btn.png) no-repeat 100% -23px;
 	padding:0 5px 0 0;
 	display:inline-block;
 	vertical-align:top;
@@ -2308,7 +2366,7 @@ select.date{
 	text-shadow:-1px 1px 0 #251f43;
 }
 .big-purple-btn{
-	background:url(/bundles/kidssite/images/big-purple-btn.png) no-repeat 100% -28px;
+	background:url(../images/big-purple-btn.png) no-repeat 100% -28px;
 	height:28px;
 	padding:0 3px 0 0;
 	font-size:16px;
@@ -2318,11 +2376,11 @@ select.date{
 .purple-btn span{
 	float:left;
 	padding:0 10px 0 15px;
-	background:url(/bundles/kidssite/images/purple-btn.png) no-repeat;
+	background:url(../images/purple-btn.png) no-repeat;
 	height:23px;
 }
 .big-purple-btn span{
-	background:url(/bundles/kidssite/images/big-purple-btn.png) no-repeat;
+	background:url(../images/big-purple-btn.png) no-repeat;
 	height:28px;
 	padding:0 17px 0 20px;
 }
@@ -2409,6 +2467,10 @@ select.date{
 .comment-form .holder-form .row{
 	width:378px;
 	padding:0 0 16px;
+	position:relative;
+}
+.comment-form.feedback-comment .holder-form .row{
+	width:100%;
 }
 .comment-form .holder-form .row > label{
 	float:left;
@@ -2421,6 +2483,22 @@ select.date{
 .comment-form .holder-form .row .holder{
 	overflow:hidden;
 	height:1%;
+}
+.comment-form .holder-form .row .holder .big-purple-btn{
+	margin:0;
+	float:right;
+}
+.comment-form .holder-form .row .set-rating{
+	position:absolute;
+	right:0;
+	top:17px;
+}
+.comment-form .holder-form .row .set-rating i{
+	margin:5px 15px 0 0;
+	float:left;
+	font-style:normal;
+	font-size:12px;
+	line-height:16px;
 }
 .input-wrap{
 	-webkit-border-radius:3px;
@@ -2478,17 +2556,28 @@ select.date{
 .comment-form .v-log{
 	float:right;
 }
+.comment-form.feedback-comment .v-log{
+	float:none;
+	display:inline-block;
+	vertical-align:top;
+}
 .comment-form .f-log{
 	float:left;
+}
+.comment-form.feedback-comment .f-log{
+	margin-right:37px;
+}
+.comment-form.feedback-comment .textarea-wrap{
+	width:449px;
+	height:105px;
+}
+.comment-form.feedback-comment .textarea-wrap textarea{
+	width:429px;
 }
 .item-description{
 	width:100%;
 }
-.item-description:after{
-	display:block;
-	clear:both;
-	content:"";
-}
+.item-description:after{	display:block;	clear:both;	content:"";}
 .item-description .col{
 	float:left;
 	width:295px;
@@ -2503,9 +2592,7 @@ select.date{
 	margin:0;
 }
 .item-description ul{
-	margin:0 0 14px;
-	padding:0;
-	list-style:none;
+	margin:0 0 14px;	padding:0;	list-style:none;
 }
 .tab-content h4{
 	margin:0 0 14px;
@@ -2525,7 +2612,7 @@ select.date{
 	box-shadow:none;
 }
 .my-ticket{
-	background:url(/bundles/kidssite/images/bg-ticket-b.png) no-repeat 0 100%;
+	background:url(../images/bg-ticket-b.png) no-repeat 0 100%;
 	padding:0 0 19px;
 	width:290px;
 	margin:0 auto;
@@ -2534,7 +2621,7 @@ select.date{
 	margin:44px 0 36px 213px;
 }
 .my-ticket .ticket-wrap{
-	background:url(/bundles/kidssite/images/bg-ticket-t.png) no-repeat;
+	background:url(../images/bg-ticket-t.png) no-repeat;
 	padding:28px 23px 27px 15px;
 	width:252px;
 }
@@ -2568,22 +2655,18 @@ select.date{
 	margin:2px -3px 24px;
 	height:34px;
 	padding:2px 2px 0 2px;
-	background:url(/bundles/kidssite/images/bg-inner-nav.png) no-repeat;
+	background:url(../images/bg-inner-nav.png) no-repeat;
 }
 .inner-nav + .dividing-line{
 	margin-top:-13px;
 }
-.inner-nav:after{
-	display:block;
-	clear:both;
-	content:"";
-}
+.inner-nav:after{	display:block;	clear:both;	content:"";}
 .inner-nav li{
 	float:left;
 	width:121px;
 	padding:0 0 0 1px;
 	text-align:center;
-	background:url(/bundles/kidssite/images/separator01.png) no-repeat;
+	background:url(../images/separator01.png) no-repeat;
 }
 .inner-nav li:first-child{
 	background:none;
@@ -2600,10 +2683,10 @@ select.date{
 	text-shadow:1px 1px 0 #fff;
 }
 .inner-nav li a.account{
-	background:url(/bundles/kidssite/images/bg-account.jpg) repeat-x;
+	background:url(../images/bg-account.jpg) repeat-x;
 }
 .inner-nav li.active a{
-	background:url(/bundles/kidssite/images/bg-main-nav.gif) repeat-x;
+	background:url(../images/bg-main-nav.gif) repeat-x;
 	text-shadow:1px 1px 0 #595178;
 	color:#fff;
 }
@@ -2641,7 +2724,7 @@ select.date{
 	top:3px;
 }
 .progress-wrapper .progress{
-	background:url(/bundles/kidssite/images/bg-progress.png) no-repeat;
+	background:url(../images/bg-progress.png) no-repeat;
 	width:401px;
 	height:31px;
 	font-size:10px;
@@ -2692,15 +2775,14 @@ select.date{
 	text-align:right;
 	padding:10px 0 0;
 }
+*+ html .one-box > .btn-wrap{
+	padding-top:20px;
+}
 .delivery-row{
 	width:100%;
 }
 .delivery-row:after,
-.two-box:after{
-	display:block;
-	clear:both;
-	content:"";
-}
+.two-box:after{	display:block;	clear:both;	content:"";}
 .two-box .col{
 	float:left;
 	width:306px;
@@ -2772,11 +2854,7 @@ select.date{
 	margin:0 0 15px;
 }
 .order-form .select-row:after,
-.order-form .row:after{
-	display:block;
-	clear:both;
-	content:"";
-}
+.order-form .row:after{	display:block;	clear:both;	content:"";}
 .order-form .select-row{
 	width:100%;
 	margin:0 0 23px;
@@ -2793,10 +2871,14 @@ select.date{
 .order-form .select-row select{
 	width:306px;
 }
+.order-form .password-holder,
 .order-form .wrap-row{
 	width:100%;
 	padding:10px 0 0;
 	margin:0 0 -5px;
+}
+.order-form .password-holder .password{
+	width:106px;
 }
 .order-form .wrap-row .input-wrap{
 	width:101px;
@@ -2835,6 +2917,13 @@ select.date{
 	width:230px;
 	margin-left:38px;
 }
+.delivery-form .col textarea{
+	width:206px;
+}
+.delivery-form .textarea-wrap{
+	width:228px;
+	height:90px;
+}
 .delivery-form .col:first-child{
 	width:420px;
 	margin-left:0;
@@ -2845,9 +2934,7 @@ select.date{
 }
 .delivery-list{
 	width:100%;
-	margin:0;
-	padding:0;
-	list-style:none;
+	margin:0;	padding:0;	list-style:none;
 	font-size:12px;
 	line-height:18px;
 }
@@ -2855,11 +2942,7 @@ select.date{
 	width:100%;
 	padding:0 0 23px;
 }
-.delivery-list li:after{
-	display:block;
-	clear:both;
-	content:"";
-}
+.delivery-list li:after{	display:block;	clear:both;	content:"";}
 .delivery-list .wrap{
 	float:left;
 	width:102px;
@@ -2867,7 +2950,7 @@ select.date{
 span.ui-radio{
 	margin:-2px 5px -3px 0;
 	float:left;
-	background: url(/bundles/kidssite/images/bg-radio.png) no-repeat -1px 2px;
+	background: url(../images/bg-radio.png) no-repeat -1px 2px;
 	width:22px;
 	height:23px;
 	cursor:pointer;
@@ -2902,9 +2985,6 @@ label.ui-radio{
 .delivery-list  span.ui-radio{
 	margin-right:12px;
 }
-.delivery-form textarea{
-	height:140px;
-}
 .delivery-form .btn-wrap{
 	width:100%;
 	overflow:hidden;
@@ -2921,11 +3001,7 @@ label.ui-radio{
 	width:100%;
 	padding:0 0 26px;
 }
-.pay-list .wrap:after{
-	display:block;
-	clear:both;
-	content:"";
-}
+.pay-list .wrap:after{	display:block;	clear:both;	content:"";}
 .pay-list .wrap label{
 	float:left;
 	margin:0 0 0 20px;
@@ -2994,6 +3070,7 @@ label.ui-radio{
 .table-wrap .table .set-wrap a{
 	color:#636363;
 	font-size:11px;
+	white-space:nowrap;
 }
 .table-wrap .table th{
 	padding:5px 20px;
@@ -3079,6 +3156,20 @@ label.ui-radio{
 .table-wrap .table .center{
 	text-align:center;
 }
+.table-wrap .table .description{
+	font-size:10px;
+	line-height:14px;
+	overflow:hidden;
+	padding:0 0 0 20px;
+}
+.table-wrap .table .description,
+.table-wrap .table .rating-holder{
+	display:table-cell;
+	vertical-align:middle;
+}
+*+ html .table-wrap .table .rating-holder{
+	float:left;
+}
 .table-wrap .table td:first-child,
 .table-wrap .table th:first-child{
 	border-left:0;
@@ -3129,17 +3220,17 @@ label.ui-radio{
 }
 .table .add-bag,
 .table .add-wishlist{
-	background:url(/bundles/kidssite/images/bg-add.png) no-repeat 100% 50%;
+	background:url(../images/bg-add.png) no-repeat 100% 50%;
 	color:#636363;
 	padding:0 30px 0 0;
 	float:right;
 	white-space:nowrap;
 }
 .table .add-bag{
-	background:url(/bundles/kidssite/images/ico20.png) no-repeat 100% 50%;
+	background:url(../images/ico20.png) no-repeat 100% 50%;
 }
 .table .del{
-	background:url(/bundles/kidssite/images/bg-close.png) no-repeat 100% 50%;
+	background:url(../images/bg-close.png) no-repeat 100% 50%;
 	color:#636363;
 	padding:0 20px 0 0;
 	float:right;
@@ -3151,7 +3242,7 @@ label.ui-radio{
 	margin:0 auto;
 }
 .up-down{
-	background:url(/bundles/kidssite/images/bg-up-down.png) no-repeat;
+	background:url(../images/bg-up-down.png) no-repeat;
 	width:47px;
 	height:25px;
 	position:relative;
@@ -3179,7 +3270,7 @@ label.ui-radio{
 	top:0px;
 	overflow:hidden;
 	text-indent:-9999px;
-	background:url(/bundles/kidssite/images/bg-up-down-btn.png) no-repeat -21px 0;
+	background:url(../images/bg-up-down-btn.png) no-repeat -21px 0;
 }
 .up-down .down{
 	top:12px;
@@ -3196,10 +3287,77 @@ label.ui-radio{
 	width:100%;
 }
 .table .item-wrap:after,
-.review-wrap .bottom-row:after{
-	display:block;
-	clear:both;
-	content:"";
+.review-wrap .bottom-row:after{	display:block;	clear:both;	content:"";}
+.table-profile{
+	width:155px;
+	display:inline-block;
+	vertical-align:middle;
+	line-height:16px;
+}
+.table-profile .visual{
+	-webkit-box-shadow:2px 2px 3px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+	width:60px;
+	height:60px;
+	background:#fff;
+	float:left;
+	margin:3px 15px 0 0;
+}
+.table-profile .visual img{
+	vertical-align:top;
+	width:60px;
+	height:60px;
+}
+.table-profile .holder{
+	overflow:hidden;
+	height:1%;
+}
+.table-profile .name{
+	color:#6233c2;
+	margin:0 0 5px;
+}
+.table-profile .rating-wrap{
+	margin-bottom:5px;
+}
+.table-profile .date{
+	color:#4d4e53;
+	font-size:10px;
+}
+.description-comment{
+	font-size:10px;
+	line-height:14px;
+	color:#555555;
+}
+.description-comment p{
+	margin:0;
+}
+.description-comment .holder{
+	text-align:right;
+	color:#808080;
+	line-height:18px;
+	padding:10px 0 0;
+}
+.description-comment .holder .down,
+.description-comment .holder .up{
+	background:url(../images/bg-rating-up.png) no-repeat 0 2px;
+	padding:0 3px 0 20px;
+	color:#404040;
+	display:inline-block;
+	vertical-align:top;
+	min-width:27px;
+	text-align:left;
+}
+.description-comment .holder .down{
+	background:url(../images/bg-rating-down.png) no-repeat 0 5px;
+}
+.description-comment .holder .num-comment{
+	display:inline-block;
+	vertical-align:top;
+	color:#808080;
+	text-align:left;
+	padding:0 20px 0 0;
+	background:url(../images/bg-comment-ico.png) no-repeat 100% 4px;
 }
 .review-wrap .bottom-row .total-col{
 	width:225px;
@@ -3326,9 +3484,7 @@ label.ui-radio{
 }
 .address-list li .list,
 .review-wrap .bottom-row .address-wrap .col .list{
-	margin:0;
-	padding:0;
-	list-style:none;
+	margin:0;	padding:0;	list-style:none;
 	min-height:110px;
 }
 .heading-wrapper{
@@ -3361,9 +3517,7 @@ label.ui-radio{
 	width:auto;
 }
 .address-list{
-	margin:0 0 -10px;
-	padding:0;
-	list-style:none;
+	margin:0 0 -10px;	padding:0;	list-style:none;
 	text-align:center;
 }
 .one-box .address-list{
@@ -3433,11 +3587,7 @@ label.ui-radio{
 	width:100%;
 	padding:0 0 24px;
 }
-.contact-wrapper:after{
-	display:block;
-	clear:both;
-	content:"";
-}
+.contact-wrapper:after{	display:block;	clear:both;	content:"";}
 .contact-wrapper .side-col{
 	float:left;
 	width:332px;
@@ -3475,20 +3625,13 @@ label.ui-radio{
 	position:relative;
 	margin:0 0 14px -38px;
 }
-.contact-message .title:after{
-	background:url(/bundles/kidssite/images/arrow-header.png) no-repeat;
+.contact-message .title:after{	background:url(../images/arrow-header.png) no-repeat;
 	width:5px;
-	height:4px;
-	content:"";
+	height:4px;	content:"";
 	position:absolute;
 	left:0;
-	bottom:-4px;
-}
-.contact-message .row:after{
-	display:block;
-	clear:both;
-	content:"";
-}
+	bottom:-4px;}
+.contact-message .row:after{	display:block;	clear:both;	content:"";}
 .contact-wrapper h2,
 .contact-wrapper h1{
 	margin:0 0 15px;
@@ -3513,7 +3656,7 @@ label.ui-radio{
 	text-align:right;
 }
 .send{
-	background:url(/bundles/kidssite/images/bg-send-btn.png) no-repeat;
+	background:url(../images/bg-send-btn.png) no-repeat;
 	width:99px;
 	height:33px;
 	position:relative;
@@ -3603,7 +3746,7 @@ label.ui-radio{
 	margin:0 0 23px;
 }
 .mark-map{
-	background:url(/bundles/kidssite/images/map-dot.png) no-repeat;
+	background:url(../images/map-dot.png) no-repeat;
 	width:13px;
 	height:22px;
 	position:absolute;
@@ -3611,7 +3754,7 @@ label.ui-radio{
 	left:235px;
 }
 .mark-map .hint{
-	background:url(/bundles/kidssite/images/map-note-t.png) no-repeat;
+	background:url(../images/map-note-t.png) no-repeat;
 	width:192px;
 	color:#fff;
 	font-size:12px;
@@ -3625,16 +3768,14 @@ label.ui-radio{
 }
 .mark-map .hint .holder{
 	padding:6px 8px 30px 5px;
-	background:url(/bundles/kidssite/images/map-note-b.png) no-repeat 0 100%;
+	background:url(../images/map-note-b.png) no-repeat 0 100%;
 }
 .contact-wrapper .info-col .info-list{
-	margin:0;
-	padding:3px 60px 0 42px;
-	list-style:none;
+	margin:0;	padding:3px 60px 0 42px;	list-style:none;
 	color:#333;
 	font-size:14px;
 	line-height:18px;
-	background:url(/bundles/kidssite/images/contct-img.png) no-repeat 100% 0;
+	background:url(../images/contct-img.png) no-repeat 100% 0;
 }
 .contact-wrapper .info-col .info-list li{
 	padding: 0 0 15px 50px;
@@ -3642,9 +3783,9 @@ label.ui-radio{
 .contact-wrapper .info-col .info-list li a{
 	color:#333;
 }
-.contact-wrapper .info-col .info-list .ico1{background:url(/bundles/kidssite/images/ico17.png) no-repeat 0 3px;}
-.contact-wrapper .info-col .info-list .ico2{background:url(/bundles/kidssite/images/ico18.png) no-repeat 2px 1px;}
-.contact-wrapper .info-col .info-list .ico3{background:url(/bundles/kidssite/images/ico19.png) no-repeat 0 5px;}
+.contact-wrapper .info-col .info-list .ico1{background:url(../images/ico17.png) no-repeat 0 3px;}
+.contact-wrapper .info-col .info-list .ico2{background:url(../images/ico18.png) no-repeat 2px 1px;}
+.contact-wrapper .info-col .info-list .ico3{background:url(../images/ico19.png) no-repeat 0 5px;}
 .about-us{
 	width:100%;
 	font-size:14px;
@@ -3690,9 +3831,7 @@ label.ui-radio{
 	float:right;
 }
 .two-box .list{
-	margin:0;
-	padding:0;
-	list-style:none;
+	margin:0;	padding:0;	list-style:none;
 }
 .two-box .col > header .side{
 	float:right;
@@ -3728,11 +3867,7 @@ label.ui-radio{
 .num-order:after,
 .table-page:after,
 .account-description:after,
-.settings-form .row:after{
-	display:block;
-	clear:both;
-	content:"";
-}
+.settings-form .row:after{	display:block;	clear:both;	content:"";}
 .settings-form .row > label{
 	float:left;
 	width:70px;
@@ -3778,7 +3913,7 @@ label.ui-radio{
 	position:absolute;
 	right:-44px;
 	top:16px;
-	background:url(/bundles/kidssite/images/base-img.png) no-repeat;
+	background:url(../images/base-img.png) no-repeat;
 	width:194px;
 	min-height:71px;
 }
@@ -3864,13 +3999,13 @@ label.ui-radio{
 .table-page .page .prev{
 	overflow:hidden;
 	text-indent:-9999px;
-	background:url(/bundles/kidssite/images/arrow02-l.png) no-repeat 0 4px;
+	background:url(../images/arrow02-l.png) no-repeat 0 4px;
 	display:inline-block;
 	width:7px;
 	vertical-align:middle;
 }
 .table-page .page .next{
-	background:url(/bundles/kidssite/images/arrow02-r.png) no-repeat 0 4px;
+	background:url(../images/arrow02-r.png) no-repeat 0 4px;
 }
 .num-order{
 	width:100%;
@@ -3952,4 +4087,101 @@ label.ui-radio{
 	right:0;
 	top:-4px;
 }
-@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin,cyrillic,latin-ext);
+.my-review-form{
+	overflow:hidden;
+	height:1%;
+	border:1px solid #d9d9d9;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+	background:#fafafa;
+	padding:0 19px 10px;
+}
+.my-review-form h3{
+	margin:0 -19px 16px;
+	padding:4px 19px;
+	-webkit-border-radius:3px 3px 0 0;
+	-moz-border-radius:3px 3px 0 0;
+	border-radius:3px 3px 0 0;
+	border-bottom:1px solid #d9d9d9;
+	color:#717171;
+	font-size:12px;
+	line-height:20px;
+	font-weight:bold;
+	background: #e9e9e9;
+}
+.my-review-form .row{
+	width:100%;
+	padding:0 0 12px;
+}
+.my-review-form .btn-row:after,
+.my-review-form .row:after{	display:block;	clear:both;	content:"";}
+.my-review-form .row > label{
+	float:left;
+	width:73px;
+	color:#717171;
+	font-size:12px;
+	line-height:16px;
+	margin:4px 0 0;
+}
+.my-review-form .row .holder{
+	overflow:hidden;
+	height:1%;
+}
+.my-review-form .btn-row{
+	width:100%;
+}
+.my-review-form .btn-row .blue-btn{
+	float:right;
+}
+.my-review-form .textarea-wrap{
+	width:345px;
+}
+.my-review-form .textarea-wrap textarea{
+	width:325px;
+}
+.star-rating-list {
+	list-style:none;
+	margin:0 0 1px;
+	padding:0px;
+	width:83px;
+	height:17px;
+	position:relative;
+	background:url("../images/bg-star.png") no-repeat;
+	overflow:hidden;
+}
+.star-rating-list li{
+	display:block;
+	float:left;
+}
+.star-rating-list li a{
+	display:block;
+	width:17px;
+	height:17px;
+	text-decoration:none;
+	text-indent:-9000px;
+	z-index:2;
+	position:absolute;
+	padding:0px;
+}
+.star-rating-list li a:hover,
+.star-rating-list li.setted a{
+	background:url("../images/bg-star.png") no-repeat 0 -17px;
+	z-index:1;
+	left:0px;
+}
+.star-rating-list a.one-star{left:0px;}
+.star-rating-list a.one-star:hover,
+.star-rating-list li.setted a.one-star{width:17px;}
+.star-rating-list a.two-stars{left:17px;}
+.star-rating-list a.two-stars:hover,
+.star-rating-list li.setted a.two-stars{width:34px;}
+.star-rating-list a.three-stars{left:34px;}
+.star-rating-list a.three-stars:hover,
+.star-rating-list li.setted a.three-stars{width:51px;}
+.star-rating-list a.four-stars{left:51px;}
+.star-rating-list a.four-stars:hover,
+.star-rating-list li.setted a.four-stars{width:68px;}
+.star-rating-list a.five-stars{left:68px;}
+.star-rating-list a.five-stars:hover,
+.star-rating-list li.setted a.five-stars{width:85px;}

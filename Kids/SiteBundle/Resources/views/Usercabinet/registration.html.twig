@@ -1,133 +1,143 @@
-{% extends 'LegoSiteBundle::layout.html.twig' %}
+{% extends 'KidsSiteBundle::layout.html.twig' %}
 
 
 {% block body %}
-<div class="col-main">
-    <div class="account-create">
-        <div class="page-title">
-            <h1>Регистрация</h1>
+<div class="heading-wrapper">
+        <a class="big-purple-btn" onclick="$('.order-form').submit()" href="#"><span>Сохранить</span></a>
+        <h1>Регистрация</h1>
+        <div class="dividing-line">&nbsp;</div>
+</div>
+<div class="one-box">
+        <h3 class="title-box">Регистрация нового пользователя</h3>
+        <div class="two-box">
+            <form action="{{ path('registrations_create') }}" method="post" {{ form_enctype(form) }}   class="order-form">
+                <div class="col">
+                         <h3 class="title-box">Информация о пользователе</h3>
+                        
+                                <fieldset>
+                                        {#<div class="row">
+                                                <label>Пол</label>
+                                                <div class="holder">
+                                                        <select class="sex">
+                                                                <option title="title"> </option>
+                                                                <option value="1">Miss</option>
+                                                                <option value="2">Mister</option>
+                                                        </select>
+                                                </div>
+                                        </div>#}
+                                        <div class="row">
+                                                <label>Логин</label>
+                                                <div class="holder">
+                                                        <label class="input-wrap">
+                                                            {{ form_widget(form['username']) }}
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                                <label>Имя</label>
+                                                <div class="holder">
+                                                        <label class="input-wrap">
+                                                            {{ form_widget(form['name']) }}
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                                <label>Фамилия</label>
+                                                <div class="holder">
+                                                        <label class="input-wrap">
+                                                            {{ form_widget(form['surname']) }}
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                                <label>Отчество</label>
+                                                <div class="holder">
+                                                        <label class="input-wrap">
+                                                            {{ form_widget(form['patronymic']) }}
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="password-holder">
+                                                <div class="row">
+                                                        <label>E-mail</label>
+                                                        <div class="holder">
+                                                                <label class="input-wrap">
+                                                                    {{ form_widget(form['email']) }}
+                                                                </label>
+                                                        </div>
+                                                </div>
+                                                <div class="row">
+                                                        <label class="password">Пароль</label>
+                                                        <div class="holder">
+                                                                <label class="input-wrap">
+                                                                    {{ form_widget(form.password.first) }}
+                                                                </label>
+                                                        </div>
+                                                </div>
+                                                <div class="row">
+                                                        <label class="password">Повтор пароля</label>
+                                                        <div class="holder">
+                                                                <label class="input-wrap">
+                                                                    {{ form_widget(form.password.second) }}
+                                                                </label>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        {#<label class="ch"><input type="checkbox" class="checkbox" checked="checked" />Tick this box is you do NOT want to receive our <a href="#">newsletter</a> and special offers. </label>#}
+                                </fieldset>
+                                {{ form_row(form._token) }} 
+                    
+                </div>
+        <div class="col">
+                <h3 class="title-box">Адрес</h3>
+               
+                        <fieldset>
+                                <div class="row">
+                                        <label>Полное имя</label>
+                                        <div class="holder">
+                                                <label class="input-wrap">{{ form_widget(form_add.fio) }}</label>
+                                        </div>
+                                </div>
+                                <div class="row">
+                                        <label>Дом номер</label>
+                                        <div class="holder">
+                                                <label class="input-wrap">{{ form_widget(form_add.h_num) }}</label>
+                                        </div>
+                                </div>
+                                <div class="row">
+                                        <label>Улица</label>
+                                        <div class="holder">
+                                                <label class="input-wrap">{{ form_widget(form_add.street) }}</label>
+                                        </div>
+                                </div>
+                                <div class="wrap-row">
+                                        <div class="row">
+                                                <label>Город</label>
+                                                <div class="holder">
+                                                        <label class="input-wrap">{{ form_widget(form_add.city) }}</label>
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                                <label>Почтовый индекс</label>
+                                                <div class="holder">
+                                                        <label class="input-wrap">{{ form_widget(form_add.postcode) }}</label>
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                                <label>Регион</label>
+                                                <div class="holder">
+                                                        <label class="input-wrap">{{ form_widget(form_add.state) }}</label>
+                                                </div>
+                                        </div>
+                                        
+                                {{ form_widget(form_add._token) }}
+                                </div>
+                        </fieldset>
+                </form>
         </div>
-            <form action="{{ path('registrations_create') }}" method="post" {{ form_enctype(form) }}  id="form-validate">
-                <div class="fieldset">
-                    <h2 class="legend">Персональная информация</h2>
-                    <ul class="form-list">
-                        <li class="fields">
-                            <div class="customer-name">
-                                <div class="field name-firstname">
-                                    <label class="required" for="firstname">
-                                    <em>*</em>
-                                        Имя
-                                    </label>
-                                        <div class="input-box">
-                                            {{ form_widget(form['name']) }}
-                                        </div>
-                                </div>
-                                <div class="field name-lastname">
-                                    <label class="required" for="lastname">
-                                        <em>*</em>
-                                        Фамилия
-                                    </label>
-                                    <div class="input-box">
-                                        {{ form_widget(form['surname']) }}
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="fields">
-                            <div class="customer-name">
-                                <div class="field name-firstname">
-                                    <label class="required" for="firstname">
-                                    <em>*</em>
-                                        Отчество
-                                    </label>
-                                        <div class="input-box">
-                                            {{ form_widget(form['patronymic']) }}
-                                        </div>
-                                </div>
-                                <div class="field name-lastname">
-                                    <label class="required" for="lastname">
-                                        <em>*</em>
-                                        Почта
-                                    </label>
-                                    <div class="input-box">
-                                        {{ form_widget(form['email']) }}
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="fields">
-                            <div class="customer-name">
-                                <div class="field name-firstname">
-                                    <label class="required" for="firstname">
-                                    <em>*</em>
-                                        Телефон
-                                    </label>
-                                        <div class="input-box">
-                                            {{ form_widget(form['tel']) }}
-                                        </div>
-                                </div>
-                                <div class="field name-lastname">
-                                    <label class="required" for="lastname">
-                                        <em>*</em>
-                                        Адрес
-                                    </label>
-                                    <div class="input-box">
-                                        {{ form_widget(form['address']) }}
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>    
-    <div class="fieldset">
-        <h2 class="legend">Информация для входа</h2>
-        <ul class="form-list">
-            <li class="fields">
-                <div class="field">
-                    <label class="required" for="password">
-                        <em>*</em>
-                            Логин
-                    </label>
-                <div class="input-box">
-                    {{ form_widget(form['username']) }}
-                </div>
-                </div>
-                <div class="field">
-                </div>
-            </li>
-            <li class="fields">
-                <div class="field">
-                    <label class="required" for="password">
-                        <em>*</em>
-                            Пароль
-                    </label>
-                <div class="input-box">
-                               {{ form_widget(form['password']['first']) }}
-                </div>
-                </div>
-                <div class="field">
-                    <label class="required" for="confirmation">
-                        <em>*</em>
-                            Повторите пароль
-                    </label>
-                    <div class="input-box">
-                        {{ form_widget(form['password']['second']) }}
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-                    {{ form_row(form._token) }} 
-            <div class="buttons-set">
-            <button class="button" title="Submit" type="submit" >
-                    <span>
-                        <span>Регистрация</span>
-                    </span>
-            </button>
-            </div>
-            </form>
-            
-    </div>
-
+        </div>
+        <div class="btn-wrap">
+                <a class="big-purple-btn"  onclick="$('.order-form').submit()" href="#"><span>Сохранить</span></a>
+        </div>
 </div>
 {% endblock %}

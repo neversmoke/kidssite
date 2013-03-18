@@ -20,8 +20,6 @@
         {% block javascript %}
             <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/autoscaling-menu.js' ) }}"></script>
             <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/clear-form-fields.js' ) }}"></script>
-            <script src="{{ asset ( 'bundles/itcadmin/js/plugins/jquery-ui-1.9.1.custom.js' ) }}" ></script>
-            <script src="{{ asset ( 'bundles/itcadmin/js/plugins/jquery-ui-1.9.1.custom.min.js' ) }}" ></script>
             <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/jquery-1.9.1.min.js' ) }}"></script>
             <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/jquery-ui-1.9.2.custom.min.js' ) }}"></script>
             <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/jquery.jscrollpane.min.js' ) }}"></script>
@@ -29,6 +27,9 @@
             <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/ui.js' ) }}"></script>
             <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/ui.checkbox-radio.js' ) }}"></script>
             <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/jquery.main.js' ) }}"></script>
+            <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/content.js' ) }}"></script>
+            <script src="{{ asset ( 'bundles/itcadmin/js/plugins/jquery-ui-1.9.1.custom.js' ) }}" ></script>
+            <script src="{{ asset ( 'bundles/itcadmin/js/plugins/jquery-ui-1.9.1.custom.min.js' ) }}" ></script>
             
 	{% endblock %}
 </head>
@@ -67,12 +68,8 @@
 			<aside id="side-bar">
                                     {% render 'MainSiteBundle:Catalog:CategoriesBlock' %}
                                     {% render 'KidsSiteBundle:Catalog:SliderBlock' %}
-				<div class="side-network">
-					<img src="/bundles/kidssite/images/bg-network01.jpg" width="170" height="290" alt="" />
-				</div>
-				<div class="side-network">
-					<img src="/bundles/kidssite/images/bg-network02.jpg" width="170" height="290" alt="" />
-				</div>
+                                    {% include 'KidsSiteBundle:Default:socialRightBlock.html.twig' %}
+				
 			</aside>
 		</section>
 	</div>

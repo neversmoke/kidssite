@@ -45,7 +45,7 @@
                                                                     <span>В корзину<img src="/bundles/kidssite/images/bg-plus.png" width="17" height="17" alt="" /></span>
                                                                 </a>
 								<a class="add" href="{{ path('add_to_wish', {'id': entity.id}) }}">Желаю</a>
-								<div class="price">{{ entity.price }} P</div>
+								<div class="price">{{ entity.price }}  <span class="rouble">i</span></div>
 							</div>
 							<div class="wrap">
 								<div class="holder">
@@ -140,7 +140,7 @@
                                                 <span class="reviews">Reviews: 175</span>
                                         </div>#}
                                         <div class="price-holder">
-                                                <a class="gray-btn" href="{{path('main_site_cart_add', {'id':entity.id, 'amount': 1})}}"><span>В корзину</span></a>
+                                                <a class="gray-btn" href="{{path('main_site_cart_add', {'id':entity.id, 'amount': 1})}}"><span>В корзину <img width="17" height="17" alt="" src="{{ asset('/bundles/kidssite/images/bg-plus.png') }}"/></span></a>
                                                 <span class="price">{{ entity.price }} P</span>
                                         </div>
                                 </li>

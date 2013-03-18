@@ -213,12 +213,16 @@ class UsercabinetController extends ControllerHelper //Controller
      */
     public function registrationAction()
     {
-        $entity = new User();
-        $form   = $this->createForm(new UserType(), $entity, array("attr" => array("new" => true)));
+        $user = new User();
+        $form_user   = $this->createForm(new UserType(), $user, array("attr" => array("new" => true)));
 
+        $addres = new Adress();
+        $form_addr   = $this->createForm(new AdressType(), $addres);
         return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
+            'entity'    => $user,
+            'form'      => $form_user->createView(),
+            'addres'    => $addres,
+            'form_add'  => $form_addr->createView(),
         );
     }
 
@@ -227,21 +231,24 @@ class UsercabinetController extends ControllerHelper //Controller
      *
      * @Route("/registration/create", name="registrations_create")
      * @Method("POST")
-     * @Template("ItcAdminBundle:User:new.html.twig")
+     * @Template()
      */
     public function createAction(Request $request)
     {
         
         $em = $this->getDoctrine()->getManager();
-        $group = $em->getRepository('ItcAdminBundle:Group')->findBy(array('role'=>'ROLE_USER'));
-        foreach($group as $g)
-        {
-            $group=$g;
-        }
+        $group = $em->getRepository('ItcAdminBundle:Group')->findOneBy(array('role'=>'ROLE_USER'));
+        
+        $addres  = new Adress();
+        $form_addres = $this->createForm(new AdressType(), $addres);
+        $form_addres->bind($request);
+        
+        
         $entity = new User();
         $form = $this->createForm(new UserType(), $entity, array("attr" => array("new" => true)));
         $form->bind($request);
         $data = $form->getData();
+        
         $passwd = $data->getPassword();
             $encoder = $this->get('security.encoder_factory')->getEncoder($entity);
             $encodedPass = $encoder->encodePassword($passwd, $entity->getSalt());  
@@ -249,19 +256,19 @@ class UsercabinetController extends ControllerHelper //Controller
             $entity->setGroup($group);
             $entity->setEnabled(true);
             $entity->setFIO($data->getSurname()." ".$data->getName()." ".$data->getPatronymic());
-        if ($form->isValid()) {
-            
+        
+       if ($form->isValid()) {
             $em->persist($entity);
+            $em->flush();
+            $addres->setUserid($entity->getId());
+            $em->persist($addres);
             $em->flush();
             
             
             return $this->redirect($this->generateUrl('index'));
         }
 
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
+       return $this->redirect($this->generateUrl('registration'));
     }
     /**
      * @Route("/delete/addres/{id}", name="address_delete")

@@ -1,0 +1,36 @@
+<div class="tab-content">
+<ul class="item-list"> 
+{% for entity in entities %}
+    <li itemscope itemtype="http://data-vocabulary.org/Product">
+            <h3 itemprop="name">
+                <a href="{{ path('products', {'translit':entity.translit}) }}">{{ entity.title }}</a>
+            </h3>
+            <p itemprop="description">
+                {{ entity.description }}
+            </p>
+            <div class="visual">
+                {% if entity.ratio!='' %}
+                    <span class="discount">{{ entity.ratio }}%</span>
+                {% endif %}
+                    {% if entity.icon is not empty %}
+                    <img src="{{ vich_uploader_asset(entity, 'iconImage') }}" width="169" height="124" alt="" />
+                {% endif %}
+            </div>
+            {#<div class="rating-wrap" itemprop="review" itemscope itemtype="http://data-vocabulary.org/Review-aggregate">
+                    <div class="rating-star"><span style="width:70%;" itemprop="rating">3.5</span></div>
+                    <span class="reviews">Reviews: <span itemprop="count">175</span></span>
+            </div>#}
+            <div class="price-holder">
+                    <a class="gray-btn img-btn" href="{{path('main_site_cart_add', {'id':entity.id, 'amount': 1})}}">
+                    <span>В корзину <img width="17" height="17" alt="" src="{{ asset('/bundles/kidssite/images/bg-plus.png') }}"/></span></a>
+                    <span class="price" itemprop="price">{{ entity.price }} <span class="rouble">i</span></span>
+            </div>
+    </li>
+ {% endfor %}
+</ul>
+</div>
+<div class="tab-paging">
+        <div class="paging-wrap">
+                {{ knp_pagination_render(entities) | raw }}
+        </div>
+</div>

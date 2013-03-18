@@ -71,10 +71,10 @@ class CatalogController extends ControllerHelper //Controller
     /**
      * @Route("catalog/{translit}/{sort}/{coulonpage}/{page}/", name="catalog",
      * requirements={"coulonpage" = "\d+","page" = "\d+"}, 
-     * defaults={ "sort" = "kod", "coulonpage" = "10", "page"=1})
+     * defaults={ "sort" = "kod", "coulonpage" = "9", "page"=1})
      * @Template()
      */
-    public function CurrentCatalogAction($translit, $page, $sort = 'kod', $coulonpage = 10)
+    public function CurrentCatalogAction($translit, $page, $sort = 'kod', $coulonpage = 9)
     {
       $em = $this->getDoctrine()->getManager();
         $locale =  LanguageHelper::getLocale();
@@ -87,6 +87,17 @@ class CatalogController extends ControllerHelper //Controller
                         ->setParameter('translit', $translit)
                         ->setParameter('locale', $locale)
                         ->getQuery()->getOneOrNullResult();
+        $ids[]=$entity->getId();
+        $child=$entity->getChildren();
+        if(is_object($child)){
+            foreach ($child as $ch) {
+                $ids[]=$ch->getId();
+                $childs=$ch->getChildren();
+                    foreach ($childs as $chs) {
+                        $ids[]=$chs->getId();
+                    }
+            }
+        }
         $entities = $em->getRepository('ItcAdminBundle:Product\Product')
                         ->createQueryBuilder('M')
                         ->select('M, T')
@@ -94,8 +105,8 @@ class CatalogController extends ControllerHelper //Controller
                                 'WITH', "T.locale = :locale")
                         ->setParameter('locale', $locale)
                         ->orderBy('M.'.$sort, 'ASC')
-                        ->where('M.productGroup = :productGroup')
-                        ->setParameter('productGroup', $entity->getId());
+                        ->where('M.productGroup in (:productGroup)')
+                        ->setParameter('productGroup', $ids);
                         $paginator = $this->get('knp_paginator');
         $entities = $paginator->paginate(
                         $entities,
@@ -105,12 +116,40 @@ class CatalogController extends ControllerHelper //Controller
         );
         return array( 
             'entity'     => $entity,
-            'entities'   => $entities,
             'locale'     => $locale,
-            'sort'       => $sort
+            'id'         => $ids,
+            'page'       => $page
         );
     }
-       /**
+    /**
+     * @Template()
+     */
+    public function ProdBlockSortAction($id, $sort, $type, $page){
+        $coulonpage=9;
+        $em = $this->getDoctrine()->getManager();
+        $locale =  LanguageHelper::getLocale();
+        $entities = $em->getRepository('ItcAdminBundle:Product\Product')
+                        ->createQueryBuilder('M')
+                        ->select('M, T')
+                        ->leftJoin('M.translations', 'T',
+                                'WITH', "T.locale = :locale")
+                        ->setParameter('locale', $locale)
+                        ->orderBy('M.'.$sort, $type)
+                        ->where('M.productGroup in (:productGroup)')
+                        ->setParameter('productGroup', $id);
+                        $paginator = $this->get('knp_paginator');
+        $entities = $paginator->paginate(
+                        $entities,
+                        $this->get('request')->query->get('page', $page)/*page number*/,
+                        $coulonpage,
+                        array('distinct' => false)
+        );
+        return array( 
+            'entities'   => $entities,
+        );
+    }
+
+    /**
      * @Template()
      */
     public function TopSalesBlockAction()
@@ -293,15 +332,44 @@ class CatalogController extends ControllerHelper //Controller
      */
     
     public function CategoriesPageAction(){
-        
-        return $this->CategoriesBlockAction();
+        $em = $this->getDoctrine()->getManager();
+        $locale =  LanguageHelper::getLocale();
+        $queryBuilder = $em->getRepository('ItcAdminBundle:Product\ProductGroup')
+                        ->createQueryBuilder('M')
+                        ->select( 'M, T' )
+                        ->leftJoin('M.translations', 'T',
+                                'WITH', "T.locale = :locale")
+                        ->orderBy('M.kod', 'ASC')
+                        ->setParameter('locale', $locale);
+
+        $entities = $queryBuilder->getQuery()->execute();
+
+        return array( 
+            'entities' => $entities,
+            'locale' => $locale
+        );
     }
     /**
      * @Template()
      */
     public function CatforSearchAction(){
         
-        return $this->CategoriesBlockAction();
+        $em = $this->getDoctrine()->getManager();
+        $locale =  LanguageHelper::getLocale();
+        $queryBuilder = $em->getRepository('ItcAdminBundle:Product\ProductGroup')
+                        ->createQueryBuilder('M')
+                        ->select( 'M, T' )
+                        ->leftJoin('M.translations', 'T',
+                                'WITH', "T.locale = :locale")
+                        ->orderBy('M.kod', 'ASC')
+                        ->setParameter('locale', $locale);
+
+        $entities = $queryBuilder->getQuery()->execute();
+
+        return array( 
+            'entities' => $entities,
+            'locale' => $locale
+        );
     }
 
     /**
@@ -313,10 +381,13 @@ class CatalogController extends ControllerHelper //Controller
         $locale =  LanguageHelper::getLocale();
         $queryBuilder = $em->getRepository('ItcAdminBundle:Product\ProductGroup')
                         ->createQueryBuilder('M')
-                        ->select( 'M, T' )
+                        ->select( 'M, T, count(P.id) as col' )
                         ->leftJoin('M.translations', 'T',
                                 'WITH', "T.locale = :locale")
+                        ->leftJoin('ItcAdminBundle:Product\Product', 
+                               'P', 'WITH', 'P.productGroupId=M.id')
                         ->orderBy('M.kod', 'ASC')
+                        ->groupBy('M.id')
                         ->setParameter('locale', $locale);
 
         $entities = $queryBuilder->getQuery()->execute();
@@ -337,7 +408,7 @@ class CatalogController extends ControllerHelper //Controller
                      ->createQueryBuilder( 'M' )
                      ->select( 'M' );
         $qb->where( "M.title LIKE :value" );
-        $qb->setParameter( 'value', "%".$_POST['q']."%" );
+        $qb->setParameter( 'value', "%".$_GET['q']."%" );
 
         $members = $qb->getQuery()->execute();
         if(count($members)==1){

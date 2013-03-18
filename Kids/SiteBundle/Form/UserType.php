@@ -15,6 +15,10 @@ class UserType extends AbstractType
                             'attr' => array(
                                 'class' => 'input-text required-entry'
                             )))
+            ->add('username', null, array( 'required'=>true,
+                            'attr' => array(
+                                'class' => 'input-text required-entry'
+                            )))
             ->add('tel', null, array( 'required'=>true,
                             'attr' => array(
                                 'class' => 'input-text required-entry'
