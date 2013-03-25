@@ -96,7 +96,27 @@
 								</div>
 								<div class="dividing-line">&nbsp;</div>
 								<h4>Параметры</h4>
-                                                        {% if attributs|length > 0 %}
+                                                       {% if product_attr|length > 0 %}
+                                                            {% for attr in product_attr %}
+                                                        <div class="item-description">
+                                                            <div class="col">
+                                                                    <h4>{{ attr.name }}:</h4>
+                                                                    <ul>
+                                                                     {% for value in attr_value %} 
+                                                                            {% if value[0].getAttributeResourceId()==attr.resource %}
+                                                                                {% if value[0].getTemplateId() is empty %}
+                                                                                    <li>{{ value.name }}</li>
+                                                                                    {% else %}
+                                                                                    <li>{{ value.name }}</li>
+                                                                                {% endif %}
+                                                                            {% endif %}
+                                                                     {% endfor %}
+                                                                     </ul>
+                                                               </div>
+                                                        </div>
+                                                        {% endfor %}
+                                                        {% endif %} 
+                                                       {#{% if attributs|length > 0 %}
                                                         <div class="item-description">
                                                             <div class="col">
                                                                 {% for attr in attributs%}
@@ -109,7 +129,7 @@
                                                                 {% endfor %}
                                                             </div>
                                                         </div>
-                                                        {% endif %}
+                                                        {% endif %}#}
                                                     </div>
 						</div>
                     <div class="tab" style="display:none;">

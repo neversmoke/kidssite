@@ -53,10 +53,11 @@
         <input type="hidden" id="session_arr" name="session_arr"/>
         <input type="hidden" id="send" name="send" value='shipp_method'/>
     </form>  
-                       
+                    {% if auth!=0 %}   
                     <a class="big-purple-btn" href="#" onclick='setSession()'>
                         <span>Продолжить...</span>
                     </a>
+                    {% endif %}
         <h1>Заказ</h1>
         <ul class="progress step1">
                 <li class="col1">1. Куда доставить?</li>
@@ -66,6 +67,23 @@
         </ul>
 </div>
 <div class="two-box">
+        {% if auth==0 %}
+            <div class="dividing-line">&nbsp;</div>
+				<div class="my-ticket">
+					<div class="ticket-wrap">
+						<h2>Уведомление!</h2>
+						<div class="description">
+							<p>Для того что бы вы смогли сделать заказ на нашем сайте</p>
+						</div>
+						<div class="note">
+							<p><em> Вам нужно пройти 
+                                                            <a class="opener-register" href="{{ path('registration') }}">Регестрацию</a> <br />
+                                                            или войти под своим <a href="#" onclick="$('.opener-login').trigger('click')">логином</a>
+                                                            </em></p>
+						</div>
+					</div>
+				</div>
+        {% else %}
         <div class="col">
                 <h3 class="title-box">Адрес регистрации</h3>
                 <form action="{{ path('user_addr_create_site') }}" method="post" id="bill_addr"  {{ form_enctype(form) }}  class="order-form bill_addr">
@@ -185,5 +203,6 @@
                         </fieldset>
                 </form>
         </div>
+        {% endif %}
 </div>
 {% endblock %}

@@ -68,12 +68,19 @@ class CheckoutController extends ControllerHelper
             $editForm = $this->createForm(new AdressType(), $entity);
         
             $address = $em->getRepository('ItcKidsBundle:User\Adress')->findBy(array('userid'=>$userid));
-        
+            
+       $securityContext = $this->container->get('security.context');  
+      if( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') ){
+             $auth= 1;
+       }else{ 
+           $auth=0;
+       }
         return array(
             'user'        => $user,
             'form'        => $editForm->createView(),
             'form1'       => $editForm->createView(),
-            'address'     => $address
+            'address'     => $address,
+            'auth'        => $auth
         );
     }
     
@@ -233,6 +240,7 @@ class CheckoutController extends ControllerHelper
         $payment = $em->getRepository('ItcKidsBundle:Payment\PaymentMethod')->find($order['payment_meth']['id_meth']);
         
         $shipp = $em->getRepository('ItcKidsBundle:Shipping\ShippingMethod')->find($order['shipp_meth']['id_meth']);
+        
         return array(
             'cart'          => $cart,
             'total_price'   => $sum,
@@ -318,12 +326,12 @@ class CheckoutController extends ControllerHelper
              
              $pd->setUser($user);
                     
-                    $transaction= new Trans();
+             /*       $transaction= new Trans();
                     $transaction->setPd($pd);
                     $transaction->setSumma($summa1);
                     $transaction->setIL2($user->getId());
                     $transaction->setOL2($user->getId());
-             $pd->addTransaction($transaction);
+             $pd->addTransaction($transaction);*/
         }
         
         $em->persist( $pd );

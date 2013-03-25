@@ -219,20 +219,39 @@ class CatalogController extends ControllerHelper //Controller
                         ->findByGallery($galary->getId());
         }
         $keywords=$entity->getKeywords();
-        $attr_val=$values=array();
-        $attr_val = $em->getRepository('ItcKidsBundle:Template\Attr')
-                                ->createQueryBuilder('A')
-                                ->select('A')
-                                ->innerJoin('A.attrvalues', 'V')
-                                ->innerJoin('V.productattrvalues','P')
-                                ->where("P.product = :id")
-                                ->setParameter('id', $entity)
-                                ->orderBy('A.kod', 'ASC')
-                                ->getQuery()->execute();
-    
-        foreach ($attr_val as $attr){
-                       $values[$attr->getId()]=$attr->getAttrvalues();
-            }  
+         $massId=$ValueAttributes=$ProductAttributes="";
+       
+        $ProductAttributes=
+                    $em->getRepository('ItcAdminBundle:Product\ProductAttribute')
+                       ->createQueryBuilder('P')
+                       ->select('P, R.name, R.id as resource, C.id as attrid')
+                       ->InnerJoin('ItcAdminBundle:Template\AttributeResource', 
+                               'R', 'WITH', 'P.attribute_resource_id=R.id')
+                       ->InnerJoin('ItcAdminBundle:Template\Attribute', 
+                               'C', 'WITH', 'P.attribute_resource_id=C.attribute_resource_id')
+                       ->where("P.product = :id")
+                       ->setParameter('id', $entity->getId())
+                       ->groupBy('P.attribute_resource_id')
+                       ->getQuery()
+                       ->execute();
+        if(count($ProductAttributes)>0){
+            foreach ($ProductAttributes as $ProdAttr) {
+              $massId.=$ProdAttr['resource'].",";
+              
+            }
+        $ValueAttributes=
+                    $em->getRepository('ItcAdminBundle:Product\ProductAttribute')
+                       ->createQueryBuilder('P')
+                       ->select('P, R.name, R.id as resource')
+                       ->InnerJoin('ItcAdminBundle:Template\AttributeValueResource', 
+                               'R', 'WITH', 'P.value_resource_id=R.id')
+                       ->where("P.attribute_resource IN (".substr($massId, 0, -1).")")
+                       ->AndWhere("P.product = :id")
+                       ->setParameter('id', $entity->getId())
+                       ->getQuery()
+                       ->execute();
+        
+        }
         $securityContext = $this->container->get('security.context');
        if( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') ){
              $auth= 1;
@@ -253,8 +272,8 @@ class CatalogController extends ControllerHelper //Controller
             'images'     => $galary_images,
             'locale'     => $locale,
             'keywords'   => $keywords,
-            'attributs'  => $attr_val,
-            'attrval'    => $values,
+            'product_attr'  => $ProductAttributes,
+            'attr_value'    => $ValueAttributes,
             'form'       => $form->createView(),
             'comments'   => $comments,
             'auth'       => $auth
