@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Itc\AdminBundle\Tools\LanguageHelper;
-use Main\SiteBundle\Tools\ControllerHelper;
+use Itc\AdminBundle\Tools\ControllerHelper;
 use Main\SiteBundle\Controller\CatalogController as Catal;
 use Symfony\Component\Security\Core\SecurityContext;
 use Kids\SiteBundle\Form\ProductCommentsType;
@@ -24,7 +24,7 @@ class CatalogController extends ControllerHelper //Controller
         'ItcAdminBundle:Product\ProductGroup',
         'ItcAdminBundle:Product\ProductGroupTranslation'
     );
-    private $menu = 'ItcAdminBundle:Menu\Menu';
+    protected $menu = 'ItcAdminBundle:Menu\Menu';
     /**
      * @Template()
      */
