@@ -58,7 +58,7 @@
                                 <div></div>
                                 <div>{{ cart[product.id].amount }} x P {{ product.price }}</div>
                         </td>
-                        <td><a class="del" href="{{ path('main_site_cart_remove', {'id': product.id}) }}">Удалить</a></td>
+                        <td><a class="del" href="{{ path('remove_cart_item', {'id': product.id}) }}">Удалить</a></td>
                         <td>
                                 <div class="price">P {{ (product.price*cart[product.id].amount)|number_format(2, ',', '.') }}</div>
                         </td>

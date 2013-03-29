@@ -45,7 +45,7 @@
                                         </div>
                                 </td>
                                 <td><a class="add-wishlist" href="{{ path('add_to_wish', {'id':product.id}) }}">В список желаний</a></td>
-                                <td><a class="del" href="{{ path('main_site_cart_remove', {'id': product.id}) }}">Удалить</a></td>
+                                <td><a class="del" href="{{ path('remove_cart_item', {'id': product.id}) }}">Удалить</a></td>
                                 <td>
                                         <div class="up-down">
                                                 <input type="text" name="{{ product.id }}" value="{{ cart[product.id].amount }}" />

@@ -7,9 +7,9 @@
         <li><a href="{{ path('cart') }}">Корзина</a></li>
         <li><a class="account" href="{{ path('usercabinet') }}">Аккаунт</a></li>
         <li class="active"><a href="{{ path('wish_list') }}">Желания</a></li>
-        <li><a href="#">Заказы</a></li>
-        <li><a href="#">Просмотр</a></li>
-        <li><a href="#">Настройки</a></li>
+        <li><a href="{{ path('user_orders') }}">Заказы</a></li>
+        <li><a href="{{ path('user_orders') }}">Просмотр</a></li>
+        <li><a href="{{ path('usercabinet_info') }}">Настройки</a></li>
 </ul>
 <div class="dividing-line">&nbsp;</div>
 <div class="heading-wrapper">
@@ -44,7 +44,7 @@
                                                 </div>
                                         </div>
                                 </td>
-                                <td><a class="add-bag" href="{{path('main_site_cart_add', {'id':product.id, 'amount': 1})}}">В корзину</a></td>
+                                <td><a class="add-bag" href="{{path('add_to_cart', {'id':product.id, 'amount': 1})}}">В корзину</a></td>
                                 <td><a class="del" href="{{ path('wish_remove_one', {'id': product.id}) }}">Удалить</a></td>
                                 <td>
                                         {#<div class="up-down">
