@@ -17,7 +17,7 @@ use Kids\SiteBundle\Form\AdressType;
 /**
  * @Route("/usercabinet", name="usercabinet_cons")
  */
-class UsercabinetController extends ControllerHelper //Controller
+class UsercabinetController extends ControllerHelper 
 {
     /**
      * @Route("/user/orders/{coulonpage}/{page}/{id}", name="user_orders",
@@ -27,7 +27,7 @@ class UsercabinetController extends ControllerHelper //Controller
      */
     public function ListOrdersAction($page, $id, $coulonpage = 10)
     {
-        $sum=$products=$order=$lines="";
+        $sum=$products=$order=$lines=$pay="";
         $securityContext = $this->container->get('security.context');
          if( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') ){
         $user= $securityContext->getToken()->getUser();
@@ -43,6 +43,7 @@ class UsercabinetController extends ControllerHelper //Controller
         
         if($id!=NULL){
              $order = $em->getRepository('ItcDocumentsBundle:PdOrder\PdOrder')->find($id);
+             $pay=$order->getPayment();
              $lines = $order->getPdlines();
              foreach ($lines as $value) {
                  $products[$value->getId()]=$value->getProduct();
@@ -53,6 +54,7 @@ class UsercabinetController extends ControllerHelper //Controller
             'user'          => $user, 
             'pdorders'      => $entities,
             'order'         => $order,
+            'pay'           => $pay,
             'lines'         => $lines,
             'product'       => $products,
             'total_price'   => $sum
