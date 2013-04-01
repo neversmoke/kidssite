@@ -49,6 +49,14 @@
                         <form action="{{ path('update_usercabinet', {'id':user.id}) }}" method="post" {{ form_enctype(form) }}  class="settings-form">
                                 <fieldset>
                                         <div class="row">
+                                                <label>Логин</label>
+                                                <div class="holder">
+                                                        <label class="input-wrap">
+                                                            {{ form_widget(form['username']) }}
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="row">
                                                 <label>Имя</label>
                                                 <div class="holder">
                                                         <label class="input-wrap">
