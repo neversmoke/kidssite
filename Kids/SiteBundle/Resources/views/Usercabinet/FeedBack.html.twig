@@ -1,0 +1,70 @@
+{% extends 'KidsSiteBundle::layout.html.twig' %}
+
+{% block title %}
+<title>Коментарии</title>
+{% endblock %}
+
+{% block body %}
+<ul class="inner-nav">
+        <li><a href="{{ path('cart') }}">Корзина</a></li>
+        <li><a class="account" href="{{ path('usercabinet') }}">Аккаунт</a></li>
+        <li><a href="{{ path('wish_list') }}">Желания</a></li>
+        <li><a href="{{ path('user_orders') }}">Заказы</a></li>
+        <li class="active"><a href="{{ path('user_own_comments') }}">Просмотр</a></li>
+        <li><a href="{{ path('usercabinet_info') }}">Настройки</a></li>
+</ul>
+<div class="dividing-line"></div>
+
+<div class="one-box">
+            <h3 class="title-box">Коментарии</h3>
+            {% if comments|length() > 0 %}
+            <div class="review-wrap basket-review">
+                    <div class="table-wrap">
+                            <table class="table">
+                                    <tr>
+                                            <th class="center">Пользователь</th>
+                                            <th class="center">Коментарий</th>
+                                    </tr>
+                                    {% for comment in comments %}
+                                     {% set class %}
+                                            {% if loop.index % 2 == 1 %}
+                                                   even
+                                                   {% else %}
+                                            {% endif %}
+                                        {% endset %}
+                                    <tr class="{{ class }}">
+                                            <td>
+                                                    <div class="table-profile">
+                                                            {#<div class="visual"><img src="images/img10.png" width="60" height="60" alt="" /></div>#}
+                                                            <div class="holder">
+                                                                    <div class="name">{{ user.fio }}</div>
+                                                                   {# <div class="rating-wrap">
+                                                                            <div class="rating-star min-star"><span itemprop="rating" style="width:70%;">3.5</span></div>
+                                                                    </div>#}
+                                                                    <div class="date">{{ comment.data|date('d/m/Y') }}</div>
+                                                            </div>
+                                                    </div>
+                                            </td>
+                                            <td>
+                                                    <div class="description-comment">
+                                                            <p>{{ comment.comment }}</p>
+                                                            {#<div class="holder">
+                                                                    <a class="up" href="#">952</a>
+                                                                    <a class="down" href="#">52</a>
+                                                                    <a class="num-comment" href="#">Comments (4)</a>
+                                                            </div>#}
+                                                    </div>
+                                            </td>
+                                    </tr>
+                                    {% endfor %}
+
+                            </table>
+                    </div>
+            </div>
+            {% endif %}
+    </div>
+
+
+<div class="dividing-line">&nbsp;</div>
+
+{% endblock %}

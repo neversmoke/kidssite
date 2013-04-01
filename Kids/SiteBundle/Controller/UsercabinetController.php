@@ -85,6 +85,29 @@ class UsercabinetController extends ControllerHelper
         );
     }
     /**
+     * @Route("/user/owncomments", name="user_own_comments")
+     * @Template()
+     */
+    public function FeedBackAction()
+    {
+        $securityContext = $this->container->get('security.context');
+         if( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') ){
+        $user= $securityContext->getToken()->getUser();
+        $em = $this->getDoctrine()->getManager();
+        
+        $comments =$em->getRepository('ItcAdminBundle:Comments\Comments')->findBy(array('autor'=>$user));
+        return array( 
+            'user'      => $user, 
+            'comments'  => $comments,
+        );         
+                    
+                }
+        return array( 
+            'user'      => "",
+            'comments'    => "",
+        );
+    }
+    /**
      * @Route("/", name="usercabinet")
      * @Template()
      */
