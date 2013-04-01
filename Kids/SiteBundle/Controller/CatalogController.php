@@ -423,7 +423,7 @@ class CatalogController extends ControllerHelper //Controller
     public function SearchPageAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $val = explode(" ", $_POST['q']);
+        $val = explode(" ", $_GET['q']);
 
         $variable = isset($val[1]) ? $val[1] : $val[0];
         
