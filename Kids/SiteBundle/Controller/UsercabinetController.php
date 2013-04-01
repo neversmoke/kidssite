@@ -33,18 +33,13 @@ class UsercabinetController extends ControllerHelper //Controller
         $user= $securityContext->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
         
-        $qb = $em->getRepository('ItcDocumentsBundle:PdOrder\PdOrder')
+        $entities = $em->getRepository('ItcDocumentsBundle:PdOrder\PdOrder')
                         ->createQueryBuilder('M')
                         ->select('M')
                         ->where('M.user=:user')
-                        ->setParameter('user', $user);
-                        $paginator = $this->get('knp_paginator');
-                        
-        $entities = $paginator->paginate(
-                        $qb,
-                        $this->get('request')->query->get('page', $page),
-                        $coulonpage,
-                        array('distinct' => false));
+                        ->setParameter('user', $user)
+                        ->getQuery()->execute();
+                       
         
         if($id!=NULL){
              $order = $em->getRepository('ItcDocumentsBundle:PdOrder\PdOrder')->find($id);

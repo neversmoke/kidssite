@@ -278,7 +278,7 @@ class CheckoutController extends ControllerHelper
         $em = $this->getDoctrine()->getManager();
         
         $shipp = $em->getRepository('ItcKidsBundle:Shipping\ShippingMethod')->find($order['shipp_meth']['id_meth']);
-        
+        $payment = $em->getRepository('ItcKidsBundle:Payment\PaymentMethod')->find($order['payment_meth']['id_meth']);
         $cart = $this->getCart();
 
         if( ! $cart ) return $this->redirectToCart();
@@ -291,6 +291,8 @@ class CheckoutController extends ControllerHelper
         $pd = new PdOrder();
         $pdlines = new ArrayCollection();
        
+        $pd->setPayment($payment);
+        $pd->setShiping($shipp);
         $mainproducts="Пользователь {$user->getFIO()} c номером телефона {$user->getTel()} проживающий по адресу: {$user->getAddress()}";
         $mainproducts.="<table border='1'><tr><td>Товар</td><td>Цена за шт.</td><td>Количество</td><td>Итого</td></tr>";
         
