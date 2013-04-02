@@ -266,8 +266,8 @@
                                 <div class="row">
                                         <label>Коментарий</label>
                                         <div class="holder">
-                                                <label class="textarea-wrap">
-                                                    {{ form_widget(form.comment) }}
+                                                <label class="">
+                                                    {{ form_widget(form.comment, {'attr': {'class': 'comment_form' } }) }}
                                                 </label>
                                         </div>
                                         {{ form_widget(form._token) }}

@@ -4331,3 +4331,14 @@ label.ui-radio{
 .star-rating-list a.five-stars{left:68px;}
 .star-rating-list a.five-stars:hover,
 .star-rating-list li.setted a.five-stars{width:85px;}
+.comment_form{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #DCDCDC;
+    border-radius: 3px 3px 3px 3px;
+    display: block;
+    height: 77px;
+    overflow: hidden;
+    padding: 3px 0;
+    margin-left:3px;
+    width: 299px;
+}
