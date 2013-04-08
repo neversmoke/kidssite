@@ -163,14 +163,30 @@ class CheckoutController extends ControllerHelper
         );
     }
    /**
-    * @Route("/checkout/accept" ,name="checkout_method")
+    * @Route("/checkout/accept/{id}" ,name="checkout_method")
     * @Template()
     */
-    public function CheckOutAction()
+    public function CheckOutAction($id)
     {
-        $em = $this->getDoctrine()->getManager();
         
-        $order=$this->getCartSession();
+        return $this->redirect($this->generateUrl('order_draft', array('id'=>$id)));
+    }
+   /**
+    * @Route("/checkout/review" ,name="review")
+    * @Template()
+    */
+    public function ReviewAction()
+    {
+       $sum=0;
+       $em = $this->getDoctrine()->getManager();
+       
+       $order=$this->getCartSession();
+       $cart=$this->getCart();
+       
+       if($cart!=""){
+        foreach($cart as $product){
+            $sum=$sum+($product['price']*$product['amount']);
+        }}
         
         $address_bill=$this->AdressBill('bill');
         $address_ship=$this->AdressBill('ship');
@@ -203,9 +219,6 @@ class CheckoutController extends ControllerHelper
                     <li>{$address_ship['state']}</li>";
         }
         
-        $payment = $em->getRepository('ItcKidsBundle:Payment\PaymentMethod')->find($order['payment_meth']['id_meth']);
-        $shipp = $em->getRepository('ItcKidsBundle:Shipping\ShippingMethod')->find($order['shipp_meth']['id_meth']);
-        
         
         $test = $this->acceptAction();
         
@@ -214,40 +227,27 @@ class CheckoutController extends ControllerHelper
         $pd->setTxt2($txt1);
         $em->persist( $pd );
         $em->flush();
-        $this->setOrderSession( NULL );
-        return $this->redirect($this->generateUrl('order_draft', array('id'=>$test)));
-    }
-   /**
-    * @Route("/checkout/review" ,name="review")
-    * @Template()
-    */
-    public function ReviewAction()
-    {
-       $sum=0;
-       $em = $this->getDoctrine()->getManager();
-       
-       $order=$this->getCartSession();
-       $cart=$this->getCart();
-       
-       if($cart!=""){
-        foreach($cart as $product){
-            $sum=$sum+($product['price']*$product['amount']);
-        }}
         
-        $address_bill=$this->AdressBill('bill');
-        $address_ship=$this->AdressBill('ship');
-
+             $lines = $pd->getPdlines();
+             foreach ($lines as $value) {
+                 $products[$value->getId()]=$value->getProduct();
+             }
         $payment = $em->getRepository('ItcKidsBundle:Payment\PaymentMethod')->find($order['payment_meth']['id_meth']);
         
         $shipp = $em->getRepository('ItcKidsBundle:Shipping\ShippingMethod')->find($order['shipp_meth']['id_meth']);
         
+        
+        $this->setOrderSession( NULL );
+        
         return array(
-            'cart'          => $cart,
+            'lines'         => $lines,
+            'product'       => $products,
             'total_price'   => $sum,
             'bill'          => $address_bill,
             'ship'          => $address_ship,
             'pay'           => $payment,
             'ship_meth'     => $shipp,
+            'id'            => $test,
         );
     }
    /**

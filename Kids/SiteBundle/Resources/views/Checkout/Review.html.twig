@@ -14,10 +14,6 @@
 
 <div class="dividing-line">&nbsp;</div>
 <div class="progress-wrapper">
-    <form action="{{ path('user_add_session') }}" method="post" class="order-form valera">
-        <input type="hidden" id="session_arr" name="session_arr"/>
-        <input type="hidden" id="send" name="send" value='payment_method'/>
-    </form> 
         <h1>Заказ</h1>
         <ul class="progress step4">
                 <li class="col1">1. Куда доставить?</li>
@@ -28,7 +24,7 @@
 </div>
 <div class="one-box">
                 <h3 class="title-box">Предпросмотр заказа</h3>
-                <form action="#" class="review-wrap">
+                <div action="#" class="review-wrap">
                         <div class="table-wrap">
                                 <table class="table">
                                         <tr>
@@ -37,20 +33,20 @@
                                                 <th class="col2 center">Количество</th>
                                                 <th class="col3">Цена</th>
                                         </tr>
-                                       {% for item in cart %}
+                                        {% for pdl in lines %}
                                         {% set class %}
                                             {% if loop.index % 2 == 1 %}
                                                    even
                                                    {% else %}
                                             {% endif %}
                                         {% endset %}
-                                        <tr class="{{ class }}">
-                                                <td>{{ loop.index }}</td>
-                                                <td>{{ item.title }}</td>
-                                                <td class="center">{{ item.amount }}</td>
-                                                <td>{{ item.price }} P</td>
-                                        </tr>
-                                       {% endfor %}
+                                <tr class="{{ class }}">
+                                        <td>{{ pdl.id }}</td>
+                                        <td>{{ product[pdl.id].title }}</td>
+                                        <td class="center">{{ pdl.summa2 }}</td>
+                                        <td>{{ pdl.summa1|number_format('2',',','.') }} P</td>
+                                </tr>
+                                {% endfor %}
                                 </table>
                         </div>
                         <div class="bottom-row">
@@ -69,11 +65,15 @@
                                                         <td>P {{ (total_price+ship_meth.price)|number_format(2, '.', ',') }}</td>
                                                 </tr>
                                         </table>
-                                        <a href="{{ path('checkout_method') }}" >
+                                        {% if pay.id != 1 %}
+                                            {% render 'PayPaymentBundle:Payment/PaymentOperation:CreatePayment' with {"id" : pay.id, "send_id" : id} %}
+                                        {% else %}
+                                        <a href="{{ path('checkout_method', {'id':id}) }}" >
                                             <span class="big-purple-btn">
                                                 <span>Заказать</span>
                                             </span>
                                         </a>
+                                        {% endif %}
                                 </div>
                                 <div class="address-wrap">
                                         <div class="holder">
@@ -124,6 +124,6 @@
                                         </div>
                                 </div>
                         </div>
-                </form>
+                </div>
         </div>
 {% endblock %}
