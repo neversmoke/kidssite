@@ -52,6 +52,17 @@ class CatalogController extends ControllerHelper //Controller
     /**
      * @Template()
      */
+    public  function GalaryImagesAction(){
+        $em = $this->getDoctrine()->getManager();
+        
+        $entity = $em->getRepository("ItcAdminBundle:Menu\Menu")->findOneBy(array('tag'=>'galaryImages'));
+        return array( 
+            'entity'   => $entity,
+        );
+    }
+    /**
+     * @Template()
+     */
     public function SliderBlockAction()
     {
         $images=array();

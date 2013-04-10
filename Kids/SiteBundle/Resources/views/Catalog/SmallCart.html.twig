@@ -56,7 +56,7 @@
                         <td>
                                 <div class="name">{{ product.title }}</div>
                                 <div></div>
-                                <div>{{ cart[product.id].amount }} x P {{ product.price }}</div>
+                                <div>{{ cart[product.id].amount }} x  <span class="rouble">i</span> {{ product.price }}</div>
                         </td>
                         <td><a class="del" href="{{ path('remove_cart_item', {'id': product.id}) }}">Удалить</a></td>
                         <td>
@@ -66,7 +66,7 @@
             {% endfor %}
         </table>
         <footer>
-                <span class="total">Итого : <span>P {{ sum|number_format(2, ',', '.') }}</span></span>
+                <span class="total">Итого : <span> <span class="rouble">i</span> {{ sum|number_format(2, ',', '.') }}</span></span>
                 <a class="btn" href="{{ path('customer') }}">Заказать</a>
         </footer>
 </div>

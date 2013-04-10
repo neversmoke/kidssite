@@ -11,7 +11,7 @@
                     {% else %}
                         <img src = '{{ entity.smallIcon }}'  width="180px" height="180px"/>
                     {% endif %}</a><br />
-                      <p class="empty product-name"><a href="{{ path('product', { 'translit': entity.translit }) }}" style="color:#FE5900; font-size:12px;">{{ entity.title }}<br /> цена: {{ entity.price }} грн.</a></p>
+                      <p class="empty product-name"><a href="{{ path('product', { 'translit': entity.translit }) }}" style="color:#FE5900; font-size:12px;">{{ entity.title }}<br /> цена: {{ entity.price }}  <span class="rouble">i</span></a></p>
                     </li>
             {% endfor %}
          </ul>

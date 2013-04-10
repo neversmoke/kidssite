@@ -15,6 +15,7 @@
     {% endblock %}
         {% block css %}
             <link rel="stylesheet" href="{{ asset ( 'bundles/kidssite/css/all.css' ) }}" type="text/css" />
+            <link rel="stylesheet" href="{{ asset ( 'bundles/kidssite/css/jquery.fancybox.css' ) }}" type="text/css" />
             <link rel="stylesheet" href="{{ asset ( 'bundles/kidssite/css/jquery-ui-1.9.1.custom.css' ) }}"/>
         {% endblock %}
         {% block javascript %}
@@ -27,9 +28,10 @@
             <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/ui.js' ) }}"></script>
             <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/ui.checkbox-radio.js' ) }}"></script>
             <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/jquery.main.js' ) }}"></script>
-            <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/content.js' ) }}"></script>
+          {#  <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/content.js' ) }}"></script>#}
             <script src="{{ asset ( 'bundles/itcadmin/js/plugins/jquery-ui-1.9.1.custom.js' ) }}" ></script>
             <script src="{{ asset ( 'bundles/itcadmin/js/plugins/jquery-ui-1.9.1.custom.min.js' ) }}" ></script>
+            <script type="text/javascript" src="{{ asset ( 'bundles/kidssite/js/jquery.fancybox.pack.js' ) }}"></script>
             
 	{% endblock %}
 </head>
@@ -49,18 +51,7 @@
 			<section id="content">
 				{% block body %}
                                 {% endblock %}
-                                <ul class="img-ten-columns">
-					<li><a href="#"><img src="/bundles/kidssite/images/pay01.png" width="62" height="42" alt="" /></a></li>
-					<li><a href="#"><img src="/bundles/kidssite/images/pay02.png" width="61" height="42" alt="" /></a></li>
-					<li><a href="#"><img src="/bundles/kidssite/images/pay03.png" width="60" height="42" alt="" /></a></li>
-					<li><a href="#"><img src="/bundles/kidssite/images/pay04.png" width="39" height="42" alt="" /></a></li>
-					<li><a href="#"><img src="/bundles/kidssite/images/pay05.png" width="43" height="45" alt="" /></a></li>
-					<li><a href="#"><img src="/bundles/kidssite/images/pay06.png" width="39" height="42" alt="" /></a></li>
-					<li><a href="#"><img src="/bundles/kidssite/images/pay07.png" width="78" height="41" alt="" /></a></li>
-					<li><a href="#"><img src="/bundles/kidssite/images/pay08.png" width="62" height="42" alt="" /></a></li>
-					<li><a href="#"><img src="/bundles/kidssite/images/pay09.png" width="72" height="47" alt="" /></a></li>
-					<li><a href="#"><img src="/bundles/kidssite/images/pay10.png" width="63" height="49" alt="" /></a></li>
-				</ul>
+                                {% render "KidsSiteBundle:Catalog:GalaryImages" %}
 				{% block footer %}
                                     {% include 'KidsSiteBundle:Default:footer.html.twig' %}
                                 {% endblock %}

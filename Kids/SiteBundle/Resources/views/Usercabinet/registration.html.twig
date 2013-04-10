@@ -3,11 +3,14 @@
 
 {% block body %}
 <div class="heading-wrapper">
-        <a class="big-purple-btn" onclick="$('.order-form').submit()" href="#"><span>Сохранить</span></a>
+        <a class="big-purple-btn" onclick="$('.submit_form').trigger('click')" href="#"><span>Сохранить</span></a>
         <h1>Регистрация</h1>
         <div class="dividing-line">&nbsp;</div>
 </div>
 <div class="one-box">
+        {% if login_error!="" %}
+            <h3>Пользователь с данными {{ login_error }} уже существует!</h3>
+        {% endif %}
         <h3 class="title-box">Регистрация нового пользователя</h3>
         <div class="two-box">
             <form action="{{ path('registrations_create') }}" method="post" {{ form_enctype(form) }}   class="order-form">
@@ -129,7 +132,7 @@
                                                         <label class="input-wrap">{{ form_widget(form_add.state) }}</label>
                                                 </div>
                                         </div>
-                                        
+                                        <input type="submit" class="submit_form" style="display:none"/>
                                 {{ form_widget(form_add._token) }}
                                 </div>
                         </fieldset>
@@ -137,7 +140,7 @@
         </div>
         </div>
         <div class="btn-wrap">
-                <a class="big-purple-btn"  onclick="$('.order-form').submit()" href="#"><span>Сохранить</span></a>
+                <a class="big-purple-btn"  onclick="$('.submit_form').trigger('click')" href="#"><span>Сохранить</span></a>
         </div>
 </div>
 {% endblock %}

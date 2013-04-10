@@ -14,8 +14,9 @@
 <div class="dividing-line">&nbsp;</div>
 <div class="heading-wrapper">
         <h1>Моя Bobi корзина</h1>
-        <a class="big-purple-btn" href="{{ path('customer') }}"><span>Заказать</span></a>
+       {% if products|length() > 0 %} <a class="big-purple-btn" href="{{ path('customer') }}"><span>Заказать</span></a>{% endif %}
 </div>
+{% if products|length() > 0 %}
 <form action="{{ path('update_cart_mass') }}" class="review-wrap basket-review" method="post">
         <div class="table-wrap">
                 <table class="table">
@@ -53,7 +54,7 @@
                                                 <a class="down" href="#">down</a>
                                         </div>
                                 </td>
-                                <td><strong>P {{ product.price }}</strong></td>
+                                <td><strong>P {{ product.price }} <span class="rouble">i</span></strong></td>
                         </tr>
                         {% endfor %}
                         <tr class="total-row">
@@ -87,7 +88,7 @@
                                 <tr><td colspan="2"></td></tr>
                                 <tr class="total">
                                         <td>Всего</td>
-                                        <td>P {{ total_price|number_format(2, ',', '.') }}</td>
+                                        <td> <span class="rouble">i</span> {{ total_price|number_format(2, ',', '.') }}</td>
                                 </tr>
                         </table>
                         <a  href="{{ path('customer') }}">
@@ -118,5 +119,8 @@
                 </div>#}
         </div>
 </form>
+{% else %}
+<h2> Ваша корзина пуста! </h2>
+{% endif %}
 <div class="dividing-line">&nbsp;</div>
 {% endblock %}

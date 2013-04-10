@@ -44,7 +44,7 @@
                                 <td>{{ pd.id }}</td>
                                 <td>{{ pd.date|date("m.d.Y") }}</td>
                                 <td>{{ user.fio }}</td>
-                                <td class="center">{{ pd.summa1|number_format('2',',','.') }} P</td>
+                                <td class="center">{{ pd.summa1|number_format('2',',','.') }}  <span class="rouble">i</span></td>
                                 <td><em>
                                          {% if pd.status==1 %}
                                             обработка
@@ -102,7 +102,7 @@
                                         <td>{{ pdl.id }}</td>
                                         <td>{{ product[pdl.id].title }}</td>
                                         <td class="center">{{ pdl.summa2 }}</td>
-                                        <td>{{ pdl.summa1|number_format('2',',','.') }} P</td>
+                                        <td>{{ pdl.summa1|number_format('2',',','.') }}  <span class="rouble">i</span></td>
                                 </tr>
                                 {% endfor %}
                         </table>
@@ -112,15 +112,15 @@
                                 <table>
                                         <tr>
                                                 <td>Итого</td>
-                                                <td>P {{ total_price|number_format('2',',','.') }}</td>
+                                                <td> <span class="rouble">i</span> {{ total_price|number_format('2',',','.') }}</td>
                                         </tr>
                                         <tr>
                                                 <td>Доставка</td>
-                                                <td>+ P {{ (order.summa1-total_price)|number_format('2',',','.')  }}</td>
+                                                <td>+  <span class="rouble">i</span> {{ (order.summa1-total_price)|number_format('2',',','.')  }}</td>
                                         </tr>
                                         <tr>
                                                 <td>Всего</td>
-                                                <td>P {{ order.summa1|number_format('2',',','.')  }}</td>
+                                                <td> <span class="rouble">i</span> {{ order.summa1|number_format('2',',','.')  }}</td>
                                         </tr>
                                         {#<tr>
                                                 <td>Discount <br />(10% off)</td>

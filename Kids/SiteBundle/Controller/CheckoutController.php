@@ -110,7 +110,8 @@ class CheckoutController extends ControllerHelper
             'entity' => $entity,
             'form'   => $form->createView(),
             'form1'  => $form->createView(),
-            'address'      => $address
+            'address'      => $address,
+            'auth'         => 1
         );
 
     }

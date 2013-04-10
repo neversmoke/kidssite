@@ -246,6 +246,13 @@ class UsercabinetController extends ControllerHelper
      */
     public function registrationAction()
     {
+        $error="";
+        
+        $request = Request::createFromGlobals();
+        
+        if($request->query->get('error')){
+            $error = $request->query->get('error');
+        }
         $user = new User();
         $form_user   = $this->createForm(new UserType(), $user, array("attr" => array("new" => true)));
 
@@ -256,6 +263,7 @@ class UsercabinetController extends ControllerHelper
             'form'      => $form_user->createView(),
             'addres'    => $addres,
             'form_add'  => $form_addr->createView(),
+            'login_error'=> $error,
         );
     }
 
@@ -276,11 +284,25 @@ class UsercabinetController extends ControllerHelper
         $form_addres = $this->createForm(new AdressType(), $addres);
         $form_addres->bind($request);
         
-        
         $entity = new User();
         $form = $this->createForm(new UserType(), $entity, array("attr" => array("new" => true)));
         $form->bind($request);
         $data = $form->getData();
+        
+        
+        $username=$data->getUsername();
+        $email=$data->getEmail();
+        
+        $double_user = $em->getRepository('ItcAdminBundle:User')->findOneBy(array('username'=>$username));
+        $double_email = $em->getRepository('ItcAdminBundle:User')->findOneBy(array('email'=>$email));
+        
+        if($double_user){
+            return $this->redirect($this->generateUrl('registration', array('error'=>$username)));
+        }
+        if($double_email){
+            return $this->redirect($this->generateUrl('registration', array('error'=>$email)));
+        }
+        
         
         $passwd = $data->getPassword();
             $encoder = $this->get('security.encoder_factory')->getEncoder($entity);
@@ -293,11 +315,12 @@ class UsercabinetController extends ControllerHelper
        if ($form->isValid()) {
             $em->persist($entity);
             $em->flush();
+            
+            if ($form_addres->isValid()) {
             $addres->setUserid($entity->getId());
             $em->persist($addres);
             $em->flush();
-            
-            
+            }
             return $this->redirect($this->generateUrl('index'));
         }
 

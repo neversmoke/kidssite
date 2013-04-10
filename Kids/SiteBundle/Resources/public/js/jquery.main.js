@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    
+	$('.fancybox').fancybox();
 	$('.contact-message textarea, .textarea-wrap textarea').autoResize({onResize:function(){
 		var textarea=$(this);
 		setTimeout(function(){
@@ -65,6 +67,7 @@ $(document).ready(function(){
 			});
 		})();
 	}
+				
 	(function colHeight(){
 		$('.two-box').each(function(){
 			var height= 0;

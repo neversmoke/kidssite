@@ -54,15 +54,15 @@
                                         <table>
                                                 <tr>
                                                         <td>Итого:</td>
-                                                        <td>P {{ total_price|number_format(2, '.', ',') }}</td>
+                                                        <td> <span class="rouble">i</span> {{ total_price|number_format(2, '.', ',') }}</td>
                                                 </tr>
                                                 <tr>
                                                         <td>Доставка</td>
-                                                        <td>+ P {{ ship_meth.price|number_format(2, '.', ',') }}</td>
+                                                        <td>+  <span class="rouble">i</span> {{ ship_meth.price|number_format(2, '.', ',') }}</td>
                                                 </tr>
                                                 <tr>
                                                         <td>Всего</td>
-                                                        <td>P {{ (total_price+ship_meth.price)|number_format(2, '.', ',') }}</td>
+                                                        <td> <span class="rouble">i</span> {{ (total_price+ship_meth.price)|number_format(2, '.', ',') }}</td>
                                                 </tr>
                                         </table>
                                         {% if pay.id != 1 %}

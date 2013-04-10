@@ -17,6 +17,7 @@
         <h1>Мои желания</h1>
         {#<a class="big-purple-btn" href="{{ path('customer') }}"><span>Заказать</span></a>#}
 </div>
+{% if entities|length() > 0 %}
 <form action="{{ path('update_wish_mass') }}" class="review-wrap basket-review" method="post">
         <div class="table-wrap">
                 <table class="table">
@@ -54,7 +55,7 @@
                                                 <a class="down" href="#">down</a>
                                         </div>#}
                                 </td>
-                                <td><strong>P {{ product.price }}</strong></td>
+                                <td><strong>P {{ product.price }} <span class="rouble">i</span></strong></td>
                         </tr>
                         {% endfor %}
                         <tr class="total-row">
@@ -72,6 +73,9 @@
         </div>
 
 </form>
+{% else %}
+<h2> Ваш список желаний пуст! </h2>
+{% endif %}
 <div class="dividing-line">&nbsp;</div>
 {% else %}
 {% include 'KidsSiteBundle:Usercabinet:unlogin.html.twig' %}
