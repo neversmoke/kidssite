@@ -38,6 +38,7 @@ class UserType extends AbstractType
              if($options["attr"]["new"]){
                 $builder->add('password', 'repeated', array(
                 'type' => 'password',
+                'required'=>false,
                 'first_options' => array('label' => 'password','attr' => array(
                                 'class' => 'input-text required-entry'
                             )),

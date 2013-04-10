@@ -1,6 +1,11 @@
 $(document).ready(function(){
     
 	$('.fancybox').fancybox();
+           $('.big-purple-btn').click(
+    function(){
+        $('#hoffice_sitebundle_usertype_password_first').attr('required','required');
+        $('#hoffice_sitebundle_usertype_password_second').attr('required','required');
+    });
 	$('.contact-message textarea, .textarea-wrap textarea').autoResize({onResize:function(){
 		var textarea=$(this);
 		setTimeout(function(){
