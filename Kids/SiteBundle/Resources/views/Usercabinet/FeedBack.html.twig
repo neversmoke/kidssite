@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body %}
+{% if user!="" %}
 <ul class="inner-nav">
         <li><a href="{{ path('cart') }}">Корзина</a></li>
         <li><a class="account" href="{{ path('usercabinet') }}">Аккаунт</a></li>
@@ -66,5 +67,8 @@
 
 
 <div class="dividing-line">&nbsp;</div>
+{% else %}
+{% include 'KidsSiteBundle:Usercabinet:unlogin.html.twig' %}
 
+{% endif %}
 {% endblock %}

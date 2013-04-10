@@ -27,8 +27,9 @@ class UsercabinetController extends ControllerHelper
      */
     public function ListOrdersAction($page, $id, $coulonpage = 10)
     {
-        $sum=$products=$order=$lines=$pay="";
+        $user=$sum=$products=$order=$lines=$pay="";
         $securityContext = $this->container->get('security.context');
+        
          if( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') ){
         $user= $securityContext->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
@@ -60,6 +61,16 @@ class UsercabinetController extends ControllerHelper
             'total_price'   => $sum
         );         
        }
+       else 
+           return array( 
+            'user'          => $user, 
+            'pdorders'      => "",
+            'order'         => "",
+            'pay'           => "",
+            'lines'         => "",
+            'product'       => "",
+            'total_price'   => ""
+        );  
     }
     /**
      * @Route("/user/adresses", name="user_adresses")
@@ -128,11 +139,13 @@ class UsercabinetController extends ControllerHelper
         );         
                     
                 }
+        else{
         return array( 
             'user'      => "",
             'pds'        =>"",
             'adresses'    => "",
         );
+        }
     }
 
         /**
