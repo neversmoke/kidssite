@@ -13,7 +13,7 @@
                     <span class="discount">{{ entity.ratio }}%</span>
                 {% endif %}
                     {% if entity.icon is not empty %}
-                    <img src="{{ vich_uploader_asset(entity, 'iconImage') }}" width="169" height="124" alt="" />
+                    <a href="{{ path('products', {'translit':entity.translit}) }}"><img src="{{ vich_uploader_asset(entity, 'iconImage') }}" width="169" height="124" alt="" /></a>
                 {% endif %}
             </div>
             {#<div class="rating-wrap" itemprop="review" itemscope itemtype="http://data-vocabulary.org/Review-aggregate">

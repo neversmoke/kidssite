@@ -8,17 +8,17 @@
                         <ul style="margin-left: 0px;">
                             {% for entity in entities %}
                                 <li>
-                                        <h3>{{ entity.title }}</h3>
+                                        <h3><a href="{{ path('products', {'translit':entity.translit}) }}">{{ entity.title }}</a></h3>
                                         <p> {{ entity.description }}</p>
-                                        <div  class="more"><a href="{{ path('products', { 'translit': entity.translit }) }}">далее</a></div>
+                                       {#<div  class="more"><a href="{{ path('products', { 'translit': entity.translit }) }}">далее</a></div>#}
                                         <div class="visual">
                                             {% if entity.ratio!='' %}
                                                 <span class="discount">{{ entity.ratio }}%</span>
                                             {% endif %}
                                             {% if entity.iconImage is not null %}
-                                                <img src = '{{ vich_uploader_asset(entity, 'iconImage') }}' alt="{{ entity.title }}" width="169" height="124"/>
+                                               <a href="{{ path('products', {'translit':entity.translit}) }}"> <img src = '{{ vich_uploader_asset(entity, 'iconImage') }}' alt="{{ entity.title }}" width="169" height="124"/></a>
                                             {% else %}
-                                                <img src = '{{ entity.smallIcon }}' alt="{{ entity.title }}"  width="169" height="124"/>
+                                                 <a href="{{ path('products', {'translit':entity.translit}) }}"> <img src = '{{ entity.smallIcon }}' alt="{{ entity.title }}"  width="169" height="124"/></a>
                                             {% endif %}
                                         </div>
                                         {#<div class="rating-wrap">
