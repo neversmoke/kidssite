@@ -2,7 +2,7 @@
     <ul id="nav">
             {% for entity in entities %}
                 <li>
-                    <a href="{{ path("other", {"_locale":"ru", "translit" : entity.translit }) }}">
+                    <a href="{{ path("other", {"translit" : entity.translit }) }}">
                         {{entity.title}}
                     </a>
                 </li>
