@@ -401,12 +401,56 @@ class CatalogController extends ControllerHelper //Controller
             'locale' => $locale
         );
     }
-
+    /**
+     * @Template()
+     */
+    public function getTranslitFor($repository, $currentUrl, $param)
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        $first = explode("/".$param."/", $currentUrl);
+        
+        $translit = explode("/", $first[1]);
+        
+        $entity=$em->getRepository('ItcAdminBundle:Product'.$repository)
+                    ->findOneBy(array('translit'=>$translit[0]));
+        if($param=="product"){
+            $id=$entity->getProductGroupId();
+        }
+        else{
+            $id=$entity->getId();
+        }
+        return $id;
+    }
+    /**
+     * @Template()
+     */
+    public function PreCategoriesBlockAction()
+    {
+        $id = "";
+        
+        $currentUrl = $this->getRequest()->getUri();
+        
+        if(substr_count($currentUrl,"/catalog/")>0){
+            $param = "catalog";
+            $repository = "\ProductGroup";
+            $id = $this->getTranslitFor($repository, $currentUrl, $param);
+        }
+        elseif(substr_count($currentUrl,"/product/")>0){
+            $repository = "\Product";
+            $param = "product";
+            $id = $this->getTranslitFor($repository, $currentUrl, $param);
+        }
+        
+        return $id;
+    }
     /**
      * @Template()
      */
     public function CategoriesBlockAction()
     {
+        $current_id=$this->PreCategoriesBlockAction();
+        
         $em = $this->getDoctrine()->getManager();
         $locale =  LanguageHelper::getLocale();
         $queryBuilder = $em->getRepository('ItcAdminBundle:Product\ProductGroup')
@@ -422,7 +466,8 @@ class CatalogController extends ControllerHelper //Controller
 
         $entities = $queryBuilder->getQuery()->execute();
 
-        return array( 
+        return array(
+            'id' => $current_id,
             'entities' => $entities,
             'locale' => $locale
         );
