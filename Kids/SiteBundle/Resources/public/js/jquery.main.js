@@ -154,7 +154,7 @@ $(document).ready(function(){
 						});
 					}
 				}
-			if(!li)	
+			if(!li.hasClass('active'))	
 			e.preventDefault();
 		});
 	})();

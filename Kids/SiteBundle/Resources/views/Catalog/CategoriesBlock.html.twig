@@ -2,7 +2,15 @@
 <script>
     $(document).ready(function(){
         preparent=$("#current_{{ id }}").attr("rel");
-        $('.parent_'+preparent).trigger("click");
+        $('.parent_'+preparent).parent("li").addClass("active");
+        $('.parent_'+preparent).parent("li").parent("ul").css("display","block");
+        $('.parent_'+preparent+".submenu").css("display","block");
+        $("#current_{{ id }}").parent("li").addClass("active");
+        $("#current_{{ id }}").parent("li").children("ul").css("display","block");
+        $("#current_{{ id }}").parent("li").parent("ul").css("display","block");
+        $("#current_{{ id }}").parent("li").parent("ul").parent("li").addClass("active");
+        $("#current_{{ id }}").parent("li").parent("ul").parent("li").parent("ul").css("display","block");
+        $("#current_{{ id }}").parent("li").parent("ul").parent("li").parent("ul").parent("li").addClass("active");
     });
 </script>
 <ul class="side-nav">
@@ -14,17 +22,19 @@
                        {% for midle in entities %}
                         {% if midle[0].getParentId()==entity[0].id %}
                             <li>
-                                    <a rel="{{ midle[0].getParentId() }} " id="current_{{ midle[0].getId() }}" href="{{ path('catalog', {'translit':midle[0].translit}) }}" {{ list.class(midle[0].id, entities) }}><em>{{ midle.col }}</em><span>{{ midle[0].title }}</span></a>
+                                    <a rel="{{ midle[0].getParentId() }} " id="current_{{ midle[0].getId() }}" href="{{ path('catalog', {'translit':midle[0].translit}) }}"
+                                     {{ list.class(midle[0].id, entities) }}><em>{{ midle.col }}</em><span>{{ midle[0].title }}</span></a>
                                     <ul class="submenu">
                                         {% for next in entities %}
                                         {% if next[0].getParentId()==midle[0].id %}
                                             <li>
-                                                    <a rel="{{ midle[0].getParentId() }} " id="current_{{ next[0].getId() }}" href="{{ path('catalog', {'translit':next[0].translit}) }}"  {{ list.class(next[0].id, entities) }}><em>{{ next.col }}</em><span>{{ next[0].title }}</span></a>
+                                                    <a rel="{{ midle[0].getParentId() }} " id="current_{{ next[0].getId() }}" href="{{ path('catalog', {'translit':next[0].translit}) }}" 
+                                     {{ list.class(next[0].id, entities) }}><em>{{ next.col }}</em><span>{{ next[0].title }}</span></a>
                                                     <ul class="submenu">
                                                         {% for level4 in entities %}
                                                         {% if level4[0].getParentId()==next[0].id %}
                                                             <li>
-                                                                    <a rel="{{ midle[0].getParentId() }} "id="current_{{ level4[0].getId() }}"   href="{{ path('catalog', {'translit':level4[0].translit}) }}"><em>{{ midle.col }}</em><span>{{ level4[0].title }}</span></a>
+                                                                    <a rel="{{ midle[0].getParentId() }} "id="current_{{ level4[0].getId() }}"   href="{{ path('catalog', {'translit':level4[0].translit}) }}"><em>{{ level4.col }}</em><span>{{ level4[0].title }}</span></a>
                                                             </li>
                                                         {% endif %}
                                                         {% endfor %}
