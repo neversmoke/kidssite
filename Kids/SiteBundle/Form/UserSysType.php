@@ -12,8 +12,12 @@ class UserSysType extends AbstractType
     {
         $builder->add('password', 'repeated', array(
                 'type' => 'password',
-                'first_options' => array('label' => 'password'),
-                'second_options' => array('label' => 'password_confirmation'),
+                'first_options' => array('label' => 'password','attr' => array(
+                                'class' => 'input-text required-entry'
+                            )),
+                'second_options' => array('label' => 'password_confirmation','attr' => array(
+                                'class' => 'input-text required-entry'
+                            )),
             ))
         ;
     }

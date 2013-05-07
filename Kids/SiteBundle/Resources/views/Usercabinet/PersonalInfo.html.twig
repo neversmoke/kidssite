@@ -98,6 +98,9 @@
                                                 </div>
                                         </div>
                                         <div class="password-holder">
+                                            <div class="row">
+                                                <span style="color:red; font-size:14px;">{% if error is defined %}{{ error }}{% endif %}</span>
+                                            </div>
                                                 <div class="row">
                                                         <label>Пароль</label>
                                                         <div class="holder">

@@ -171,14 +171,14 @@ class UsercabinetController extends ControllerHelper
      /**
      * Edits an existing User entity.
      *
-     * @Route("usercabinet/{id}/update", name="update_usercabinet")
-     * @Template("")
+     * @Route("/usercabinet/info/{id}", name="update_usercabinet")
+     * @Template("KidsSiteBundle:Usercabinet:PersonalInfo.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('ItcAdminBundle:User')->find($id);
+        $user_token = $this->getTokenUser();
+        $entity = $em->getRepository('ItcAdminBundle:User')->find($user_token->getId());
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find User entity.');
         }
@@ -195,10 +195,12 @@ class UsercabinetController extends ControllerHelper
             
             return $this->redirect($this->generateUrl('usercabinet_info'));
         }
+        else{
         return array(
+            'error'       =>'Пароли не совпадают',
             'user'        => $entity,
-            'edit_form'   => $editForm->createView()
-        );
+            'form'   => $editForm->createView()
+        );}
     }
       /**
      * Edits an existing User entity.
