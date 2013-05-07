@@ -4,6 +4,8 @@
 {% endblock %}
 {% block body %}
 <div class="tab-wrapper">
+    
+                    {% if entities|length > 0 %} 
         <ul class="tab-set">
                 <li class="active"><a href="#">хиты</a></li>
         </ul>
@@ -11,7 +13,6 @@
                 <div class="tab">
                     <div class="tab-content">
                      
-                    {% if entities|length > 0 %} 
                     <ul class="item-list"> 
                     {% for entity in entities %}
                         <li itemscope itemtype="http://data-vocabulary.org/Product">
@@ -41,9 +42,6 @@
                         </li>
                      {% endfor %}
                     </ul>
-                        {% else %}
-                            <span style="color:red; font-size: 14px;">Ничего не найдено</span>
-                        {% endif %}
                     </div>
                 </div>
                 <div class="tab" style="display:none;">
@@ -113,5 +111,9 @@
                     </div>
                 </div>
         </div>
+    
+                        {% else %}
+                            <span style="color:red; font-size: 14px;">Ничего не найдено</span>
+                        {% endif %}
 </div>
 {% endblock %}

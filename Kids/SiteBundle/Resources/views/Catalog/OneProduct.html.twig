@@ -254,14 +254,13 @@
                                 <div class="name-wrap">
                                         <a class="opener-login" href="#"><img src="/bundles/kidssite/images/ico01.png" width="14" height="15" alt="" />log-in</a>
                                 </div>
-                                <div class="register-wrap">
-                                        Зарегестрированы?<br />или
-                                        <a class="opener-register" href="#">Регестрируйтесь</a>
-                                </div>
-                               {% if auth==1%} 
+                                {% if auth==1%} 
                                 <span class="purple-btn"><span>Добавить</span><input type="submit" value="Add Comment" title="Add Comment" /></span>
                                 {% else %}
-                                    Для того что бы оставить коментарий <strong>Зарегестрируйтесь</strong>.
+                                <div class="register-wrap">
+                                        <a href="#" onclick="$('.opener-login').trigger('click')">Зарегестрированы?</a><br />или
+                                        <a class="opener-register" href="{{ path('registration') }}">Регестрируйтесь</a>
+                                </div>
                                 {% endif %}
                             </div>
                         <div class="holder-form">
@@ -277,10 +276,10 @@
                                 </div>
                                 <div class="row">
                                         <label>&nbsp;</label>
-                                        <div class="holder">
+                                        {#<div class="holder">
                                                 <div class="v-log"><a href="#"><img src="/bundles/kidssite/images/bg-network08.jpg" width="200" height="63" alt="" /></a></div>
                                                 <div class="f-log"><a href="#"><img src="/bundles/kidssite/images/bg-network07.jpg" width="68" height="22" alt="" /></a></div>
-                                        </div>
+                                        </div>#}
                                 </div>
                         </div>
                 </fieldset>
